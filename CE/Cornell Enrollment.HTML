@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cornell Enrollment Mobile App | YJ Lee</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --card: #1a1a1a;
+      --accent: #B31B1B;
+      --accent-light: #E82828;
+      --text: #f5f5f7;
+      --muted: #b0b0b0;
+      --border: rgba(179, 27, 27, 0.5);
+      --radius: 1.5rem;
+      --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.7);
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.9);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: #0a0a0a;
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 2.25rem 1.25rem 4rem;
+    }
+
+    .top { 
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      background: transparent;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .back:hover {
+      background: rgba(179, 27, 27, 0.2);
+      box-shadow: 0 0 15px rgba(179, 27, 27, 0.4);
+    }
+
+    .kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-section {
+      border: 3px solid var(--accent);
+      border-radius: 1.5rem;
+      background: rgba(179, 27, 27, 0.08);
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 25px rgba(179, 27, 27, 0.25);
+    }
+
+    .hero-section h1 {
+      color: var(--accent-light);
+      margin-bottom: 1rem;
+      font-size: clamp(2rem, 3vw, 2.5rem);
+    }
+
+    .hero-section p {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    h1 {
+      font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
+      font-size: clamp(2.1rem, 2.6vw + 1rem, 2.8rem);
+      line-height: 1.1;
+      margin: 0.35rem 0 0.8rem;
+    }
+
+    .sub {
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 46rem;
+      font-size: 0.98rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.9rem;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.28rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.1rem;
+      margin-top: 1.7rem;
+    }
+
+    .card {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, #111827, var(--card));
+      padding: 1.2rem 1.25rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .card h2 {
+      font-size: 1.05rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.92rem;
+    }
+
+    .card ul {
+      padding-left: 1.1rem;
+      margin-top: 0.55rem;
+    }
+
+    .card h3 {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: rgba(229, 231, 235, 0.95);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+      margin-top: 0.9rem;
+      width: fit-content;
+    }
+
+    .btn:hover {
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.85);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="top">
+      <a class="back" href="index.html">← Back</a>
+      <div class="kicker">Case Study</div>
+    </div>
+
+    <div class="hero-section">
+      <h1>Cornell Enrollment Mobile App</h1>
+      <p>
+        A mobile first redesign of Cornell University Student Center focused on making add, drop, and swap feel clear and safe under time pressure.
+      </p>
+    </div>
+
+    <div class="meta">
+  
+      <div class="image-group">
+        <h3>Mid-fidelity exploration</h3>
+        <p class="caption">
+          Early wireframes exploring guided enrollment steps, simplified cards,
+          and confidence-building confirmation patterns.
+        </p>
+
+        <img src="images/CE Midfi 1.png" alt="Mid fidelity enrollment exploration">
+        <img src="images/CE Midfi 2.png" alt="Mid fidelity schedule layout">
+        <img src="images/CE Midfi 3.png" alt="Mid fidelity confirmation flow">
+        <img src="images/CE Midfi 4.png" alt="Mid fidelity weekly schedule">
+        <img src="images/CE Midfi 5.png" alt="Mid fidelity course details">
+      </div>
+
+      </section>
+      <span class="pill">Interaction design</span>
+      <span class="pill">Mobile</span>
+      <span class="pill">Prototype</span>
+    </div>
+
+    <div class="grid">
+
+      <section class="card">
+        <h2>Overview</h2>
+        <p>
+          The Cornell Enrollment Mobile App is a mobile first redesign of Cornell University Student Center. It transforms a complex enrollment portal into a guided smartphone experience built for clarity and confidence. The redesign focuses on reducing confusion and uncertainty during high stakes actions such as adding, dropping, and swapping classes.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>1. Empathize</h2>
+        <p>
+          Because enrollment is time sensitive and stressful, I focused on the biggest points of friction in the current system and how a mobile first experience could reduce uncertainty.
+        </p>
+
+        <ul>
+          <li><strong>Mobile usability is poor.</strong> Students often check schedules and make enrollment decisions while walking to class or during busy weeks. The portal is not designed for one hand use and feels difficult on a phone.</li>
+          <li><strong>Risky actions feel intimidating.</strong> Drop and swap feel high risk. Students fear losing a seat, making an irreversible mistake, or not understanding what will happen after confirming.</li>
+          <li><strong>The interface creates overload.</strong> Dense tables, heavy text, and too many links make it hard to scan quickly. Students want fast answers such as whether a class is open, whether it conflicts, and whether an action succeeded.</li>
+        </ul>
+
+        <h3>Informal interviews and observations</h3>
+        <ul>
+          <li><strong>Confidence matters as much as information.</strong> Students want to know what will happen before submitting. Confirmation is as important as navigation.</li>
+          <li><strong>Students want direct access to key actions.</strong> They do not want to hunt through menus to reach schedule, search, add, drop, and swap.</li>
+          <li><strong>Students want clarity on rules and consequences.</strong> Waitlist behavior, time conflicts, unit limits, and what swap actually does should be explained in plain language.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+  <h2>Overview</h2>
+  <p>
+    The Cornell Enrollment Mobile App is a mobile-first redesign of the Cornell University Student Center. It transforms a complex enrollment portal into a guided smartphone experience built for clarity and confidence. The redesign focuses on reducing confusion and uncertainty during high-stakes actions such as adding, dropping, and swapping classes.
+  </p>
+</section>
+
+<section class="card">
+  <h2>1. Empathize</h2>
+  <p>
+    Because enrollment is time-sensitive and stressful, I focused on the biggest points of friction in the current system and how a mobile-first experience could reduce uncertainty.
+  </p>
+
+  <ul>
+    <li><strong>Mobile usability is poor.</strong> Students often check schedules and make enrollment decisions while walking to class or during busy weeks. The portal is not designed for one-hand use and feels difficult on a phone.</li>
+    <li><strong>Risky actions feel intimidating.</strong> Drop and swap feel high risk. Students fear losing a seat, making an irreversible mistake, or not understanding what will happen after confirming.</li>
+    <li><strong>The interface creates overload.</strong> Dense tables, heavy text, and too many links make it hard to scan quickly. Students want fast answers such as whether a class is open, whether it conflicts, and whether an action succeeded.</li>
+  </ul>
+
+  <h3>Informal interviews and observations</h3>
+  <ul>
+    <li><strong>Confidence matters as much as information.</strong> Students want to know what will happen before submitting. Confirmation is as important as navigation.</li>
+    <li><strong>Students want direct access to key actions.</strong> They do not want to hunt through menus to reach schedule, search, add, drop, and swap.</li>
+    <li><strong>Students want clarity on rules and consequences.</strong> Waitlist behavior, time conflicts, unit limits, and what swap actually does should be explained in plain language.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>2. Define</h2>
+  <p>
+    <strong>People problem:</strong> During add and drop week, students need to make high-stakes academic decisions quickly, often while moving between buildings. The current enrollment experience is confusing and not mobile-friendly, which increases stress and the risk of mistakes.
+  </p>
+
+  <ul>
+    <li><strong>Navigation complexity.</strong> Students jump between multiple pages and dense menus. The flow is hard to follow when rushed.</li>
+    <li><strong>Lack of trust during risky actions.</strong> Drop and swap are not explained clearly. Students do not feel reassured that the action is safe or reversible.</li>
+    <li><strong>Cluttered information display.</strong> Long tables make scanning difficult. Status such as Open, Waitlist, and Closed is not visually prominent enough to support fast decisions.</li>
+  </ul>
+
+  <p style="margin-top: 0.8rem; color: var(--muted); line-height: 1.75; font-size: 0.92rem;">
+    <strong>Target audience:</strong> Cornell undergraduates ages 18 to 25 who manage enrollment during busy academic periods and want fast decisions, clear feedback, and mobile convenience without needing a laptop.
+  </p>
+
+  <p style="margin-top: 0.6rem; color: var(--muted); line-height: 1.75; font-size: 0.92rem;">
+    <strong>Goal:</strong> Create a mobile-first enrollment experience that makes add, drop, and swap feel clear, guided, and safe by reducing clutter, simplifying navigation, and providing strong feedback and confirmations.
+  </p>
+</section>
+
+<section class="card">
+  <h2>3. Ideate</h2>
+  <p>
+    Based on the problems above, I explored solution directions and early structural concepts that could reduce stress while respecting existing enrollment constraints.
+  </p>
+
+  <ul>
+    <li><strong>Simplify layout.</strong> Replace table-heavy pages with card-based UI and highlight only the information students need to decide quickly.</li>
+    <li><strong>Make actions guided.</strong> Break add, drop, and swap into structured steps: select, review, confirm, result.</li>
+    <li><strong>Build trust.</strong> Add warnings before risky actions and confirmation screens that clearly state what changed with one clear next step.</li>
+    <li><strong>Create a clear navigation system.</strong> Use bottom navigation for key tasks: Home, Search, Schedule, Enrollment Hub, Profile.</li>
+  </ul>
+
+  <h3 style="margin-top: 1.2rem;">Mid-fidelity exploration</h3>
+
+  <p>
+    To validate these ideas before moving into high-fidelity design, I created mid-fidelity wireframes focused on structure, hierarchy, and task clarity. At this stage, the goal was not visual polish but interaction confidence during time-sensitive enrollment actions.
+  </p>
+
+  <ul>
+    <li><strong>Step-based progression.</strong> Introduced progress indicators to help students understand where they are in add, drop, and swap flows.</li>
+    <li><strong>Status visibility.</strong> Tested quick-scan color indicators for Open, Waitlist, and Closed to support faster decisions.</li>
+    <li><strong>Strong confirmation states.</strong> Designed clear success feedback to reduce anxiety about whether changes were processed.</li>
+    <li><strong>Schedule visualization.</strong> Explored a block-based layout to help students quickly detect time conflicts.</li>
+    <li><strong>Clear action hierarchy.</strong> Evaluated primary and secondary button placement to guide students toward safe next steps.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>4. Prototype</h2>
+  <p>
+    I created an interactive mobile prototype that reflects a realistic enrollment journey, from checking today’s schedule to safely confirming schedule changes.
+  </p>
+
+  <ul>
+    <li><strong>Student Center Home.</strong> Today’s schedule, quick actions for add, drop, swap, plus enrollment dates and holds summary.</li>
+    <li><strong>Add flow.</strong> Search and find classes, add to cart, confirm enrollment, and a success screen with View My Schedule.</li>
+    <li><strong>Drop flow.</strong> Select an enrolled class, review a warning step before dropping, confirm, and see an updated schedule.</li>
+    <li><strong>Swap flow.</strong> Select a class to replace, choose a new class, review the swap, confirm, and see a clear result screen.</li>
+    <li><strong>Profile and academic records.</strong> Grades, unofficial transcript access, course history, and transfer credit entry points.</li>
+  </ul>
+
+  <p style="margin-top: 0.8rem; color: var(--muted); line-height: 1.75; font-size: 0.92rem;">
+    This redesign does not only modernize the interface. It improves how students feel while using the system by reducing uncertainty, increasing confidence during risky actions, and enabling faster decision-making in time-sensitive enrollment moments.
+  </p>
+</section>

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YJ Lee Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;                 /* pure black */
+      --bg-alt: #0a0a0a;             /* dark black */
+      --gold: #FFB81C;               /* Boston Bruins gold */
+      --gold-soft: rgba(255, 184, 28, 0.15);
+
+      --text: #f5f5f7;
+      --muted: #a0a3b1;
+      --card: #0a0a0a;
+      --border: rgba(255, 184, 28, 0.3);
+
+      --radius-lg: 1.5rem;
+      --radius-full: 999px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.85);
+      --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.7);
+      --nav-height: 4.25rem;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      scroll-behavior: smooth;
+      background: radial-gradient(circle at top, #111827 0, var(--bg) 45%);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body { min-height: 100vh; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-inline: 1.25rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 8, 22, 0.95),
+        rgba(5, 8, 22, 0.8),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .nav {
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 2.3rem;
+      height: 2.3rem;
+      border-radius: 1rem;
+      background: radial-gradient(circle at 30% 10%, rgba(212,175,55,0.95), rgba(212,175,55,0.25) 55%, rgba(255,255,255,0.05));
+      position: relative;
+      box-shadow: 0 0 35px rgba(212, 175, 55, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 0.9rem;
+      background: radial-gradient(circle at 20% 0%, #1f2937, #020617 65%);
+      opacity: 0.7;
+    }
+
+    .logo-initials {
+      position: relative;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-title { display: flex; flex-direction: column; gap: 0.1rem; }
+
+    .nav-name {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    .nav-tagline { color: var(--muted); font-size: 0.8rem; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: all 0.18s ease-out;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .nav-link.primary {
+      background: var(--gold);
+      border-color: transparent;
+      color: #05060f;
+      font-weight: 600;
+      box-shadow: 0 16px 35px rgba(212, 175, 55, 0.4);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      border-radius: 999px;
+      padding: 0.45rem 0.7rem;
+      background: rgba(15, 23, 42, 0.78);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      gap: 0.45rem;
+      align-items: center;
+    }
+
+    .nav-toggle span {
+      width: 1.05rem;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--muted);
+      box-shadow: 0 4px 0 var(--muted), 0 -4px 0 var(--muted);
+    }
+
+    main { padding-bottom: 5rem; }
+
+    .hero {
+      padding-top: calc(var(--nav-height) + 2.5rem);
+      padding-bottom: 3.25rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 3.2rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      background: var(--gold-soft);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-kicker-dot {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
+      font-size: clamp(2.4rem, 3vw + 1.5rem, 3.4rem);
+      line-height: 1.1;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-title span {
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 36rem;
+      line-height: 1.6;
+      margin-bottom: 1.9rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 2.1rem;
+    }
+
+    .pill {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+    }
+
+    .pill-dot { width: 0.4rem; height: 0.4rem; border-radius: 999px; background: #38bdf8; }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      padding: 0.75rem 1.4rem;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #05060f;
+      font-weight: 600;
+      box-shadow: 0 18px 40px rgba(212, 175, 55, 0.55);
+    }
+
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 24px 55px rgba(212, 175, 55, 0.7); }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.85);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .hero-media { position: relative; display: flex; justify-content: center; }
+
+    .hero-card {
+      width: min(100%, 360px);
+      border-radius: 1.7rem;
+      padding: 1.2rem 1.3rem;
+      background: radial-gradient(circle at top, #111827, #020617 55%);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, var(--gold-soft), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .avatar-shell { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.1rem; }
+
+    .avatar {
+      width: 3.1rem;
+      height: 3.1rem;
+      border-radius: 1.1rem;
+      background: linear-gradient(135deg, var(--gold), rgba(212, 175, 55, 0.6));
+      padding: 2px;
+      flex-shrink: 0;
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 0.95rem;
+      background: linear-gradient(145deg, #111827, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .avatar-inner span { font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif; }
+
+    .avatar-meta { display: flex; flex-direction: column; gap: 0.1rem; }
+
+    .avatar-name { font-size: 0.95rem; font-weight: 600; }
+
+    .avatar-role { font-size: 0.8rem; color: var(--muted); }
+
+    .avatar-location { font-size: 0.78rem; color: var(--muted); }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 197, 94, 0.6);
+      background: rgba(22, 163, 74, 0.1);
+      font-size: 0.7rem;
+      color: #bbf7d0;
+      margin-bottom: 1rem;
+    }
+
+    .status-dot { width: 0.4rem; height: 0.4rem; border-radius: 999px; background: #22c55e; }
+
+    .chip-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1rem; }
+
+    .chip {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .hero-links { display: flex; gap: 0.45rem; }
+
+    .hero-link-icon {
+      width: 1.9rem;
+      height: 1.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.9);
+      transition: all 0.18s ease-out;
+    }
+
+    .hero-link-icon:hover {
+      border-color: rgba(248, 250, 252, 0.9);
+      color: #e5e7eb;
+      box-shadow: var(--shadow-subtle);
+      transform: translateY(-1px);
+    }
+
+    section { padding-block: 3rem; }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title { font-size: 1.5rem; font-weight: 600; }
+
+    .section-subtitle { color: var(--muted); font-size: 0.9rem; max-width: 26rem; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, #111827, var(--card));
+      padding: 1.2rem 1.3rem;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+    }
+
+    .card-title { font-size: 1rem; font-weight: 600; }
+
+    .card-meta { font-size: 0.78rem; color: var(--muted); }
+
+    .card-body { font-size: 0.85rem; color: var(--muted); flex-grow: 1; line-height: 1.55; }
+
+    .card-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      color: var(--muted);
+    }
+
+    .card-footer-link {
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.7rem;
+      color: #e5e7eb;
+    }
+
+    .card.coming-soon { border-color: rgba(212, 175, 55, 0.35); }
+
+    .soon-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: rgba(255, 236, 179, 0.95);
+      background: rgba(6, 7, 13, 0.88);
+      border: 1px solid rgba(212, 175, 55, 0.7);
+    }
+
+    .resume-card {
+      border-radius: 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      padding: 1.5rem 1.6rem;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .resume-copy {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    .resume-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .contact-card {
+      border-radius: 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      padding: 1.5rem 1.6rem;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      align-items: center;
+    }
+
+    .contact-copy { font-size: 0.95rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.9rem; }
+
+    .contact-meta { display: flex; flex-wrap: wrap; gap: 0.7rem; font-size: 0.85rem; }
+
+    .contact-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    footer {
+      padding: 1.5rem 0 2.5rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      margin-top: 1.5rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 880px) {
+      .hero-grid { grid-template-columns: minmax(0, 1fr); }
+      .hero-media { order: -1; }
+      .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-card, .resume-card { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        position: fixed;
+        inset-inline: 1.25rem;
+        top: calc(var(--nav-height) + 0.6rem);
+        border-radius: 1.2rem;
+        padding: 0.9rem;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(15, 23, 42, 0.98);
+        box-shadow: 0 26px 60px rgba(15, 23, 42, 0.95);
+        transform-origin: top center;
+        transform: scaleY(0.7);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.18s ease-out;
+      }
+
+      .nav-links.open { opacity: 1; pointer-events: auto; transform: scaleY(1); }
+      .nav-link { width: 100%; text-align: center; justify-content: center; }
+      .nav-toggle { display: inline-flex; }
+      .card-grid { grid-template-columns: minmax(0, 1fr); }
+      .page-shell { padding-inline: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="page-shell nav">
+      <div class="nav-left">
+        <div class="logo-mark" aria-hidden="true">
+          <div class="logo-initials">YJ</div>
+        </div>
+        <div class="nav-title">
+          <div class="nav-name">YJ Lee</div>
+          <div class="nav-tagline">UX Designer and UX Research</div>
+        </div>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span aria-hidden="true"></span>
+        Menu
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#case-studies" class="nav-link">Case Studies</a>
+        <a href="#resume" class="nav-link">Resume</a>
+        <a href="#contact" class="nav-link primary">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="page-shell hero-grid">
+        <div>
+          <div class="hero-kicker">
+            <span class="hero-kicker-dot"></span>
+            Open to full time roles after graduation
+          </div>
+
+          <h1 class="hero-title">
+            Designing clear product experiences for <span>sports and beyond</span>.
+          </h1>
+
+          <p class="hero-subtitle">
+            I am <strong>YJ Lee</strong>, an Information Science student at Cornell graduating in 2026.
+            I design product UX and UX research focused experiences that help people move fast with confidence.
+          </p>
+
+          <div class="hero-meta">
+            <div class="pill">
+              <span class="pill-dot"></span>
+              Product UX, UX Research, Interaction Design
+            </div>
+            <div class="pill">Sports and esports focused, open to any domain</div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#case-studies" class="btn btn-primary">View case studies</a>
+            <a href="resume.html" class="btn btn-ghost">View resume</a>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-card" aria-label="Profile summary">
+            <div class="avatar-shell">
+              <div class="avatar">
+                <div class="avatar-inner"><span>YJ</span></div>
+              </div>
+              <div class="avatar-meta">
+                <div class="avatar-name">YJ Lee</div>
+                <div class="avatar-role">Cornell Information Science, UX</div>
+                <div class="avatar-location">Ithaca, New York</div>
+              </div>
+            </div>
+
+            <div class="status-pill">
+              <span class="status-dot"></span>
+              Seeking entry level UX roles
+            </div>
+
+            <div class="chip-row">
+              <span class="chip">UI UX</span>
+              <span class="chip">User research</span>
+              <span class="chip">Figma</span>
+              <span class="chip">Prototyping</span>
+            </div>
+
+            <div class="hero-card-footer">
+              <div class="hero-links">
+                <a href="https://www.linkedin.com/in/yj-lee-49b14a232" class="hero-link-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                  <span>in</span>
+                </a>
+                <a href="resume.html" class="hero-link-icon" aria-label="Resume">
+                  <span>CV</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="case-studies">
+      <div class="page-shell">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Case Studies</div>
+            <h2 class="section-title">Selected work</h2>
+          </div>
+          <p class="section-subtitle">Two case studies are live. More projects are on the way.</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-label">Live case study</div>
+            <h3 class="card-title">Cornell Enrollment Mobile App</h3>
+            <div class="card-meta">Mobile UX, high stakes flows</div>
+            <p class="card-body">
+              Mobile first redesign of Cornell Student Center focused on add, drop, and swap clarity during deadlines.
+            </p>
+            <div class="card-tags">
+              <span class="tag">Interaction design</span>
+              <span class="tag">Risk reduction</span>
+              <span class="tag">Prototype</span>
+            </div>
+            <a href="Cornell Enrollment.HTML" class="card-footer-link">View case study</a>
+          </article>
+
+          <article class="card">
+            <div class="card-label">Live case study</div>
+            <h3 class="card-title">VCT Sync</h3>
+            <div class="card-meta">Sports and esports UX</div>
+            <p class="card-body">
+              Esports companion app concept for match results, pivotal moments, and tournament flow without clutter.
+            </p>
+            <div class="card-tags">
+              <span class="tag">Information architecture</span>
+              <span class="tag">Clarity</span>
+              <span class="tag">Concept</span>
+            </div>
+            <a href="VCT SYNC.HTML" class="card-footer-link">View case study</a>
+          </article>
+
+          <article class="card coming-soon">
+            <div class="soon-badge">Coming soon</div>
+            <div class="card-label">Coming soon</div>
+            <h3 class="card-title">Boston Bruins Fan App</h3>
+            <div class="card-meta">Prototype and case study writeup</div>
+            <p class="card-body">
+              Fan focused experience for following games, tracking momentum, and staying connected through the season.
+            </p>
+            <div class="card-tags">
+              <span class="tag">Research</span>
+              <span class="tag">Iteration</span>
+              <span class="tag">Prototype</span>
+            </div>
+            <span class="card-footer-link">Coming soon</span>
+          </article>
+
+          <article class="card coming-soon">
+            <div class="soon-badge">Coming soon</div>
+            <div class="card-label">Coming soon</div>
+            <h3 class="card-title">Volleyball Serving Machine</h3>
+            <div class="card-meta">Arduino and C plus plus</div>
+            <p class="card-body">
+              Hardware and software project to automate consistent volleyball serves. Build details and results coming soon.
+            </p>
+            <div class="card-tags">
+              <span class="tag">Arduino</span>
+              <span class="tag">C plus plus</span>
+              <span class="tag">Prototyping</span>
+            </div>
+            <span class="card-footer-link">Coming soon</span>
+          </article>
+
+          <article class="card coming-soon">
+            <div class="soon-badge">Coming soon</div>
+            <div class="card-label">Coming soon</div>
+            <h3 class="card-title">Mind Sync</h3>
+            <div class="card-meta">Emotion responsive companion app</div>
+            <p class="card-body">
+              A new case study I am currently shaping. Full writeup will be published soon.
+            </p>
+            <div class="card-tags">
+              <span class="tag">Discovery</span>
+              <span class="tag">Prototype</span>
+              <span class="tag">Testing</span>
+            </div>
+            <span class="card-footer-link">Coming soon</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="page-shell">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Resume</div>
+            <h2 class="section-title">Quick resume</h2>
+          </div>
+          <p class="section-subtitle">A fast snapshot with a link to the full page.</p>
+        </div>
+
+        <div class="resume-card">
+          <div>
+            <p class="resume-copy">
+              Cornell Information Science student graduating in 2026. Interested in product UX, UX research, and interaction design.
+              I love designing for sports and esports, and I am always excited to explore new domains.
+            </p>
+            <p class="resume-copy" style="margin-top: 0.9rem;">
+              Email: <strong>yl3286@cornell.edu</strong><br>
+              Phone: <strong>607 351 9241</strong><br>
+              LinkedIn: <strong>www.linkedin.com/in/yj-lee-49b14a232</strong>
+            </p>
+          </div>
+
+          <div class="resume-actions">
+            <a class="btn btn-primary" href="resume.html">View full resume</a>
+            <a class="btn btn-ghost" href="assets/files/YJ_Lee_Resume.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="page-shell">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">Contact me</h2>
+          </div>
+          <p class="section-subtitle">Best way to reach me is email.</p>
+        </div>
+
+        <div class="contact-card">
+          <div>
+            <p class="contact-copy">
+              If you want to talk about a role, a project, or collaboration, feel free to email me.
+            </p>
+            <div class="contact-meta">
+              <span>📧 yl3286@cornell.edu</span>
+              <span>🔗 www.linkedin.com/in/yj-lee-49b14a232</span>
+              <span>📍 Ithaca, New York</span>
+            </div>
+          </div>
+
+          <div>
+            <a class="btn btn-primary" href="mailto:yl3286@cornell.edu" style="width: 100%;">Email me</a>
+            <div style="height: 0.75rem;"></div>
+            <a class="btn btn-ghost" href="resume.html" style="width: 100%;">View resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="page-shell footer-inner">
+      <div>© <span id="year"></span> YJ Lee. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.addEventListener("click", (event) => {
+      if (event.target.classList.contains("nav-link")) {
+        navLinks.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+</body>
+</html>
