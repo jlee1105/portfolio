@@ -4,125 +4,258 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VCT Sync | YJ Lee</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root { --bg:#080812; --card:#0f1119; --accent:#7c7c8a; --accent-bright:#9a9aa8; --purple:#a78bfa; --text:#f5f5f7; --muted:#7a7a88; --border:rgba(122,124,138,.3); --radius:1.5rem; }
+    :root {
+      --bg:#080812;
+      --card:#0f1119;
+      --accent:#7c7c8a;
+      --accent-bright:#9a9aa8;
+      --purple:#a78bfa;
+      --text:#f5f5f7;
+      --muted:#7a7a88;
+      --border:rgba(122,124,138,.3);
+      --radius:1.5rem;
+    }
+
     *{box-sizing:border-box;margin:0;padding:0;}
-    html,body{background:#050508;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;}
+
+    html,body{
+      background:#050508;
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+    }
+
     a{color:inherit;text-decoration:none;}
-    .page{max-width:920px;margin:0 auto;padding:2.25rem 1.25rem 4rem;}
-    .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.6rem;gap:1rem;}
-    .back{padding:.55rem .9rem;border-radius:999px;border:2px solid var(--accent);background:transparent;color:var(--accent-bright);font-weight:600;}
-    .back:hover{background:rgba(122,124,138,.1);box-shadow:0 0 15px rgba(122,124,138,.2);}
-    .kicker{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-bright);font-weight:700;}
-    h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.1rem,2.6vw + 1rem,2.8rem);line-height:1.1;margin:.35rem 0 .8rem;color:var(--purple);}
-    .hero-section{border:2px solid var(--muted);border-radius:1.5rem;background:rgba(122,124,138,.05);padding:2.5rem 2rem;margin-bottom:2rem;box-shadow:0 4px 20px rgba(0,0,0,.6);}
-    .hero-section h1{color:var(--purple);margin-bottom:1rem;font-size:clamp(2rem,3vw,2.5rem);font-weight:700;}
-    .hero-section p{color:var(--muted);line-height:1.6;font-size:1rem;}
-    .sub{color:var(--muted);line-height:1.7;max-width:46rem;}
-    .grid{display:grid;gap:1.1rem;margin-top:1.7rem;}
-    .card{border-radius:var(--radius);border:1px solid var(--border);background:var(--card);padding:1.2rem 1.25rem;box-shadow:0 4px 15px rgba(0,0,0,.5);}
-    .card h2{font-size:1.05rem;margin-bottom:.55rem;color:var(--purple);}
-    .card p,.card li{color:var(--muted);line-height:1.75;font-size:.92rem;}
-    .card ul{padding-left:1.1rem;margin-top:.55rem;}
-    .card h3{color:var(--purple);margin-top:0.8rem;}
+
+    .page{
+      max-width:920px;
+      margin:0 auto;
+      padding:2.25rem 1.25rem 4rem;
+    }
+
+    .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:1.6rem;
+      gap:1rem;
+    }
+
+    .back{
+      padding:.55rem .9rem;
+      border-radius:999px;
+      border:2px solid var(--accent);
+      background:transparent;
+      color:var(--accent-bright);
+      font-weight:600;
+    }
+
+    .back:hover{
+      background:rgba(122,124,138,.1);
+      box-shadow:0 0 15px rgba(122,124,138,.2);
+    }
+
+    .kicker{
+      font-size:.78rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--accent-bright);
+      font-weight:700;
+    }
+
+    .hero-section{
+      border:2px solid var(--muted);
+      border-radius:1.5rem;
+      background:rgba(122,124,138,.05);
+      padding:2.5rem 2rem;
+      margin-bottom:2rem;
+      box-shadow:0 4px 20px rgba(0,0,0,.6);
+    }
+
+    .hero-section h1{
+      color:var(--purple);
+      margin-bottom:1rem;
+      font-size:clamp(2rem,3vw,2.5rem);
+      font-family:"Playfair Display",serif;
+    }
+
+    .hero-section p{
+      color:var(--muted);
+      line-height:1.6;
+      font-size:1rem;
+    }
+
+    .grid{
+      display:grid;
+      gap:1.1rem;
+      margin-top:1.7rem;
+    }
+
+    .card{
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:var(--card);
+      padding:1.2rem 1.25rem;
+      box-shadow:0 4px 15px rgba(0,0,0,.5);
+    }
+
+    .card h2{
+      font-size:1.05rem;
+      margin-bottom:.55rem;
+      color:var(--purple);
+    }
+
+    .card p,.card li{
+      color:var(--muted);
+      line-height:1.75;
+      font-size:.92rem;
+    }
+
+    .card ul{
+      padding-left:1.1rem;
+      margin-top:.55rem;
+    }
+
+    .card h3{
+      color:var(--purple);
+      margin-top:0.8rem;
+    }
+
+    /* image styling */
+    .image-group{
+      margin-top:1.2rem;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:.8rem;
+    }
+
+    .image-group img{
+      width:100%;
+      border-radius:1rem;
+      border:1px solid var(--border);
+      background:#0b0c12;
+      padding:.35rem;
+    }
+
+    .image-caption{
+      font-size:.8rem;
+      color:var(--muted);
+      margin-top:1rem;
+    }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <div class="top">
-      <a class="back" href="index.html">← Back</a>
-      <div class="kicker">Case Study</div>
-    </div>
+<div class="page">
 
-    <div class="hero-section">
-      <h1>VCT Sync</h1>
+  <div class="top">
+    <a class="back" href="../index.html">← Back</a>
+    <div class="kicker">Case Study</div>
+  </div>
+
+  <div class="hero-section">
+    <h1>VCT Sync</h1>
+    <p>
+      A mobile experience designed for Valorant Champions Tour fans who want structured match insights without clutter or distraction.
+    </p>
+  </div>
+
+  <div class="grid">
+
+    <!-- Overview -->
+    <section class="card">
+      <h2>Overview</h2>
       <p>
-        A mobile experience designed for Valorant Champions Tour fans who want structured match insights without clutter or distraction.
+        VCT Sync is a mobile app concept designed for Valorant Champions Tour fans who want fast, focused updates without clutter or distraction. The app combines live scores, brackets, team updates, and player statistics into a clean, spoiler free experience built for clarity and speed.
       </p>
-    </div>
-<div class="grid">
+    </section>
 
-  <section class="card">
-    <h2>Overview</h2>
-    <p>
-      VCT Sync is a mobile app concept designed for Valorant Champions Tour fans who want fast, focused updates without clutter or distraction. The app combines live scores, brackets, team updates, and player statistics into a clean, spoiler free experience built for clarity and speed.
-    </p>
-  </section>
+    <!-- Empathize -->
+    <section class="card">
+      <h2>1. Empathize</h2>
+      <p>
+        Through informal interviews and observation, three major pain points emerged.
+      </p>
+      <ul>
+        <li><strong>Intrusive ads.</strong> Users described ads as disruptive.</li>
+        <li><strong>Navigation frustration.</strong> Fans struggle to find key information quickly.</li>
+        <li><strong>Information overload.</strong> Current apps overwhelm users.</li>
+      </ul>
 
-  <section class="card">
-    <h2>1. Empathize</h2>
-    <p>
-      I explored the friction fans experience when using current esports tracking apps. Through informal interviews and observation, three major pain points emerged.
-    </p>
-    <ul>
-      <li><strong>Intrusive ads.</strong> Users described ads as disruptive and frustrating. They interrupt browsing and make the experience feel cheap.</li>
-      <li><strong>Navigation frustration.</strong> Fans struggle to quickly find match stats, brackets, and team information. Many rely on workarounds.</li>
-      <li><strong>Information overload.</strong> Users want fast updates, but current apps overwhelm them with dense layouts and excessive detail.</li>
-    </ul>
+      <h3>Interview insights</h3>
+      <ul>
+        <li>Fans care about the story of the match.</li>
+        <li>Statistics alone do not explain impact.</li>
+        <li>Users want to feel connected while viewing.</li>
+      </ul>
+    </section>
 
-    <h3 style="margin-top: 1rem; font-size: 0.95rem;">Interview insights</h3>
-    <ul>
-      <li>Fans care about the story of the match, not just the final score.</li>
-      <li>Statistics alone do not explain what mattered in the game.</li>
-      <li>Users want to feel connected while viewing matches through chat and shared reactions.</li>
-    </ul>
-  </section>
+    <!-- Define -->
+    <section class="card">
+      <h2>2. Define</h2>
+      <p>
+        Fans often miss matches and want concise but meaningful insight when they return.
+      </p>
+      <ul>
+        <li><strong>Stats lack context.</strong></li>
+        <li><strong>Ads disrupt flow.</strong></li>
+        <li><strong>Clutter slows users.</strong></li>
+      </ul>
+    </section>
 
-  <section class="card">
-    <h2>2. Define</h2>
-    <p>
-      <strong>People problem:</strong> Fans often miss important matches due to busy schedules. When they return, they want concise but meaningful insight into what happened, not just raw numbers.
-    </p>
+    <!-- Ideate -->
+    <section class="card">
+      <h2>3. Ideate</h2>
+      <p>
+        Ideas focused on clarity, momentum storytelling, and reducing clutter.
+      </p>
+      <ul>
+        <li>Layout simplicity</li>
+        <li>Smarter stat displays</li>
+        <li>Respectful ad experience</li>
+        <li>Community connection</li>
+      </ul>
 
-    <ul>
-      <li><strong>Stats without context.</strong> High ACS or KDA does not always capture turning points or clutch plays.</li>
-      <li><strong>Ads as deal breakers.</strong> Poor ad placement disrupts flow and causes users to uninstall.</li>
-      <li><strong>Cluttered layouts.</strong> Wiki style pages make it difficult to quickly check results or upcoming matches.</li>
-    </ul>
+      <div class="image-caption">Mid fidelity wireframes</div>
+      <div class="image-group">
+        <img src="../images/VS Midfi 1.png">
+        <img src="../images/VS Midfi 2.png">
+        <img src="../images/VS Midfi 3.png">
+        <img src="../images/VS Midfi 4.png">
+        <img src="../images/VS Midfi 5.png">
+      </div>
+    </section>
 
-    <p style="margin-top: 0.8rem;">
-      <strong>Target audience:</strong> Esports fans ages 15 to 30 who follow VCT and want meaningful insights they can apply to their own gameplay.
-    </p>
+    <!-- Prototype -->
+    <section class="card">
+      <h2>4. Prototype</h2>
+      <p>
+        I created an interactive prototype covering the full fan journey.
+      </p>
+      <ul>
+        <li>Live match dashboard</li>
+        <li>Momentum timeline</li>
+        <li>Clean bracket view</li>
+        <li>Spoiler free navigation</li>
+        <li>Community interaction layer</li>
+      </ul>
 
-    <p>
-      <strong>Goal:</strong> Surface pivotal in game moments in a digestible format so users can quickly understand how a match unfolded and why it mattered.
-    </p>
-  </section>
+      <div class="image-caption">High fidelity screens</div>
+      <div class="image-group">
+        <img src="../images/VCT SYNC 1.png">
+        <img src="../images/VCT SYNC 2.png">
+        <img src="../images/VCT SYNC 3.png">
+        <img src="../images/VCT SYNC 4.png">
+        <img src="../images/VCT SYNC 5.png">
+      </div>
+    </section>
 
-  <section class="card">
-    <h2>3. Ideate</h2>
-    <p>
-      Based on research insights, I brainstormed with peers to explore how a cleaner, more focused esports experience could be designed. Ideas were grouped into key themes using FigJam.
-    </p>
-
-    <ul>
-      <li><strong>Layout simplicity.</strong> Reduce visual clutter and prioritize essential information.</li>
-      <li><strong>Smarter stat displays.</strong> Highlight pivotal plays and momentum shifts instead of only raw numbers.</li>
-      <li><strong>Respectful ad experience.</strong> Consider non intrusive monetization models that preserve user focus.</li>
-      <li><strong>Community connection.</strong> Integrate lightweight chat or reactions to foster shared viewing experiences.</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>4. Prototype</h2>
-    <p>
-      I created an interactive prototype that reflects the full user journey, from logging in and selecting favorite teams to exploring match summaries and pivotal moments.
-    </p>
-
-    <ul>
-      <li>Live match dashboard with clear score hierarchy</li>
-      <li>Momentum timeline highlighting turning points</li>
-      <li>Clean bracket view optimized for mobile</li>
-      <li>Spoiler free navigation options</li>
-      <li>Community interaction layer for fan engagement</li>
-    </ul>
-
-    <p style="margin-top: 0.8rem;">
-      The final design balances speed, clarity, and emotional storytelling to help fans stay connected without feeling overwhelmed.
-    </p>
-  </section>
-
+  </div>
 </div>
+</body>
+</html>
