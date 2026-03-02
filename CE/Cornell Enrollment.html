@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cornell Enrollment Mobile App | YJ Lee</title>
+  <link rel="canonical" href="https://yjleeportfolio.vercel.app/CE/Cornell%20Enrollment.html" />
+  <meta name="description" content="Cornell Enrollment Mobile App project by YJ Lee, featured on the portfolio at https://yjleeportfolio.vercel.app/." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +42,7 @@
       padding: 2.25rem 1.25rem 4rem;
     }
 
-    .top { 
+    .top {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -83,29 +85,17 @@
     }
 
     .hero-section h1 {
+      font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
       color: var(--accent-light);
       margin-bottom: 1rem;
       font-size: clamp(2rem, 3vw, 2.5rem);
+      line-height: 1.1;
     }
 
     .hero-section p {
       color: var(--muted);
       line-height: 1.6;
       font-size: 1rem;
-    }
-
-    h1 {
-      font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
-      font-size: clamp(2.1rem, 2.6vw + 1rem, 2.8rem);
-      line-height: 1.1;
-      margin: 0.35rem 0 0.8rem;
-    }
-
-    .sub {
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 46rem;
-      font-size: 0.98rem;
     }
 
     .meta {
@@ -154,6 +144,10 @@
       margin-top: 0.55rem;
     }
 
+    .card li {
+      margin: 0.25rem 0;
+    }
+
     .card h3 {
       margin-top: 1rem;
       font-size: 0.95rem;
@@ -161,22 +155,46 @@
       color: rgba(229, 231, 235, 0.95);
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.7rem 1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.85);
-      color: var(--muted);
-      margin-top: 0.9rem;
-      width: fit-content;
+    .image-group {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.18);
     }
 
-    .btn:hover {
-      color: var(--text);
-      border-color: rgba(148, 163, 184, 0.85);
+    .caption {
+      margin-top: 0.35rem;
+      margin-bottom: 0.9rem;
+      color: rgba(235,235,235,0.7);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .img-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .img-grid img, .image-group > img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0.95rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.2);
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+      margin: 1rem 0 0.4rem;
+    }
+
+    @media (max-width: 820px) {
+      .img-grid { grid-template-columns: 1fr; }
+      .hero-section { padding: 2.1rem 1.4rem; }
     }
   </style>
 </head>
@@ -203,7 +221,6 @@
 
     <div class="grid">
 
-
       <section class="card">
         <h2>Overview</h2>
         <p>
@@ -211,27 +228,40 @@
         </p>
       </section>
 
-
       <section class="card">
         <h2>1. Empathize</h2>
         <p>
-          Because enrollment is time sensitive and stressful, I focused on the biggest points of friction in the current system and how a mobile first experience could reduce uncertainty.
+          Enrollment is time sensitive and emotionally high stakes. Students are often making decisions quickly during add and drop week, sometimes on their phone between classes. I focused on where the current experience creates hesitation, anxiety, or avoidable mistakes, and what students need to feel confident pressing confirm.
         </p>
 
+        <h3>What I looked for</h3>
         <ul>
-          <li><strong>Mobile usability is poor.</strong> Students often check schedules and make enrollment decisions while walking to class or during busy weeks. The portal is not designed for one hand use and feels difficult on a phone.</li>
-          <li><strong>Risky actions feel intimidating.</strong> Drop and swap feel high risk. Students fear losing a seat, making an irreversible mistake, or not understanding what will happen after confirming.</li>
-          <li><strong>The interface creates overload.</strong> Dense tables, heavy text, and too many links make it hard to scan quickly. Students want fast answers such as whether a class is open, whether it conflicts, and whether an action succeeded.</li>
+          <li><strong>Where stress spikes.</strong> Moments where students pause, back out, or re-check because they are not sure what happens next.</li>
+          <li><strong>Mobile constraints.</strong> One-hand use, quick scanning, and interrupted usage while walking or multitasking.</li>
+          <li><strong>Risk perception.</strong> Why drop and swap feel irreversible, dangerous, or confusing even when the user knows what they want.</li>
+          <li><strong>Decision-making signals.</strong> The minimum info students need to choose quickly: status, conflict, impact, and confirmation.</li>
         </ul>
 
         <h3>Informal interviews and observations</h3>
+        <p>
+          I ran quick informal interviews and walkthroughs with Cornell students where they showed how they currently check schedules, hunt for course info, and attempt add, drop, or swap. I paid attention to what they clicked first, what they ignored, and where they had to slow down to avoid mistakes.
+        </p>
+
         <ul>
           <li><strong>Confidence matters as much as information.</strong> Students want to know what will happen before submitting. Confirmation is as important as navigation.</li>
           <li><strong>Students want direct access to key actions.</strong> They do not want to hunt through menus to reach schedule, search, add, drop, and swap.</li>
           <li><strong>Students want clarity on rules and consequences.</strong> Waitlist behavior, time conflicts, unit limits, and what swap actually does should be explained in plain language.</li>
+          <li><strong>Status is the first thing they scan.</strong> Open, Waitlist, and Closed need to be visible immediately without reading a dense table.</li>
         </ul>
-      </section>
 
+        <div class="image-group">
+          <h3>Research synthesis</h3>
+          <p class="caption">
+            I translated raw notes into grouped themes to guide design decisions. This helped me prioritize speed, trust during risky actions, reduced cognitive load, and better failure-state handling.
+          </p>
+          <img src="../images/CE Ideation.PNG" alt="Course registration UX improvements brainstorm and theme clusters">
+        </div>
+      </section>
 
       <section class="card">
         <h2>2. Define</h2>
@@ -239,10 +269,12 @@
           <strong>People problem:</strong> During add and drop week, students need to make high stakes academic decisions quickly, often while moving between buildings. The current enrollment experience is confusing and not mobile friendly, which increases stress and the risk of mistakes.
         </p>
 
+        <h3>Core problems to solve</h3>
         <ul>
           <li><strong>Navigation complexity.</strong> Students jump between multiple pages and dense menus. The flow is hard to follow when rushed.</li>
           <li><strong>Lack of trust during risky actions.</strong> Drop and swap are not explained clearly. Students do not feel reassured that the action is safe or reversible.</li>
           <li><strong>Cluttered information display.</strong> Long tables make scanning difficult. Status such as Open, Waitlist, and Closed is not visually prominent enough to support fast decisions.</li>
+          <li><strong>Weak feedback loops.</strong> After submitting, students still feel unsure whether the change actually processed correctly.</li>
         </ul>
 
         <p style="margin-top: 0.8rem; color: var(--muted); line-height: 1.75; font-size: 0.92rem;">
@@ -254,70 +286,95 @@
         </p>
       </section>
 
- 
       <section class="card">
         <h2>3. Ideate</h2>
         <p>
-          Based on the problems above, I explored solution directions and early structural concepts that could reduce stress while respecting existing enrollment constraints.
+          Based on the problems above, I explored solution directions that reduce stress and cognitive load while respecting enrollment constraints. The goal was to make the interface feel predictable: students should always know what step they are on, what will happen next, and what changed after submitting.
         </p>
 
+        <h3>Design directions</h3>
         <ul>
-          <li><strong>Simplify layout.</strong> Replace table heavy pages with card based UI and highlight only the information students need to decide quickly.</li>
+          <li><strong>Simplify layout.</strong> Replace table-heavy pages with card-based UI and highlight only the information students need to decide quickly.</li>
           <li><strong>Make actions guided.</strong> Break add, drop, and swap into structured steps: select, review, confirm, result.</li>
           <li><strong>Build trust.</strong> Add warnings before risky actions and confirmation screens that clearly state what changed with one clear next step.</li>
           <li><strong>Create a clear navigation system.</strong> Use bottom navigation for key tasks: Home, Search, Schedule, Enrollment Hub, Profile.</li>
         </ul>
 
-      
-        <div class="image-group">
-          <h3>Mid-fidelity exploration</h3>
-          <p class="caption">
-            Early wireframes exploring guided enrollment steps, simplified cards,
-            and confidence-building confirmation patterns.
-          </p>
-
-          <img src="../images/Midfi 1.png" alt="Mid fidelity enrollment exploration">
-          <img src="../images/Midfi 2.png" alt="Mid fidelity schedule layout">
-          <img src="../images/Midfi 3.png" alt="Mid fidelity confirmation flow">
-          <img src="../images/Midfi 4.png" alt="Mid fidelity weekly schedule">
-          <img src="../images/Midfi 5.png" alt="Mid fidelity course details">
-        </div>
+        <h3>What I prioritized from research</h3>
+        <ul>
+          <li><strong>Mobile-first speed.</strong> Reduce taps, reduce reading, reduce page-hunting.</li>
+          <li><strong>Status visibility.</strong> Make Open, Waitlist, Closed scannable where decisions happen.</li>
+          <li><strong>Edge cases and recovery.</strong> Support time conflicts, full classes, and “what do I do now” moments.</li>
+          <li><strong>Psychological safety.</strong> Make risky actions feel reversible and clearly explained before the user commits.</li>
+        </ul>
       </section>
 
       <section class="card">
         <h2>4. Prototype</h2>
         <p>
-          I created an interactive mobile prototype that reflects a realistic enrollment journey, from checking today’s schedule to safely confirming schedule changes.
+          I created an interactive mobile prototype that reflects a realistic enrollment journey, from checking today’s schedule to safely confirming schedule changes. I started with mid-fidelity wireframes to lock the structure and flow logic, then moved into high-fidelity screens for clarity and polish.
+        </p>
+
+        <h3>Mid-fidelity wireframes</h3>
+        <p>
+          Mid-fidelity helped me test hierarchy, spacing, and task flow without getting distracted by visuals. The focus here was: can a student complete add, drop, and swap quickly, and do they feel safe doing it?
+        </p>
+
+        <div class="image-group">
+          <h3>Mid-fidelity exploration</h3>
+          <p class="caption">
+            Early wireframes exploring guided enrollment steps, simplified cards, schedule visibility, and strong confirmation patterns. (Midfi 1 to Midfi 5)
+          </p>
+
+          <div class="img-grid">
+            <img src="../images/Midfi 1.png" alt="Mid fidelity exploration 1">
+            <img src="../images/Midfi 2.png" alt="Mid fidelity exploration 2">
+            <img src="../images/Midfi 3.png" alt="Mid fidelity exploration 3">
+            <img src="../images/Midfi 4.png" alt="Mid fidelity exploration 4">
+            <img src="../images/Midfi 5.png" alt="Mid fidelity exploration 5">
+          </div>
+        </div>
+        
+        <div class="divider"></div>
+
+        <h3>High-fidelity prototype</h3>
+        <p>
+          Once the structure was validated, I moved into high-fidelity screens to finalize the UI system and strengthen clarity through typography, spacing, and action hierarchy.
+        </p>
+
+        <div class="image-group">
+          <h3>High-fidelity screens</h3>
+          <p class="caption">
+            Final mobile designs demonstrating the guided enrollment flow, strong confirmation feedback, and reduced cognitive load. (CE 1 to CE 5)
+          </p>
+
+          <div class="img-grid">
+            <img src="../images/CE 1.png" alt="High fidelity screen 1">
+            <img src="../images/CE 2.png" alt="High fidelity screen 2">
+            <img src="../images/CE 3.png" alt="High fidelity screen 3">
+            <img src="../images/CE 4.png" alt="High fidelity screen 4">
+            <img src="../images/CE 5.png" alt="High fidelity screen 5">
+          </div>
+        </div>
+
+        <h3>Testing and iteration</h3>
+        <p>
+          I ran quick usability checks with students using realistic tasks: add a class, verify it appears on the schedule, drop safely with a warning, and complete a swap without confusion. The goal was not just completion, but confidence.
         </p>
 
         <ul>
-          <li><strong>Student Center Home.</strong> Today’s schedule, quick actions for add, drop, swap, plus enrollment dates and holds summary.</li>
-          <li><strong>Add flow.</strong> Search and find classes, add to cart, confirm enrollment, and a success screen with View My Schedule.</li>
-          <li><strong>Drop flow.</strong> Select an enrolled class, review a warning step before dropping, confirm, and see an updated schedule.</li>
-          <li><strong>Swap flow.</strong> Select a class to replace, choose a new class, review the swap, confirm, and see a clear result screen.</li>
-          <li><strong>Profile and academic records.</strong> Grades, unofficial transcript access, course history, and transfer credit entry points.</li>
+          <li><strong>Participants:</strong> 6 Cornell undergraduates across different years.</li>
+          <li><strong>Tasks:</strong> Add from search, confirm enrollment, check schedule, drop with warning, swap course A to course B.</li>
+          <li><strong>What improved:</strong> Faster scanning for status, fewer “back” clicks, and more confidence after success screens.</li>
+          <li><strong>What I refined:</strong> Clearer swap comparison, stronger primary CTA on success screens, and consistent placement for status indicators.</li>
         </ul>
 
         <p style="margin-top: 0.8rem; color: var(--muted); line-height: 1.75; font-size: 0.92rem;">
           This redesign does not only modernize the interface. It improves how students feel while using the system by reducing uncertainty, increasing confidence during risky actions, and enabling faster decision-making in time-sensitive enrollment moments.
         </p>
-
-        
-        <div class="image-group">
-          <h3>High-fidelity prototype</h3>
-          <p class="caption">
-            Final mobile designs demonstrating the guided enrollment flow,
-            strong confirmation feedback, and reduced cognitive load.
-          </p>
-
-          <img src="../images/CE 1.png" alt="Hi-fi add flow">
-          <img src="../images/CE 2.png" alt="Hi-fi success screen">
-          <img src="../images/CE 3.png" alt="Hi-fi schedule view">
-          <img src="../images/CE 4.png" alt="Hi-fi course details">
-          <img src="../images/CE 5.png" alt="Hi-fi swap flow">
-        </div>
       </section>
 
     </div>
   </div>
 </body>
+</html>
