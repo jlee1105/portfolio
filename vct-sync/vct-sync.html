@@ -173,7 +173,10 @@
     <section class="card">
       <h2>Overview</h2>
       <p>
-        VCT Sync is a mobile app concept designed for Valorant Champions Tour fans who want fast, focused updates without clutter or distraction. The app combines live scores, brackets, team updates, and player statistics into a clean, spoiler free experience built for clarity and speed.
+        VCT Sync is a mobile esports companion designed for Valorant Champions Tour fans who want fast, meaningful match insight without clutter. While existing platforms emphasize dense statistics and aggressive monetization, VCT Sync prioritizes clarity, momentum, and mobile scan speed.
+      </p>
+      <p>
+        The goal is not simply to show who won, but to help fans quickly understand what changed the match and why it mattered.
       </p>
     </section>
 
@@ -181,63 +184,72 @@
     <section class="card">
       <h2>1. Empathize</h2>
       <p>
-        Through informal interviews and observation, three major pain points emerged.
+        This research revealed overlapping behaviors and frustrations across several active VCT viewers, ranging from casual followers to competitive ranked players. Rather than profiling individuals, the focus was on common patterns that surfaced in real tasks.
       </p>
+      <h3>Research approach</h3>
+      <p>To understand real usage behavior rather than surface-level opinions, I structured interviews around task-based walkthroughs. Participants were asked to:</p>
       <ul>
-        <li><strong>Intrusive ads.</strong> Users described ads as disruptive.</li>
-        <li><strong>Navigation frustration.</strong> Fans struggle to find key information quickly.</li>
-        <li><strong>Information overload.</strong> Current apps overwhelm users.</li>
+        <li>Find the result of a missed match</li>
+        <li>Identify what shifted momentum</li>
+        <li>Navigate from live match to bracket</li>
+        <li>Locate roster information</li>
       </ul>
-
-      <h3>Interview insights</h3>
+      <p>I observed hesitation points, scanning behavior, and navigation patterns.</p>
+      <h3>Observed patterns</h3>
+      <p>Across interviews, three consistent behaviors emerged:</p>
       <ul>
-        <li>Fans care about the story of the match.</li>
-        <li>Statistics alone do not explain impact.</li>
-        <li>Users want to feel connected while viewing.</li>
+        <li>Participants looked for score first, then immediately searched for context.</li>
+        <li>Users skipped dense stat tables unless they were highly engaged fans.</li>
+        <li>Navigation friction increased dramatically on mobile screens.</li>
       </ul>
+      <p>I noted how long it took to locate key information and where confusion arose.</p>
+      <div class="image-caption">User Research Synthesis: Patterns across interviews revealed storytelling gaps, speed needs, and disruption frustrations.</div>
+      <div class="image-group">
+        <img src="../images/VCT Interview.png" alt="Research mind map" />
+      </div>
     </section>
 
     <!-- Define -->
     <section class="card">
       <h2>2. Define</h2>
+      <h3>The core problem</h3>
       <p>
-        Fans often miss matches and want concise but meaningful insight when they return.
+        Valorant Champions Tour fans need a fast way to catch up on matches and understand what actually mattered. However, most existing esports apps prioritize dense statistics and aggressive monetization over clarity and context.
       </p>
+      <p>When fans miss a match, they struggle to quickly answer three questions:</p>
       <ul>
-        <li><strong>Stats lack context.</strong></li>
-        <li><strong>Ads disrupt flow.</strong></li>
-        <li><strong>Clutter slows users.</strong></li>
+        <li>Who won</li>
+        <li>What changed the momentum</li>
+        <li>How this result affects the tournament</li>
       </ul>
+      <p>This creates friction, especially for mobile users checking scores between classes, work, or late at night.</p>
+      <p><strong>VCT fans need a fast, narrative-driven, mobile-first experience that surfaces what mattered most.</strong></p>
     </section>
 
     <!-- Ideate -->
     <section class="card">
       <h2>3. Ideate</h2>
       <p>
-        Ideas focused on clarity, momentum storytelling, and reducing clutter.
+        With research themes identified, the process moved into structured ideation. Using affinity clustering and brainstorming sessions, ideas were grouped into three strategic directions:
       </p>
       <ul>
-        <li>Layout simplicity</li>
-        <li>Smarter stat displays</li>
-        <li>Respectful ad experience</li>
-        <li>Community connection</li>
+        <li>Match storytelling features</li>
+        <li>Navigation and clarity improvements</li>
+        <li>Reduced-disruption viewing experience</li>
       </ul>
-
-      <div class="image-caption">Mid fidelity wireframes</div>
+      <p>Rather than adding more features, the focus became removing friction.</p>
+      <div class="image-caption">Brainstorming &amp; Concept Clustering: Ideas grouped into storytelling, clarity, and respectful monetization themes.</div>
       <div class="image-group">
-        <img src="../images/VS Midfi 1.png">
-        <img src="../images/VS Midfi 2.png">
-        <img src="../images/VS Midfi 3.png">
-        <img src="../images/VS Midfi 4.png">
-        <img src="../images/VS Midfi 5.png">
+        <img src="../images/VCT SYNC Ideate.PNG" alt="Sticky note concept clustering" />
       </div>
     </section>
+
 
     <!-- Prototype -->
     <section class="card">
       <h2>4. Prototype</h2>
       <p>
-        I created an interactive prototype covering the full fan journey.
+        An interactive prototype was developed covering the full fan journey.
       </p>
       <ul>
         <li>Live match dashboard</li>
@@ -255,6 +267,32 @@
         <img src="../images/VCT SYNC 4.png">
         <img src="../images/VCT SYNC 5.png">
       </div>
+    </section>
+
+    <!-- Iteration example: match hierarchy -->
+    <section class="card">
+      <h2>Iteration example: match hierarchy</h2>
+      <h3>Initial observation</h3>
+      <p>In early versions, the live match screen displayed score and stats with similar visual weight. During walkthrough testing, participants immediately located the score but hesitated when identifying key momentum shifts.</p>
+      <h3>Design adjustment</h3>
+      <p>To address this, I:</p>
+      <ul>
+        <li>Increased visual emphasis on pivotal round markers</li>
+        <li>Reduced competing stat density in the primary view</li>
+        <li>Strengthened contrast hierarchy between score and secondary data</li>
+      </ul>
+      <h3>Result</h3>
+      <p>Participants were able to describe the match flow faster and reported that the layout felt more focused and less overwhelming.</p>
+    </section>
+
+    <!-- Constraints and design considerations -->
+    <section class="card">
+      <h2>Constraints and tradeoffs</h2>
+      <ul>
+        <li><strong>No official live data integration.</strong> Because this was a concept project without direct API access, the design had to assume limited real-time data control. This influenced the decision to prioritize clarity and summary views over complex stat dashboards.</li>
+        <li><strong>Balancing depth and simplicity.</strong> Hardcore fans want depth, while casual viewers want speed. Instead of overloading the main interface, progressive disclosure ensures deeper stats appear only when requested.</li>
+        <li><strong>Spoiler sensitivity.</strong> Some users prefer immediate full results, while others avoid spoilers. The design explores spoiler-aware navigation to accommodate both behaviors.</li>
+      </ul>
     </section>
 
   </div>
