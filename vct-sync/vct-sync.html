@@ -186,6 +186,15 @@
       <p>
         This research involved semi-structured interviews with several active VCT viewers, ranging from casual followers to competitive ranked players. Rather than profiling individuals, the focus was on common patterns that surfaced in real tasks.
       </p>
+      <h3>Participants</h3>
+      <p>I spoke with three VCT fans with different viewing habits:</p>
+      <ul>
+        <li><strong>Participant A:</strong> Watches most matches live, cares about bracket implications</li>
+        <li><strong>Participant B:</strong> Watches highlights and checks scores between classes</li>
+        <li><strong>Participant C:</strong> Ranked player, uses stats to learn and improve</li>
+      </ul>
+      <h3>Method</h3>
+      <p>Semi-structured interviews plus task walkthroughs on mobile. I asked participants to use their current apps and talk out loud while completing the same tasks.</p>
       <h3>Research approach</h3>
       <p>To understand real usage behavior rather than surface-level opinions, I structured interviews around task-based walkthroughs. Participants were asked to:</p>
       <ul>
@@ -203,6 +212,13 @@
         <li>Navigation friction increased dramatically on mobile screens.</li>
       </ul>
       <p>I noted how long it took to locate key information and where confusion arose.</p>
+      <h3>What users kept repeating</h3>
+      <ul>
+        <li><em>"I want to know what mattered fast, not scroll through numbers"</em></li>
+        <li><em>"I hate when ads break the flow, it makes me leave the app"</em></li>
+        <li><em>"I check score first, then I need a quick explanation of how the match swung"</em></li>
+        <li><em>"Brackets are confusing on mobile when everything is tiny"</em></li>
+      </ul>
       <h3>Research synthesis</h3>
       <p>Affinity mapping of interview notes surfaced three core themes:</p>
       <ul>
@@ -210,65 +226,53 @@
         <li>Intrusive ads damage trust and interrupt focus</li>
         <li>Dense layouts increase cognitive load during quick check-ins</li>
       </ul>
-      <div class="image-caption">User research affinity diagram (patterns on storytelling, ads, and cognitive load).</div>
+      <div class="image-caption">Affinity map: Interview themes and behavioral patterns.</div>
       <div class="image-group">
-        <img src="../images/VCT Interview.png" alt="Research mind map" />
+        <img src="../images/VCT Interview.png" alt="Research affinity map" />
       </div>
     </section>
 
     <!-- Define -->
     <section class="card">
       <h2>2. Define</h2>
-      <h3>The core problem</h3>
-      <p>
-        Valorant Champions Tour fans need a fast way to catch up on matches and understand what actually mattered. However, most existing esports apps prioritize dense statistics and aggressive monetization over clarity and context.
-      </p>
-      <p>When fans miss a match, they struggle to quickly answer three questions:</p>
+      <h3>Problem statement</h3>
+      <p>When VCT fans miss a match, they want to catch up in under 60 seconds. Current esports apps make this hard because they prioritize dense stat tables and monetized layouts over a clear story of what changed and what it means for the tournament.</p>
+      <h3>Design principles</h3>
       <ul>
-        <li>Who won</li>
-        <li>What changed the momentum</li>
-        <li>How this result affects the tournament</li>
+        <li><strong>Scan first design:</strong> Score, momentum, and bracket impact visible within one screen</li>
+        <li><strong>Context over volume:</strong> Show the few stats that explain the outcome, hide the rest until requested</li>
+        <li><strong>Zero interruption:</strong> No disruptive ad placements and no clutter that breaks focus</li>
+        <li><strong>Spoiler control:</strong> Users choose how much is revealed when browsing</li>
       </ul>
-      <p>This creates friction, especially for mobile users checking scores between classes, work, or late at night.</p>
-      <p><strong>VCT fans need a fast, narrative-driven, mobile-first experience that surfaces what mattered most.</strong></p>
       <h3>Design goal</h3>
       <p>Create a narrative-driven, mobile-first experience that surfaces what mattered most while reducing cognitive load.</p>
+      <h3>Scope</h3>
+      <p>VCT Sync focuses on match catch-up and tournament tracking. It does not try to replace full VOD viewing or deep analytics sites.</p>
     </section>
 
     <!-- Ideate -->
     <section class="card">
       <h2>3. Ideate</h2>
       <p>
-        With research themes identified, the process moved into structured ideation. Using affinity clustering and brainstorming sessions, ideas were grouped into three strategic directions:
+        With research themes identified, the process moved into structured ideation. Each idea was framed against research insights to ensure alignment with user needs.
       </p>
+      <h3>How might we</h3>
       <ul>
-        <li>Match storytelling features</li>
-        <li>Navigation and clarity improvements</li>
-        <li>Reduced-disruption viewing experience</li>
+        <li>How might we help fans understand momentum without reading a full stat table?</li>
+        <li>How might we make bracket impact obvious on mobile?</li>
+        <li>How might we keep the experience focused without disruptive monetization?</li>
       </ul>
-      <p>Rather than adding more features, the focus became removing friction.</p>
-      <div class="image-caption">Brainstorming &amp; Concept Clustering: Ideas grouped into storytelling, clarity, and respectful monetization themes.</div>
-      <div class="image-group">
-        <img src="../images/VCT SYNC Ideate.PNG" alt="Sticky note concept clustering" />
-      </div>
-    </section>
-
-
-    <!-- Prototype -->
-    <section class="card">
-      <h2>4. Prototype</h2>
-      <p>
-        An interactive prototype was developed covering the full fan journey. Early in the process I sketched and wireframed mid-fidelity layouts to validate structure before committing to polished visuals.
-      </p>
+      <h3>Concepts explored</h3>
       <ul>
-        <li>Live match dashboard</li>
-        <li>Momentum timeline</li>
-        <li>Clean bracket view</li>
-        <li>Spoiler free navigation</li>
-        <li>Community interaction layer</li>
+        <li>Momentum timeline with pivotal rounds labeled</li>
+        <li>Match summary cards: turning point, clutch player, and key stat</li>
+        <li>Spoiler mode toggle for navigation</li>
+        <li>Bracket view with highlight of next match and stakes</li>
+        <li>Lightweight reactions or chat layer for shared viewing</li>
       </ul>
-
-      <div class="image-caption">Mid-fidelity explorations</div>
+      <h3>What I prioritized and why</h3>
+      <p>I prioritized momentum storytelling plus fast navigation because every participant started with score, then immediately searched for context. Community features were kept lightweight to avoid clutter and keep the core flow fast.</p>
+      <div class="image-caption">Concept sketches and mid-fidelity exploration.</div>
       <div class="image-group">
         <img src="../images/VS Midfi 1.png" alt="Mid fidelity exploration 1">
         <img src="../images/VS Midfi 2.png" alt="Mid fidelity exploration 2">
@@ -276,14 +280,40 @@
         <img src="../images/VS Midfi 4.png" alt="Mid fidelity exploration 4">
         <img src="../images/VS Midfi 5.png" alt="Mid fidelity exploration 5">
       </div>
+    </section>
 
-      <div class="image-caption">High fidelity screens</div>
+
+    <!-- Prototype -->
+    <section class="card">
+      <h2>4. Prototype</h2>
+      <h3>Primary flow</h3>
+      <ol>
+        <li>Open the app and land on Live or Recent matches</li>
+        <li>Tap a match to see score and momentum story</li>
+        <li>Swipe or tap into key moments for context</li>
+        <li>Jump into bracket to see what the result changes</li>
+        <li>Optional: open deeper stats only if needed</li>
+      </ol>
+      <p>An interactive high-fidelity prototype was developed to test this flow and validate hierarchy decisions.</p>
+      <div class="image-caption">Live dashboard prioritizes score hierarchy and next action.</div>
       <div class="image-group">
-        <img src="../images/VCT SYNC 1.png">
-        <img src="../images/VCT SYNC 2.png">
-        <img src="../images/VCT SYNC 3.png">
-        <img src="../images/VCT SYNC 4.png">
-        <img src="../images/VCT SYNC 5.png">
+        <img src="../images/VCT SYNC 1.png" alt="Live dashboard">
+      </div>
+      <div class="image-caption">Match detail screen surfaces momentum first, then stats on demand.</div>
+      <div class="image-group">
+        <img src="../images/VCT SYNC 2.png" alt="Match detail">
+      </div>
+      <div class="image-caption">Bracket view highlights where you are in the tournament and what is next.</div>
+      <div class="image-group">
+        <img src="../images/VCT SYNC 3.png" alt="Bracket view">
+      </div>
+      <div class="image-caption">Team view keeps roster and recent performance one tap away.</div>
+      <div class="image-group">
+        <img src="../images/VCT SYNC 4.png" alt="Team view">
+      </div>
+      <div class="image-caption">Momentum timeline and additional context screens.</div>
+      <div class="image-group">
+        <img src="../images/VCT SYNC 5.png" alt="Additional details">
       </div>
     </section>
 
