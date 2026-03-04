@@ -1,261 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YJ Lee Resume</title>
-  <link rel="canonical" href="https://yjleeportfolio.vercel.app/Resume.html" />
-  <meta name="description" content="Resume page for YJ Lee, hosted at https://yjleeportfolio.vercel.app/." />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YJ Lee Resume</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://yjleeportfolio.vercel.app/Resume.html" />
+    <meta
+      name="description"
+      content="Resume page for YJ Lee, hosted at https://yjleeportfolio.vercel.app/."
+    />
 
-  <style>
-    :root {
-      --bg: #050816;
-      --text: #f5f5f7;
-      --muted: #a0a3b1;
-      --card: #0f172a;
-      --border: rgba(148, 163, 184, 0.25);
-      --shadow: 0 18px 45px rgba(15, 23, 42, 0.75);
-      --radius: 1.2rem;
-    }
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    <style>
+      :root {
+        --bg: #050816;
+        --text: #f5f5f7;
+        --muted: #a0a3b1;
+        --card: #0f172a;
+        --border: rgba(148, 163, 184, 0.25);
+        --shadow: 0 18px 45px rgba(15, 23, 42, 0.75);
+        --radius: 1.2rem;
+      }
 
-    html, body {
-      background: radial-gradient(circle at top, #111827 0, var(--bg) 45%);
-      color: var(--text);
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-    }
+      /* Base */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    a { color: inherit; text-decoration: none; }
+      html,
+      body {
+        background: radial-gradient(circle at top, #111827 0, var(--bg) 45%);
+        color: var(--text);
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
 
-    .wrap {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 2.2rem 1.25rem 4rem;
-    }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
+      ul {
+        padding-left: 1.2rem;
+      }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.7rem 1.1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background: rgba(15, 23, 42, 0.85);
-      color: var(--text);
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
+      /* Layout */
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 2.2rem 1.25rem 4rem;
+      }
 
-    .btn:hover {
-      border-color: rgba(248, 250, 252, 0.9);
-    }
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
 
-    .card {
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top left, #111827, var(--card));
-      box-shadow: var(--shadow);
-      padding: 1.6rem 1.6rem;
-    }
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.2rem;
+        margin-top: 1.2rem;
+      }
 
-    .name {
-      font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
-      font-size: 2.2rem;
-      line-height: 1.1;
-      margin-bottom: 0.4rem;
-    }
+      @media (max-width: 860px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-    .contact {
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 1.2rem;
-      font-size: 0.95rem;
-    }
+      /* Components */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.7rem 1.1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.45);
+        background: rgba(15, 23, 42, 0.85);
+        color: var(--text);
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
 
-    .grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 1.2rem;
-      margin-top: 1.2rem;
-    }
+      .btn:hover {
+        border-color: rgba(248, 250, 252, 0.9);
+      }
 
-    .section {
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      border-radius: 1rem;
-      background: rgba(2, 6, 23, 0.28);
-      padding: 1rem 1.05rem;
-    }
+      .card {
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: radial-gradient(circle at top left, #111827, var(--card));
+        box-shadow: var(--shadow);
+        padding: 1.6rem;
+      }
 
-    .section h2 {
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.7rem;
-    }
+      .section {
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 1rem;
+        background: rgba(2, 6, 23, 0.28);
+        padding: 1rem 1.05rem;
+      }
 
-    .section p, .section li {
-      color: rgba(226, 232, 240, 0.88);
-      font-size: 0.95rem;
-      line-height: 1.65;
-    }
+      .section h2 {
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.7rem;
+      }
 
-    ul { padding-left: 1.2rem; }
+      .section p,
+      .section li {
+        color: rgba(226, 232, 240, 0.88);
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
 
-    .item-title {
-      font-weight: 600;
-      margin-top: 0.6rem;
-      margin-bottom: 0.2rem;
-    }
+      /* Typography */
+      .name {
+        font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
+        font-size: 2.2rem;
+        line-height: 1.1;
+        margin-bottom: 0.4rem;
+      }
 
-    .item-meta {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 0.4rem;
-    }
+      .contact {
+        color: var(--muted);
+        line-height: 1.7;
+        margin-bottom: 1.2rem;
+        font-size: 0.95rem;
+      }
 
-    .small {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
+      /* Resume item helpers */
+      .item-title {
+        font-weight: 600;
+        margin-top: 0.6rem;
+        margin-bottom: 0.2rem;
+      }
 
-    @media (max-width: 860px) {
-      .grid { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
+      .item-meta {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+      }
 
-<body>
-  <div class="wrap">
-    <div class="topbar">
-      <a class="btn" href="index.html">Back to portfolio</a>
-    </div>
+      .item-title.is-spaced {
+        margin-top: 1rem;
+      }
 
-    <div class="card">
-      <div class="name">YJ Lee</div>
-      <div class="contact">
-        yl3286@cornell.edu<br>
-        607 351 9241<br>
-        www.linkedin.com/in/yj-lee-49b14a232<br>
-        Ithaca, New York 14853
+      .small {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .spacer-sm {
+        height: 0.7rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <a class="btn" href="index.html">Back to portfolio</a>
       </div>
 
-      <div class="grid">
-        <div class="section">
-          <h2>Education</h2>
-          <p>
-            Cornell University, Ithaca, New York<br>
-            Bachelor of Arts, Information Science<br>
-            Anticipated May 2026
-          </p>
+      <div class="card">
+        <div class="name">YJ Lee</div>
+
+        <div class="contact">
+          yl3286@cornell.edu<br />
+          607 351 9241<br />
+          www.linkedin.com/in/yj-lee-49b14a232<br />
+          Ithaca, New York 14853
         </div>
 
-        <div class="section">
-          <h2>Professional Summary</h2>
-          <p>
-            UX and UI designer with a background in product and interior design. I focus on building clear, confident experiences and I enjoy designing for sports and esports while staying open to any domain.
-          </p>
+        <div class="grid">
+          <!-- Education -->
+          <section class="section">
+            <h2>Education</h2>
+            <p>
+              Cornell University, Ithaca, New York<br />
+              Bachelor of Arts, Information Science<br />
+              Anticipated May 2026
+            </p>
+          </section>
+
+          <!-- Summary -->
+          <section class="section">
+            <h2>Professional Summary</h2>
+            <p>
+              UX and UI designer with a background in product and interior design. I focus on
+              building clear, confident experiences and I enjoy designing for sports and esports while
+              staying open to any domain.
+            </p>
+          </section>
+
+          <!-- Projects -->
+          <section class="section">
+            <h2>UX and UI Project Experience</h2>
+
+            <div class="item-title">Cornell Enrollment Mobile App</div>
+            <div class="item-meta">Personal UX case study, 2025</div>
+            <ul>
+              <li>
+                Redesigned the desktop enrollment system into a mobile first experience to reduce
+                cognitive load during deadlines
+              </li>
+              <li>Structured add, drop, and swap into guided flows with warnings and confirmation states</li>
+              <li>Converted dense tables into card based UI optimized for thumb use</li>
+              <li>Built a high fidelity interactive prototype in Figma covering the full journey</li>
+            </ul>
+
+            <div class="item-title is-spaced">VCT Sync</div>
+            <div class="item-meta">Personal project, 2024</div>
+            <ul>
+              <li>Designed an esports companion app focused on match results, stats, and tournament flow</li>
+              <li>Created over 20 mobile screens with a dark UI and clear hierarchy</li>
+              <li>Prioritized fast navigation, stat readability, and user focused tracking</li>
+            </ul>
+          </section>
+
+          <!-- Experience -->
+          <section class="section">
+            <h2>Experience</h2>
+
+            <div class="item-title">Cornell Athletic Fan Event Staff</div>
+            <div class="item-meta">November 2025</div>
+            <ul>
+              <li>Supported in game elements including music, videoboard, promotions, and event operations</li>
+            </ul>
+
+            <div class="item-title is-spaced">Museum Ground, Operating Assistant</div>
+            <div class="item-meta">South Korea, March 2019 to January 2020</div>
+            <ul>
+              <li>Assisted preparation of exhibits and supported event organization</li>
+            </ul>
+
+            <div class="item-title is-spaced">Kids Future Foundation, Teaching Assistant</div>
+            <div class="item-meta">South Korea, September 2018 to August 2020</div>
+            <ul>
+              <li>Worked with elementary students on drawing and supported program staff</li>
+            </ul>
+
+            <div class="item-title is-spaced">Educational Toolkit Assistant</div>
+            <div class="item-meta">South Korea, March 2020 to 2022</div>
+            <ul>
+              <li>Conducted surveys for childrens art program development and organized findings</li>
+              <li>Helped organize data and client responses</li>
+            </ul>
+          </section>
+
+          <!-- Leadership -->
+          <section class="section">
+            <h2>Leadership</h2>
+
+            <div class="item-title">President, Korean Church at Cornell</div>
+            <div class="item-meta">Cornell University</div>
+            <ul>
+              <li>Led a campus organization serving over 100 members through weekly services and small groups</li>
+              <li>Oversaw leadership team across worship, outreach, and operations</li>
+              <li>Coordinated events, retreats, and guest speakers</li>
+              <li>Managed logistics and budget planning</li>
+              <li>Mentored members and supported an inclusive community</li>
+            </ul>
+          </section>
+
+          <!-- Skills -->
+          <section class="section">
+            <h2>Skills</h2>
+
+            <p><strong>Design tools</strong></p>
+            <p class="small">Figma, Adobe Illustrator, Adobe Photoshop, Fusion 360, HTML, Arduino IDE, C++</p>
+
+            <div class="spacer-sm"></div>
+
+            <p><strong>UX skills</strong></p>
+            <p class="small">Wireframing, UI design, user flows, prototyping, visual hierarchy</p>
+
+            <div class="spacer-sm"></div>
+
+            <p><strong>Research skills</strong></p>
+            <p class="small">Survey design, observation, data organization</p>
+          </section>
+
+          <!-- Certifications -->
+          <section class="section">
+            <h2>Certifications</h2>
+            <ul>
+              <li>Scholastic Art and Writing Awards, Gold Key 2019</li>
+              <li>Scholastic Art and Writing Awards, Silver Key and honorable mentions 2018</li>
+              <li>Celebrating Art Contest, multiple publication awards 2018 to 2021</li>
+            </ul>
+          </section>
         </div>
-
-        <div class="section">
-          <h2>UX and UI Project Experience</h2>
-
-          <div class="item-title">Cornell Enrollment Mobile App</div>
-          <div class="item-meta">Personal UX case study, 2025</div>
-          <ul>
-            <li>Redesigned the desktop enrollment system into a mobile first experience to reduce cognitive load during deadlines</li>
-            <li>Structured add, drop, and swap into guided flows with warnings and confirmation states</li>
-            <li>Converted dense tables into card based UI optimized for thumb use</li>
-            <li>Built a high fidelity interactive prototype in Figma covering the full journey</li>
-          </ul>
-
-          <div class="item-title" style="margin-top: 1rem;">VCT Sync</div>
-          <div class="item-meta">Personal project, 2024</div>
-          <ul>
-            <li>Designed an esports companion app focused on match results, stats, and tournament flow</li>
-            <li>Created over 20 mobile screens with a dark UI and clear hierarchy</li>
-            <li>Prioritized fast navigation, stat readability, and user focused tracking</li>
-          </ul>
-
-        <div class="section">
-          <h2>Experience</h2>
-
-          <div class="item-title">Cornell Athletic Fan Event Staff</div>
-          <div class="item-meta">November 2025</div>
-          <ul>
-            <li>Supported in game elements including music, videoboard, promotions, and event operations</li>
-          </ul>
-
-          <div class="item-title" style="margin-top: 1rem;">Museum Ground, Operating Assistant</div>
-          <div class="item-meta">South Korea, March 2019 to January 2020</div>
-          <ul>
-            <li>Assisted preparation of exhibits and supported event organization</li>
-          </ul>
-
-          <div class="item-title" style="margin-top: 1rem;">Kids Future Foundation, Teaching Assistant</div>
-          <div class="item-meta">South Korea, September 2018 to August 2020</div>
-          <ul>
-            <li>Worked with elementary students on drawing and supported program staff</li>
-          </ul>
-
-          <div class="item-title" style="margin-top: 1rem;">Educational Toolkit Assistant</div>
-          <div class="item-meta">South Korea, March 2020 to 2022</div>
-          <ul>
-            <li>Conducted surveys for childrens art program development and organized findings</li>
-            <li>Helped organize data and client responses</li>
-          </ul>
-        </div>
-
-        <div class="section">
-          <h2>Leadership</h2>
-          <div class="item-title">President, Korean Church at Cornell</div>
-          <div class="item-meta">Cornell University</div>
-          <ul>
-            <li>Led a campus organization serving over 100 members through weekly services and small groups</li>
-            <li>Oversaw leadership team across worship, outreach, and operations</li>
-            <li>Coordinated events, retreats, and guest speakers</li>
-            <li>Managed logistics and budget planning</li>
-            <li>Mentored members and supported an inclusive community</li>
-          </ul>
-        </div>
-
-        <div class="section">
-          <h2>Skills</h2>
-          <p><strong>Design tools</strong></p>
-          <p class="small">Figma, Adobe Illustrator, Adobe Photoshop, Fusion 360, HTML, Arduino IDE, C++</p>
-          <div style="height: 0.7rem;"></div>
-          <p><strong>UX skills</strong></p>
-          <p class="small">Wireframing, UI design, user flows, prototyping, visual hierarchy</p>
-          <div style="height: 0.7rem;"></div>
-          <p><strong>Research skills</strong></p>
-          <p class="small">Survey design, observation, data organization</p>
-        </div>
-
-        <div class="section">
-          <h2>Certifications</h2>
-          <ul>
-            <li>Scholastic Art and Writing Awards, Gold Key 2019</li>
-            <li>Scholastic Art and Writing Awards, Silver Key and honorable mentions 2018</li>
-            <li>Celebrating Art Contest, multiple publication awards 2018 to 2021</li>
-          </ul>
-        </div>
-
       </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
