@@ -209,7 +209,16 @@
     <div class="hero-section">
       <h1>Cornell Enrollment Mobile App</h1>
       <p>
-        A mobile first redesign of Cornell University Student Center focused on making add, drop, and swap feel clear and safe under time pressure.
+        Cornell’s current Student Center was designed primarily for desktop workflows. However, many students check
+        schedules, add courses, and manage enrollment while moving between classes or using their phones around campus.
+      </p>
+      <p>
+        This project explores how a mobile-first redesign could improve the enrollment experience by making actions
+        faster, clearer, and less stressful.
+      </p>
+      <p>
+        The redesign focuses on reducing cognitive load, improving visibility of enrollment status, and guiding
+        students safely through high-risk actions such as adding, dropping, and swapping courses.
       </p>
     </div>
 
@@ -224,153 +233,163 @@
       <section class="card">
         <h2>Overview</h2>
         <p>
-          The Cornell Enrollment Mobile App is a mobile first redesign of Cornell University Student Center. It transforms a complex enrollment portal into a guided smartphone experience built for clarity and confidence. The redesign focuses on reducing confusion and uncertainty during high stakes actions such as adding, dropping, and swapping classes.
+          Cornell’s Student Center was built for desktop workflows, yet students often manage enrollment on phones between classes.
+          This project reimagines the enrollment experience as a mobile‑first UX with faster, clearer, and less stressful interactions.
+          It focuses on reducing cognitive load, making status visible, and guiding users safely through add, drop, and swap actions.
         </p>
       </section>
 
       <section class="card">
         <h2>1. Empathize</h2>
         <p>
-          Enrollment is time sensitive and emotionally high stakes. Students are often making decisions quickly during add and drop week, sometimes on their phone between classes. I focused on where the current experience creates hesitation, anxiety, or avoidable mistakes, and what students need to feel confident pressing confirm.
+          To better understand how students interact with the enrollment system, I conducted informal interviews and
+          walkthrough sessions with Cornell undergraduates during add/drop week.
         </p>
-
-        <h3>What I looked for</h3>
-        <ul>
-          <li><strong>Where stress spikes.</strong> Moments where students pause, back out, or re-check because they are not sure what happens next.</li>
-          <li><strong>Mobile constraints.</strong> One-hand use, quick scanning, and interrupted usage while walking or multitasking.</li>
-          <li><strong>Risk perception.</strong> Why drop and swap feel irreversible, dangerous, or confusing even when the user knows what they want.</li>
-          <li><strong>Decision-making signals.</strong> The minimum info students need to choose quickly: status, conflict, impact, and confirmation.</li>
-        </ul>
-
-        <h3>Informal interviews and observations</h3>
         <p>
-          I ran quick informal interviews and walkthroughs with Cornell students where they showed how they currently check schedules, hunt for course info, and attempt add, drop, or swap. I paid attention to what they clicked first, what they ignored, and where they had to slow down to avoid mistakes.
+          Participants were asked to describe how they normally add, drop, or swap courses and were observed completing tasks
+          inside Student Center.
         </p>
-
+        <h3>Participants</h3>
         <ul>
-          <li><strong>Confidence matters as much as information.</strong> Students want to know what will happen before submitting. Confirmation is as important as navigation.</li>
-          <li><strong>Students want direct access to key actions.</strong> They do not want to hunt through menus to reach schedule, search, add, drop, and swap.</li>
-          <li><strong>Students want clarity on rules and consequences.</strong> Waitlist behavior, time conflicts, unit limits, and what swap actually does should be explained in plain language.</li>
-          <li><strong>Status is the first thing they scan.</strong> Open, Waitlist, and Closed need to be visible immediately without reading a dense table.</li>
+          <li>6 Cornell undergraduate students</li>
+          <li>First‑year to senior</li>
+          <li>Majors across engineering, arts, and sciences</li>
         </ul>
-
-        <div class="image-group">
-          <h3>Research synthesis</h3>
-          <p class="caption">
-            I translated raw notes into grouped themes to guide design decisions. This helped me prioritize speed, trust during risky actions, reduced cognitive load, and better failure-state handling.
-          </p>
-          <img src="../images/CE Ideation.PNG" alt="Course registration UX improvements brainstorm and theme clusters">
-        </div>
+        <p>During these conversations, several patterns emerged.</p>
+        <ul>
+          <li>Students frequently hesitate before confirming enrollment changes because they are unsure what will happen next. Many re‑read confirmation screens multiple times before pressing confirm.</li>
+          <li>The swap feature was often described as confusing or risky, since replacing a course can unintentionally remove a class that students still want to keep.</li>
+          <li>Important information such as seat availability, waitlist status, and time conflicts is buried inside dense tables.</li>
+          <li>Another common behavior was that students manually double-check their schedule after submitting an enrollment action because they do not fully trust the system feedback.</li>
+        </ul>
+        <p>
+          These observations revealed that the core issue was not only navigation complexity, but lack of confidence during
+          high‑stakes enrollment actions.
+        </p>
       </section>
 
       <section class="card">
         <h2>2. Define</h2>
         <p>
-          <strong>People problem:</strong> During add and drop week, students need to make high stakes academic decisions quickly, often while moving between buildings. The current enrollment experience is confusing and not mobile friendly, which increases stress and the risk of mistakes.
+          Based on the research insights, the main problem became clear.
         </p>
-
-        <h3>Core problems to solve</h3>
+        <p>
+          Students need a faster and safer way to add, drop, and swap classes on mobile devices without feeling uncertain about
+          the outcome of their actions. The current system slows decision-making because it requires navigating multiple pages
+          and interpreting dense tables of information.
+        </p>
+        <h3>Design goals</h3>
         <ul>
-          <li><strong>Navigation complexity.</strong> Students jump between multiple pages and dense menus. The flow is hard to follow when rushed.</li>
-          <li><strong>Lack of trust during risky actions.</strong> Drop and swap are not explained clearly. Students do not feel reassured that the action is safe or reversible.</li>
-          <li><strong>Cluttered information display.</strong> Long tables make scanning difficult. Status such as Open, Waitlist, and Closed is not visually prominent enough to support fast decisions.</li>
-          <li><strong>Weak feedback loops.</strong> After submitting, students still feel unsure whether the change actually processed correctly.</li>
+          <li>Reduce cognitive load – Course information should be presented in scannable layouts rather than large tables of text.</li>
+          <li>Increase confidence in risky actions – Students should clearly understand what will happen before confirming enrollment changes.</li>
+          <li>Improve mobile navigation – Important actions such as adding, dropping, and swapping courses should be accessible with fewer steps.</li>
+          <li>Improve system feedback – The interface should clearly communicate when enrollment actions succeed or fail.</li>
         </ul>
-
-        <p style="margin-top: 0.8rem; color: var(--muted); line-height: 1.75; font-size: 0.92rem;">
-          <strong>Target audience:</strong> Cornell undergraduates ages 18 to 25 who manage enrollment during busy academic periods and want fast decisions, clear feedback, and mobile convenience without needing a laptop.
-        </p>
-
-        <p style="margin-top: 0.6rem; color: var(--muted); line-height: 1.75; font-size: 0.92rem;">
-          <strong>Goal:</strong> Create a mobile first enrollment experience that makes add, drop, and swap feel clear, guided, and safe by reducing clutter, simplifying navigation, and providing strong feedback and confirmations.
-        </p>
       </section>
 
       <section class="card">
         <h2>3. Ideate</h2>
         <p>
-          Based on the problems above, I explored solution directions that reduce stress and cognitive load while respecting enrollment constraints. The goal was to make the interface feel predictable: students should always know what step they are on, what will happen next, and what changed after submitting.
+          After synthesizing the research insights, I explored ways to restructure the enrollment experience for mobile use.
+          Brainstorming focused on improving four aspects of the current system:
         </p>
-
-        <h3>Design directions</h3>
         <ul>
-          <li><strong>Simplify layout.</strong> Replace table-heavy pages with card-based UI and highlight only the information students need to decide quickly.</li>
-          <li><strong>Make actions guided.</strong> Break add, drop, and swap into structured steps: select, review, confirm, result.</li>
-          <li><strong>Build trust.</strong> Add warnings before risky actions and confirmation screens that clearly state what changed with one clear next step.</li>
-          <li><strong>Create a clear navigation system.</strong> Use bottom navigation for key tasks: Home, Search, Schedule, Enrollment Hub, Profile.</li>
+          <li>reducing cognitive load when scanning course information</li>
+          <li>increasing confidence when performing high-risk actions</li>
+          <li>improving navigation speed for common tasks</li>
+          <li>handling edge cases such as schedule conflicts or prerequisites
         </ul>
-
-        <h3>What I prioritized from research</h3>
-        <ul>
-          <li><strong>Mobile-first speed.</strong> Reduce taps, reduce reading, reduce page-hunting.</li>
-          <li><strong>Status visibility.</strong> Make Open, Waitlist, Closed scannable where decisions happen.</li>
-          <li><strong>Edge cases and recovery.</strong> Support time conflicts, full classes, and “what do I do now” moments.</li>
-          <li><strong>Psychological safety.</strong> Make risky actions feel reversible and clearly explained before the user commits.</li>
-        </ul>
+        <p>
+          One important concept that emerged was shifting enrollment from a form-based system into a guided workflow. Instead of
+          asking students to navigate complex tables and forms, the redesigned experience would guide them through a step-by-step
+          process for adding, dropping, or swapping classes.
+        </p>
+        <p>
+          Another idea involved replacing dense course tables with card-based layouts, allowing students to quickly scan course
+          names, seat availability, and class times.
+        </p>
+        <p>These ideas helped establish the foundation for the wireframe prototypes.</p>
       </section>
 
       <section class="card">
         <h2>4. Prototype</h2>
+        <h3>Mid-Fidelity Wireframes</h3>
         <p>
-          I created an interactive mobile prototype that reflects a realistic enrollment journey, from checking today’s schedule to safely confirming schedule changes. I started with mid-fidelity wireframes to lock the structure and flow logic, then moved into high-fidelity screens for clarity and polish.
+          Mid-fidelity wireframes were created to test navigation structure and enrollment flows before moving into visual design.
+          The wireframes focused on several key improvements.
         </p>
-
-        <h3>Mid-fidelity wireframes</h3>
-        <p>
-          Mid-fidelity helped me test hierarchy, spacing, and task flow without getting distracted by visuals. The focus here was: can a student complete add, drop, and swap quickly, and do they feel safe doing it?
-        </p>
+        <ul>
+          <li>Clear action hierarchy made common actions such as add, drop, and swap easier to find.</li>
+          <li>Step-by-step enrollment flows guided students through each stage of the process.</li>
+          <li>Course information was organized into card layouts instead of tables to improve scanability.</li>
+          <li>Seat availability, waitlist status, and schedule conflicts were made more visible.</li>
+        </ul>
+        <p>Key flows designed during this stage included:</p>
+        <ul>
+          <li>Student Center dashboard</li>
+          <li>Adding a course</li>
+          <li>Swapping a course</li>
+          <li>Dropping a course</li>
+          <li>Viewing schedule blocks</li>
+        </ul>
+        <p>These wireframes allowed rapid iteration on layout and interaction patterns before introducing branding and visual styling.</p>
 
         <div class="image-group">
           <h3>Mid-fidelity exploration</h3>
-          <p class="caption">
-            Early wireframes exploring guided enrollment steps, simplified cards, schedule visibility, and strong confirmation patterns. (Midfi 1 to Midfi 5)
-          </p>
-
+          <p class="caption">Early wireframes exploring guided enrollment steps, simplified cards, schedule visibility, and strong confirmation patterns.</p>
           <div class="img-grid">
-            <img src="../images/VS Midfi 1.png" alt="Mid fidelity exploration 1">
-            <img src="../images/VS Midfi 2.png" alt="Mid fidelity exploration 2">
-            <img src="../images/VS Midfi 3.png" alt="Mid fidelity exploration 3">
-            <img src="../images/VS Midfi 4.png" alt="Mid fidelity exploration 4">
-            <img src="../images/VS Midfi 5.png" alt="Mid fidelity exploration 5">
+            <img src="../images/CE Midfi 1.png" alt="Mid fidelity exploration 1">
+            <img src="../images/CE Midfi 2.png" alt="Mid fidelity exploration 2">
           </div>
         </div>
-        
+
         <div class="divider"></div>
 
-        <h3>High-fidelity prototype</h3>
+        <h3>High-Fidelity Design</h3>
         <p>
-          Once the structure was validated, I moved into high-fidelity screens to finalize the UI system and strengthen clarity through typography, spacing, and action hierarchy.
+          After validating the enrollment flows through mid-fidelity wireframes, high-fidelity screens were created to refine typography,
+          color hierarchy, and visual clarity.
         </p>
+        <p>The final design introduces several improvements.</p>
+        <ul>
+          <li>Course tables were replaced with card-based layouts that make class information easier to scan.</li>
+          <li>Clear status indicators show whether a class is Open, Waitlist, or Closed.</li>
+          <li>Guided step-by-step enrollment flows help students safely complete actions.</li>
+          <li>Visual schedule blocks allow students to quickly detect time conflicts.</li>
+          <li>Stronger confirmation states communicate when enrollment actions succeed.</li>
+        </ul>
+        <p>Cornell’s red color was used as the primary accent to maintain institutional branding while highlighting important actions.</p>
 
         <div class="image-group">
           <h3>High-fidelity screens</h3>
-          <p class="caption">
-            Final mobile designs demonstrating the guided enrollment flow, strong confirmation feedback, and reduced cognitive load. (CE 1 to CE 5)
-          </p>
-
+          <p class="caption">Final mobile designs demonstrating the guided enrollment flow, strong confirmation feedback, and reduced cognitive load.</p>
           <div class="img-grid">
-            <img src="../images/CE 1.png" alt="High fidelity screen 1">
-            <img src="../images/CE 2.png" alt="High fidelity screen 2">
-            <img src="../images/CE 3.png" alt="High fidelity screen 3">
-            <img src="../images/CE 4.png" alt="High fidelity screen 4">
-            <img src="../images/CE 5.png" alt="High fidelity screen 5">
+            <img src="../images/CE Hifi 1.png" alt="High fidelity screen 1">
+            <img src="../images/CE Hifi 2.png" alt="High fidelity screen 2">
+            <img src="../images/CE Hifi 3.png" alt="High fidelity screen 3">
+            <img src="../images/CE Hifi 4.png" alt="High fidelity screen 4">
+            <img src="../images/CE Hifi 5.png" alt="High fidelity screen 5">
           </div>
         </div>
 
-        <h3>Testing and iteration</h3>
+        <h3>Testing</h3>
         <p>
-          I ran quick usability checks with students using realistic tasks: add a class, verify it appears on the schedule, drop safely with a warning, and complete a swap without confusion. The goal was not just completion, but confidence.
+          To evaluate the usability of the redesigned interface, quick usability testing sessions were conducted with Cornell students.
+          Participants were asked to complete three common tasks using the prototype:
         </p>
-
         <ul>
-          <li><strong>Participants:</strong> 6 Cornell undergraduates across different years.</li>
-          <li><strong>Tasks:</strong> Add from search, confirm enrollment, check schedule, drop with warning, swap course A to course B.</li>
-          <li><strong>What improved:</strong> Faster scanning for status, fewer “back” clicks, and more confidence after success screens.</li>
-          <li><strong>What I refined:</strong> Clearer swap comparison, stronger primary CTA on success screens, and consistent placement for status indicators.</li>
+          <li>Add a class</li>
+          <li>Swap a class</li>
+          <li>Drop a class</li>
         </ul>
-
-        <p style="margin-top: 0.8rem; color: var(--muted); line-height: 1.75; font-size: 0.92rem;">
-          This redesign does not only modernize the interface. It improves how students feel while using the system by reducing uncertainty, increasing confidence during risky actions, and enabling faster decision-making in time-sensitive enrollment moments.
+        <p>
+          Students were able to complete these tasks faster and with less hesitation compared to the current Student Center interface.
+          Participants noted that the swap preview helped them feel more confident about replacing a course. The visual schedule blocks made
+          time conflicts easier to understand. Confirmation screens clearly communicated when enrollment actions were successful.
+        </p>
+        <p>
+          These results suggest that improving visibility, system feedback, and structured workflows can significantly reduce uncertainty
+          during enrollment.
         </p>
       </section>
 

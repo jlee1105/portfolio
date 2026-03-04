@@ -183,9 +183,13 @@
     <!-- Empathize -->
     <section class="card">
       <h2>1. Empathize</h2>
-      <p>
-        This research involved semi-structured interviews with several active VCT viewers, ranging from casual followers to competitive ranked players. Rather than profiling individuals, the focus was on common patterns that surfaced in real tasks.
-      </p>
+      <h3>Understanding the Esports Viewing Experience</h3>
+      <p>Valorant Champions Tour matches occur across different regions and time zones, making it difficult for fans to follow every game live. To understand how viewers currently track tournament progress, I conducted short interviews with several esports fans who regularly follow competitive Valorant.</p>
+      <p>Participants described relying on a mix of sources such as tournament websites, Liquipedia pages, social media updates, and live streams to stay informed. While these platforms provide detailed information, they often require navigating multiple pages to access basic details like match results, schedules, and team statistics.</p>
+      <p>Many participants mentioned that they frequently check match updates while multitasking during work, school, or gameplay. Because of this, they prefer interfaces that allow them to quickly glance at essential information rather than navigating complex tournament pages.</p>
+      <p>Another consistent insight was that users rarely follow every match in a tournament. Instead, they often track specific teams they care about, checking schedules primarily to see when those teams are playing.</p>
+      <p>These conversations revealed an opportunity to design an experience that focuses on speed, clarity, and team-centered viewing.</p>
+
       <h3>Participants</h3>
       <p>I spoke with three VCT fans with different viewing habits:</p>
       <ul>
@@ -193,39 +197,18 @@
         <li><strong>Participant B:</strong> Watches highlights and checks scores between classes</li>
         <li><strong>Participant C:</strong> Ranked player, uses stats to learn and improve</li>
       </ul>
+
       <h3>Method</h3>
-      <p>Semi-structured interviews plus task walkthroughs on mobile. I asked participants to use their current apps and talk out loud while completing the same tasks.</p>
-      <h3>Research approach</h3>
-      <p>To understand real usage behavior rather than surface-level opinions, I structured interviews around task-based walkthroughs. Participants were asked to:</p>
-      <ul>
-        <li>Find the result of a missed match</li>
-        <li>Identify what shifted momentum</li>
-        <li>Navigate from live match to bracket</li>
-        <li>Locate roster information</li>
-      </ul>
-      <p>I observed hesitation points, scanning behavior, and navigation patterns.</p>
-      <h3>Observed patterns</h3>
-      <p>Across interviews, three consistent behaviors emerged:</p>
-      <ul>
-        <li>Participants looked for score first, then immediately searched for context.</li>
-        <li>Users skipped dense stat tables unless they were highly engaged fans.</li>
-        <li>Navigation friction increased dramatically on mobile screens.</li>
-      </ul>
-      <p>I noted how long it took to locate key information and where confusion arose.</p>
-      <h3>What users kept repeating</h3>
-      <ul>
-        <li><em>"I want to know what mattered fast, not scroll through numbers"</em></li>
-        <li><em>"I hate when ads break the flow, it makes me leave the app"</em></li>
-        <li><em>"I check score first, then I need a quick explanation of how the match swung"</em></li>
-        <li><em>"Brackets are confusing on mobile when everything is tiny"</em></li>
-      </ul>
+      <p>Semi‑structured interviews plus task walkthroughs on mobile. I asked participants to use their current apps and talk out loud while completing the same tasks.</p>
+
       <h3>Research synthesis</h3>
       <p>Affinity mapping of interview notes surfaced three core themes:</p>
       <ul>
         <li>Fans want contextual storytelling, not just final scores</li>
         <li>Intrusive ads damage trust and interrupt focus</li>
-        <li>Dense layouts increase cognitive load during quick check-ins</li>
+        <li>Dense layouts increase cognitive load during quick check‑ins</li>
       </ul>
+
       <div class="image-caption">Affinity map: Interview themes and behavioral patterns.</div>
       <div class="image-group">
         <img src="../images/VCT Interview.png" alt="Research affinity map" />
@@ -235,50 +218,30 @@
     <!-- Define -->
     <section class="card">
       <h2>2. Define</h2>
-      <h3>Problem statement</h3>
-      <p>When VCT fans miss a match, they want to catch up in under 60 seconds. Current esports apps make this hard because they prioritize dense stat tables and monetized layouts over a clear story of what changed and what it means for the tournament.</p>
-      <h3>Design principles</h3>
+      <h3>Identifying the core problem</h3>
+      <p>Esports fans need a faster and more focused way to track matches, follow their favorite teams, and understand tournament progress without navigating complex tournament interfaces.</p>
+      <h3>Design goals</h3>
       <ul>
-        <li><strong>Scan first design:</strong> Score, momentum, and bracket impact visible within one screen</li>
-        <li><strong>Context over volume:</strong> Show the few stats that explain the outcome, hide the rest until requested</li>
-        <li><strong>Zero interruption:</strong> No disruptive ad placements and no clutter that breaks focus</li>
-        <li><strong>Spoiler control:</strong> Users choose how much is revealed when browsing</li>
+        <li>Improve scanability – quickly identify matchups, scores, and upcoming matches.</li>
+        <li>Support team‑centered navigation – enable fans to follow specific teams easily.</li>
+        <li>Reduce information overload – prioritize essential match information while keeping deeper statistics accessible.</li>
       </ul>
-      <h3>Design goal</h3>
-      <p>Create a narrative-driven, mobile-first experience that surfaces what mattered most while reducing cognitive load.</p>
-      <h3>Scope</h3>
-      <p>VCT Sync focuses on match catch-up and tournament tracking. It does not try to replace full VOD viewing or deep analytics sites.</p>
     </section>
 
     <!-- Ideate -->
     <section class="card">
       <h2>3. Ideate</h2>
-      <p>
-        With research themes identified, the process moved into structured ideation. Each idea was framed against research insights to ensure alignment with user needs.
-      </p>
-      <h3>How might we</h3>
+      <p>With a clearer understanding of the problem space, I began exploring ways to structure esports information within a mobile interface. Early brainstorming focused on organizing match information into patterns that would support quick browsing. Several layout concepts were explored, including list‑based views, simplified bracket diagrams, and card‑based match displays. Through this exploration, the card‑based match layout emerged as the most effective solution. Cards allow match information such as team names, scores, and match times to be grouped into a single visual component, making it easier for users to scan multiple matches quickly.</p>
+      <p>Additional ideas explored during this phase included:</p>
       <ul>
-        <li>How might we help fans understand momentum without reading a full stat table?</li>
-        <li>How might we make bracket impact obvious on mobile?</li>
-        <li>How might we keep the experience focused without disruptive monetization?</li>
+        <li>Simplifying tournament bracket structures</li>
+        <li>Highlighting match results visually</li>
+        <li>Allowing users to prioritize favorite teams</li>
       </ul>
-      <h3>Concepts explored</h3>
-      <ul>
-        <li>Momentum timeline with pivotal rounds labeled</li>
-        <li>Match summary cards: turning point, clutch player, and key stat</li>
-        <li>Spoiler mode toggle for navigation</li>
-        <li>Bracket view with highlight of next match and stakes</li>
-        <li>Lightweight reactions or chat layer for shared viewing</li>
-      </ul>
-      <h3>What I prioritized and why</h3>
-      <p>I prioritized momentum storytelling plus fast navigation because every participant started with score, then immediately searched for context. Community features were kept lightweight to avoid clutter and keep the core flow fast.</p>
-      <div class="image-caption">Concept sketches and mid-fidelity exploration.</div>
+      <div class="image-caption">Concept sketches and mid‑fidelity exploration.</div>
       <div class="image-group">
-        <img src="../images/VS Midfi 1.png" alt="Mid fidelity exploration 1">
-        <img src="../images/VS Midfi 2.png" alt="Mid fidelity exploration 2">
-        <img src="../images/VS Midfi 3.png" alt="Mid fidelity exploration 3">
-        <img src="../images/VS Midfi 4.png" alt="Mid fidelity exploration 4">
-        <img src="../images/VS Midfi 5.png" alt="Mid fidelity exploration 5">
+        <img src="../images/VCT Midfi 1.png" alt="Mid‑fi exploration 1">
+        <img src="../images/VCT Midfi 2.png" alt="Mid‑fi exploration 2">
       </div>
     </section>
 
@@ -286,6 +249,13 @@
     <!-- Prototype -->
     <section class="card">
       <h2>4. Prototype</h2>
+      <p>After narrowing down the most promising ideas, I developed mid‑fidelity wireframes to refine the structure and interaction flow of the application. At this stage, the focus shifted toward establishing clear information hierarchy and repeatable interface patterns. Match cards were introduced as the primary container for tournament data. Each card displays team matchups, scores, and match timing in a format that allows users to quickly scan through multiple matches. To support readability, I established a typography hierarchy using the Inter typeface:</p>
+      <ul>
+        <li>Bold weights for section headers</li>
+        <li>Semi‑bold weights for team names and matchups</li>
+        <li>Regular weights for supporting information such as match time and statistics</li>
+      </ul>
+      <p>Mid‑fidelity designs intentionally removed team logos, images, and colors. Instead, placeholders were used to represent visual elements. This allowed the layout and interaction patterns to be evaluated independently from visual styling. These wireframes served as the structural blueprint before introducing branding and visual design in the high‑fidelity stage.</p>
       <h3>Primary flow</h3>
       <ol>
         <li>Open the app and land on Live or Recent matches</li>
@@ -294,14 +264,11 @@
         <li>Jump into bracket to see what the result changes</li>
         <li>Optional: open deeper stats only if needed</li>
       </ol>
-      <p>An interactive high-fidelity prototype was developed to test this flow and validate hierarchy decisions.</p>
-      <div class="image-caption">High-fidelity prototype screens.</div>
+      <p>An interactive high‑fidelity prototype was developed to test this flow and validate hierarchy decisions.</p>
+      <div class="image-caption">High‑fidelity prototype screens.</div>
       <div class="image-group">
-        <img src="../images/VCT SYNC 1.png" alt="Live dashboard">
-        <img src="../images/VCT SYNC 2.png" alt="Match detail">
-        <img src="../images/VCT SYNC 3.png" alt="Bracket view">
-        <img src="../images/VCT SYNC 4.png" alt="Team view">
-        <img src="../images/VCT SYNC 5.png" alt="Additional details">
+        <img src="../images/VCT Hifi 1.png" alt="Live dashboard">
+        <img src="../images/VCT Hifi 2.png" alt="Match detail">
       </div>
     </section>
 
@@ -309,7 +276,7 @@
     <section class="card">
       <h2>5. Test</h2>
       <h3>Testing setup</h3>
-      <p>I ran two rounds of task-based walkthrough testing with three participants on mobile to validate design decisions.</p>
+      <p>I ran two rounds of task‑based walkthrough testing with three participants on mobile to validate design decisions.</p>
       <h3>Tasks</h3>
       <ul>
         <li>Find who won a missed match</li>
@@ -317,19 +284,22 @@
         <li>Explain how it affects bracket progression</li>
         <li>Find a team roster and top performer</li>
       </ul>
-      <h3>What improved</h3>
+      <p>The card‑based match layout proved effective for quickly scanning scores and identifying upcoming games. Participants were able to navigate between match lists, team pages, and tournament brackets without confusion. However, testing also revealed several areas for improvement. Some users initially overlooked the bracket navigation option, suggesting that the tournament section needed stronger visual cues. Others suggested clearer distinctions between completed matches and upcoming games.</p>
+      <h3>Improvements</h3>
       <ul>
         <li>Participants reached the match outcome faster because score hierarchy was visually dominant</li>
         <li>Participants explained momentum with fewer stops because pivotal rounds were labeled</li>
         <li>Bracket navigation felt clearer after increasing spacing and reducing visual noise</li>
         <li>Users no longer needed to switch platforms to understand match context</li>
       </ul>
+      <p>Based on this feedback, I refined the layout by improving section labels, adjusting spacing between match cards, and strengthening the visual hierarchy between live matches, upcoming matches, and completed results. These improvements helped ensure the interface remained easy to navigate while supporting both quick score checking and deeper exploration of tournament data.</p>
       <h3>Next tests</h3>
       <ul>
         <li>Validate spoiler mode behavior with more users</li>
         <li>A/B test two momentum layouts: timeline vs. key moments list</li>
         <li>Evaluate where monetization can exist without interruption</li>
       </ul>
+      <p>With the structural layout validated through mid‑fidelity testing, I moved into high‑fidelity design. This stage introduced team branding, esports‑inspired visual elements, and a darker interface theme designed to emphasize match information while maintaining readability. The final design preserves the clear information hierarchy established during wireframing while creating a more immersive and visually engaging experience for esports fans.</p>
     </section>
 
     <!-- Iteration example: match hierarchy -->
