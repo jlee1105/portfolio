@@ -1,0 +1,476 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boston Bruins Fan Experience | YJ Lee</title>
+  <link rel="canonical" href="https://yjleeportfolio.vercel.app/boston-bruins/boston-bruins.html" />
+  <meta name="description" content="Boston Bruins Fan Experience case study by YJ Lee." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:#050505;
+      --card:#101010;
+      --card-2:#171717;
+      --gold:#d4af37;
+      --gold-soft:rgba(212,175,55,.12);
+      --gold-border:rgba(212,175,55,.28);
+      --text:#f5f5f5;
+      --muted:#a1a1aa;
+      --radius:1.5rem;
+      --shadow:0 18px 45px rgba(0,0,0,.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background: radial-gradient(circle at top, #171717 0, var(--bg) 52%);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.25rem 1.25rem 4rem;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.65rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid var(--gold-border);
+      background: rgba(212,175,55,.06);
+      color: #f7e7b0;
+      font-weight: 600;
+    }
+
+    .back:hover {
+      background: rgba(212,175,55,.12);
+      box-shadow: 0 0 18px rgba(212,175,55,.14);
+    }
+
+    .kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #f7e7b0;
+      font-weight: 700;
+    }
+
+    .hero {
+      border: 1px solid var(--gold-border);
+      border-radius: 1.75rem;
+      background: linear-gradient(145deg, rgba(212,175,55,.08), rgba(255,255,255,.02));
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(212,175,55,.18), transparent 38%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.1rem, 3.2vw, 3rem);
+      line-height: 1.08;
+      margin-bottom: 1rem;
+      color: #f7e7b0;
+    }
+
+    .hero p {
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 760px;
+      font-size: 1rem;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(212,175,55,.06);
+      border: 1px solid var(--gold-border);
+      color: #f0e2a2;
+      font-size: 0.82rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .card {
+      border-radius: var(--radius);
+      border: 1px solid var(--gold-border);
+      background: linear-gradient(180deg, var(--card), var(--card-2));
+      padding: 1.35rem 1.4rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,.3);
+    }
+
+    .card h2 {
+      color: #f0d57a;
+      font-size: 1.08rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .card h3 {
+      color: #f0d57a;
+      font-size: 0.96rem;
+      margin-top: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .card ul {
+      padding-left: 1.15rem;
+      margin-top: 0.55rem;
+    }
+
+    .image-caption {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 1rem;
+    }
+
+    .image-group {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .image-group img {
+      width: 100%;
+      display: block;
+      border-radius: 1rem;
+      border: 1px solid var(--gold-border);
+      background: #0a0a0a;
+      padding: 0.35rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,.35);
+    }
+
+    .single {
+      grid-template-columns: 1fr;
+      max-width: 940px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .callout {
+      border-left: 3px solid var(--gold);
+      padding-left: 1rem;
+      margin-top: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      .hero {
+        padding: 2rem 1.35rem;
+      }
+
+      .image-group {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 1.15rem 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="top">
+      <a class="back" href="../index.html">← Back</a>
+      <div class="kicker">Case Study</div>
+    </div>
+
+    <section class="hero">
+      <h1>Boston Bruins Fan Experience</h1>
+      <p>
+        A mobile app concept for Boston Bruins fans focused on making game day easier to follow, more immersive, and more emotionally engaging. The experience centers on score visibility, momentum, player impact, team identity, and fast access to what matters most during and between games.
+      </p>
+      <div class="meta-row">
+        <div class="pill">Sports UX</div>
+        <div class="pill">Mobile Product Design</div>
+        <div class="pill">Fan Engagement</div>
+        <div class="pill">Black & Gold UI</div>
+      </div>
+    </section>
+
+    <div class="grid">
+
+      <section class="card">
+        <h2>Overview</h2>
+        <p>
+          The Boston Bruins Fan Experience is a mobile concept designed to help Bruins fans follow games, stay connected to team content, and engage with the broader game day atmosphere in a way that feels fast, focused, and emotionally charged.
+        </p>
+        <p>
+          While many sports apps provide scores, schedules, and statistics, they often feel generic, league-first, and overly data-heavy. This project explores how a Bruins-focused mobile experience could better reflect how fans actually engage by emphasizing speed, momentum, team identity, and quick access to the moments that matter.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>1. Empathize</h2>
+        <h3>Understanding Bruins fans</h3>
+        <p>
+          To better understand how hockey fans currently follow their teams, I explored the behaviors and frustrations that shape the mobile sports experience, especially during live games. The goal was to identify what Bruins fans care about most when checking an app quickly and what currently feels missing in existing sports products.
+        </p>
+        <p>
+          Across this phase, several recurring behavior patterns became clear. Fans often check scores while multitasking during class, work, or other activities. In these moments, they are not looking to browse deeply. They want instant answers.
+        </p>
+        <p>
+          They also tend to care more about key moments, momentum swings, and standout players than a full wall of statistics. For many fans, the current sports app experience feels functional but not emotionally engaging.
+        </p>
+
+        <h3>User behaviors</h3>
+        <ul>
+          <li>Checks score quickly during class or work</li>
+          <li>Watches games while multitasking</li>
+          <li>Opens the app for instant updates, not deep browsing</li>
+          <li>Cares about big plays more than full stat tables</li>
+          <li>Switches between ESPN, NHL, and social media</li>
+        </ul>
+
+        <h3>Pain points</h3>
+        <ul>
+          <li>Score is sometimes buried under too much content</li>
+          <li>Momentum is hard to understand from raw stats alone</li>
+          <li>Too many screens are required to get basic game information</li>
+          <li>Existing apps often feel league-focused instead of team-focused</li>
+          <li>The live experience feels static and not energetic enough</li>
+        </ul>
+
+        <h3>Competitive scan</h3>
+        <p><strong>NHL App</strong><br>Strong data coverage, but feels too league-heavy and emotionally flat.</p>
+        <p><strong>Dallas Stars App</strong><br>Good team branding and fan identity, but the live game experience still feels limited.</p>
+        <p><strong>Bleacher Report</strong><br>High urgency and personality with fast updates, but less structured for team tracking and game-focused navigation.</p>
+
+        <div class="callout">
+          <p>
+            Key insight: Bruins fans do not want more data. They want fast understanding of what is happening and why it matters.
+          </p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>2. Define</h2>
+        <h3>Problem statement</h3>
+        <p>
+          Bruins fans need a faster and more immersive way to understand game status and momentum because many current sports apps prioritize data and navigation over clarity, emotion, and team-first engagement.
+        </p>
+
+        <h3>Key needs</h3>
+        <ul>
+          <li>Instant score visibility</li>
+          <li>Clear understanding of momentum</li>
+          <li>Player impact recognition</li>
+          <li>Fast navigation between game, team, news, and shop</li>
+          <li>Strong Bruins identity throughout the experience</li>
+        </ul>
+
+        <h3>How might we</h3>
+        <ul>
+          <li>How might we help fans understand a game in under 3 seconds?</li>
+          <li>How might we show momentum instead of just statistics?</li>
+          <li>How might we make the app feel like game day rather than a dashboard?</li>
+          <li>How might we reduce navigation friction across core fan tasks?</li>
+        </ul>
+
+        <h3>Design principles</h3>
+        <ul>
+          <li>Clarity first</li>
+          <li>Emotion matters</li>
+          <li>Scanability over depth</li>
+          <li>Team-first experience</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>3. Ideate</h2>
+        <p>
+          Once the problem was clearly defined, I explored features that could translate those insights into a stronger fan experience. The goal was to organize the app around the moments Bruins supporters care about most, instead of trying to surface everything equally.
+        </p>
+
+        <h3>Feature brainstorm</h3>
+        <p><strong>Live Game</strong><br>Score-first layout, momentum section, key moments, top player highlight</p>
+        <p><strong>News</strong><br>Trade alerts, recap cards, player updates, game day stories</p>
+        <p><strong>Shop</strong><br>Featured jerseys, game day merchandise, fan favorites, product detail flow</p>
+        <p><strong>Team</strong><br>Roster, statistics, player spotlight, team identity content</p>
+
+        <h3>Feature prioritization</h3>
+        <ul>
+          <li><strong>Primary focus:</strong> live game experience, game hub, news</li>
+          <li><strong>Secondary:</strong> momentum visualization, player spotlight</li>
+          <li><strong>Exploration:</strong> community, advanced stats</li>
+        </ul>
+
+        <h3>Core flows</h3>
+        <ul>
+          <li>Follow Game: Home → Game → Live / Stats / Players</li>
+          <li>Check Team: Home → Team → Roster / Stats</li>
+          <li>Shop: Home → Shop → Product Details</li>
+        </ul>
+
+        <h3>Information architecture</h3>
+        <ul>
+          <li>Home</li>
+          <li>Games</li>
+          <li>Team</li>
+          <li>News</li>
+          <li>Tickets</li>
+          <li>Shop</li>
+        </ul>
+
+        <div class="image-caption">FigJam process boards: research synthesis, problem framing, feature exploration, and validation planning.</div>
+        <div class="image-group">
+          <img src="../images/BB figjam 1.png" alt="Bruins FigJam board 1">
+          <img src="../images/BB figjam 2.png" alt="Bruins FigJam board 2">
+          <img src="../images/BB figjam 3.png" alt="Bruins FigJam board 3">
+          <img src="../images/BB figjam 4.png" alt="Bruins FigJam board 4">
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>4. Prototype</h2>
+
+        <h3>Mid-fidelity wireframes</h3>
+        <p>
+          Before moving into full visual styling, I translated the concept into mid-fidelity wireframes to focus on structure, hierarchy, and navigation flow. At this stage, the goal was to validate whether users could understand the app quickly without relying on team branding, imagery, or visual polish.
+        </p>
+        <p>
+          The mid-fidelity direction focused on establishing a score-first experience, reducing clutter, and organizing screens around the moments fans care about most. This stage helped clarify layout priorities such as making the current game immediately visible, grouping related actions into tabs, and keeping navigation team-centered rather than league-centered.
+        </p>
+        <p>
+          Core wireframe screens included the home experience, game day flow, tickets, news, and team navigation. These layouts helped test whether the fan experience felt fast and scanable before visual identity was layered in.
+        </p>
+
+        <div class="image-caption">Mid-fidelity wireframes focused on hierarchy, scanability, and game-first navigation.</div>
+        <div class="image-group">
+          <img src="../images/BB Midfi 1.png" alt="Bruins mid-fidelity screen 1">
+          <img src="../images/BB Midfi 2.png" alt="Bruins mid-fidelity screen 2">
+          <img src="../images/BB Midfi 3.png" alt="Bruins mid-fidelity screen 3">
+          <img src="../images/BB Midfi 4.png" alt="Bruins mid-fidelity screen 4">
+        </div>
+
+        <h3>From mid-fi to high-fi</h3>
+        <p>
+          Once the structural direction felt clear, I moved into high-fidelity design by applying Bruins branding, stronger contrast, and more expressive visual hierarchy. The shift from mid-fi to high-fi was not about changing the core structure. Instead, it was about amplifying the emotional experience and making the interface feel unmistakably tied to Bruins culture.
+        </p>
+        <p>
+          In the high-fidelity stage, the design introduced black and gold branding, stronger card framing, more immersive imagery, and clearer emphasis on live game energy. Screens that were previously simple placeholders in mid-fi became richer, more specific, and more exciting while preserving the score-first and team-first logic established earlier.
+        </p>
+        <p>
+          This evolution helped transform the product from a clean sports utility into a more premium, game-day-focused fan experience.
+        </p>
+
+        <h3>High-fidelity prototype</h3>
+        <ul>
+          <li>Large score and matchup framing for instant clarity</li>
+          <li>Game hub with score, stats, and players as focused tabs</li>
+          <li>News section emphasizing urgency and relevance</li>
+          <li>Tickets and schedule presented as part of the broader game-day experience</li>
+          <li>Roster and statistics views designed for serious team-following behavior</li>
+          <li>Pro Shop flow integrated into the same black and gold identity</li>
+        </ul>
+
+        <div class="image-caption">High-fidelity concept screens showing how the fan experience became more immersive, branded, and emotionally engaging.</div>
+        <div class="image-group">
+          <img src="../images/BB Hifi 1.png" alt="Bruins high-fidelity screen 1">
+          <img src="../images/BB Hifi 2.png" alt="Bruins high-fidelity screen 2">
+          <img src="../images/BB Hifi 3.png" alt="Bruins high-fidelity screen 3">
+          <img src="../images/BB Hifi 4.png" alt="Bruins high-fidelity screen 4">
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>5. Test</h2>
+        <p>
+          In future testing, the experience would be evaluated around how quickly users can identify game status, move between key areas of the app, and understand momentum without friction.
+        </p>
+
+        <h3>Test plan</h3>
+        <p>
+          Goal: test whether users can quickly understand the current game and navigate the app without confusion.
+        </p>
+
+        <h3>Core tasks</h3>
+        <ul>
+          <li>Find the current score</li>
+          <li>Identify a top player or key performer</li>
+          <li>Find the next game</li>
+          <li>Browse a jersey in the Pro Shop</li>
+        </ul>
+
+        <h3>Expected findings</h3>
+        <ul>
+          <li>Users should find the score immediately</li>
+          <li>Navigation between game, team, news, and shop should feel intuitive</li>
+          <li>Momentum and game progression may need stronger emphasis</li>
+          <li>The app should feel more team-specific and emotionally engaging than league-first alternatives</li>
+        </ul>
+
+        <h3>Likely iterations</h3>
+        <ul>
+          <li>Increase score size and visual emphasis</li>
+          <li>Strengthen labels such as LIVE or TRADE</li>
+          <li>Improve hierarchy on the home screen</li>
+          <li>Make momentum more obvious in the game hub</li>
+        </ul>
+
+        <div class="callout">
+          <p>
+            The concept performs best when it focuses on immediate understanding and team-first clarity. The next step would be validating whether the app improves speed, emotional engagement, and game-day identity compared to current sports app patterns.
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>
