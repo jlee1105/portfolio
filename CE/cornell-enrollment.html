@@ -112,7 +112,7 @@
     }
 
     .hero-copy {
-      padding: 30px;
+      padding: 38px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -244,7 +244,7 @@
     .phone.five { right: 16%; bottom: 2%; transform: rotate(4deg); }
 
     .section {
-      padding: 26px 0;
+      padding: 56px 0;
     }
 
     .section-head {
@@ -252,7 +252,7 @@
       justify-content: space-between;
       align-items: end;
       gap: 18px;
-      margin-bottom: 18px;
+      margin-bottom: 32px;
     }
 
     .section-label {
@@ -341,13 +341,13 @@
 
     .story-grid {
       display: grid;
-      gap: 18px;
+      gap: 42px;
     }
 
     .story-block {
       display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      gap: 18px;
+      grid-template-columns: 1fr;
+      gap: 20px;
       align-items: start;
     }
 
@@ -356,8 +356,6 @@
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.03);
       padding: 18px;
-      position: sticky;
-      top: 96px;
     }
 
     .story-index-num {
@@ -378,21 +376,20 @@
 
     .story-content {
       display: grid;
-      gap: 16px;
+      gap: 24px;
     }
 
     .two-col {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1fr;
       gap: 18px;
-      align-items: center;
     }
 
     .side-by-side {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1fr;
       gap: 18px;
-      align-items: center;
+      align-items: start;
     }
 
     .side-copy {
@@ -401,6 +398,22 @@
       background: rgba(255,255,255,0.03);
       padding: 22px;
       box-shadow: var(--shadow);
+    }
+
+    .side-copy h4 {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      max-width: none;
+    }
+
+    .side-copy p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+      max-width: none;
     }
 
     .side-copy h4 {
@@ -425,11 +438,11 @@
     }
 
     .visual img {
-  width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
-  display: block;
-}
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      display: block;
+    }
 
     .caption {
       padding: 14px 16px 16px;
@@ -476,11 +489,11 @@
     }
 
     .full-bleed img {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  display: block;
-}
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      display: block;
+    }
 
     .result-grid {
       display: grid;
@@ -626,10 +639,10 @@
       <div class="shell hero-wrap">
         <div class="hero-copy">
           <div>
-            <div class="eyebrow">Cornell redesign concept</div>
+            
             <h1>Cornell Enrollment</h1>
             <p class="hero-subtitle">
-              A mobile-first redesign of Student Center focused on making add, drop, and swap feel faster, safer, and easier to trust during high-stakes enrollment moments.
+              Cornell’s current Student Center was designed primarily for desktop workflows. However, many students check schedules, add courses, and manage enrollment while moving between classes or using their phones around campus. This redesign explores how a mobile-first experience could make enrollment actions faster, clearer, and less stressful.
             </p>
             <div class="hero-tags">
               <span class="tag">Mobile UX</span>
@@ -671,20 +684,21 @@
       <div class="shell">
         <div class="section-head">
           <div>
+            <div>
             <div class="section-label">Overview</div>
-            <h2 class="section-title">What this redesign solves</h2>
+            <h2 class="section-title">Making enrollment feel less risky</h2>
           </div>
-          <p class="section-copy">This version shifts the page from class-project document energy into a cleaner product case study: fewer walls of text, stronger hierarchy, and screens that do more of the storytelling.</p>
+          <p class="section-copy">This case study keeps the original research and reasoning, but presents the screens more cleanly so the visuals and descriptions can work together without fighting for attention.</p>
         </div>
 
         <div class="overview">
           <div class="panel">
-            <div class="quote">Students were not just navigating slowly. They were hesitating because the system felt risky.</div>
+            <div class="quote">Students need a faster and safer way to add, drop, and swap classes on mobile without feeling uncertain about the outcome.</div>
             <p>
-              Cornell’s Student Center was built around desktop tables and multi-step utility flows. But students often manage enrollment on their phones between classes, under time pressure, and with real consequences if they make a mistake.
+              Cornell’s Student Center was built for desktop workflows, yet students often manage enrollment on phones between classes. The existing system slows decision-making because it requires navigating multiple pages and interpreting dense tables of information.
             </p>
             <p style="margin-top:12px;">
-              The redesign focuses on three things: making information easier to scan, making high-risk actions easier to understand, and making outcomes feel obvious the moment an action is completed.
+              The redesign focuses on reducing cognitive load, making status visible, and guiding users safely through high-risk actions like adding, dropping, and swapping courses.
             </p>
           </div>
 
@@ -717,13 +731,16 @@
           <div class="story-content">
             <div class="panel">
               <p>
-                I conducted informal interviews and walkthrough sessions with Cornell undergraduates during add/drop week. The most important pattern was not just navigation friction. It was low confidence.
+                To better understand how students interact with the enrollment system, I conducted informal interviews and walkthrough sessions with Cornell undergraduates during add/drop week.
+              </p>
+              <p>
+                Participants were asked to describe how they normally add, drop, or swap courses and were observed completing tasks inside Student Center.
               </p>
               <ul>
-                <li>Students re-read confirmation screens because they were unsure what would happen next.</li>
-                <li>The swap flow felt especially risky because replacing one course could accidentally remove another.</li>
-                <li>Seat availability, waitlists, and time conflicts were buried inside dense tables.</li>
-                <li>Many students manually checked their schedule again after submitting an action because they did not fully trust the feedback.</li>
+                <li>Students frequently hesitate before confirming enrollment changes because they are unsure what will happen next.</li>
+                <li>The swap feature was often described as confusing or risky, since replacing a course can unintentionally remove a class that students still want to keep.</li>
+                <li>Important information such as seat availability, waitlist status, and time conflicts is buried inside dense tables.</li>
+                <li>Students often double-check their schedule after submitting an enrollment action because they do not fully trust the system feedback.</li>
               </ul>
             </div>
 
@@ -765,13 +782,16 @@
           <div class="story-content">
             <div class="panel">
               <p>
-                Instead of treating enrollment like a form-heavy admin workflow, I reframed it as a guided mobile product flow. The redesign replaces tables with cards, makes status visible earlier, and walks users step by step through add, drop, and swap.
+                After synthesizing the research insights, I explored ways to restructure the enrollment experience for mobile use. One important concept that emerged was shifting enrollment from a form-based system into a guided workflow.
+              </p>
+              <p>
+                Instead of asking students to navigate complex tables and forms, the redesigned experience guides them through step-by-step flows for adding, dropping, or swapping classes.
               </p>
               <ul>
-                <li>Reduce cognitive load with card-based layouts and stronger hierarchy</li>
-                <li>Show open, waitlist, and closed status more clearly</li>
-                <li>Preview consequences before a high-risk action is confirmed</li>
-                <li>Use confirmation states that feel final and easy to trust</li>
+                <li>Card-based layouts replace dense tables to improve scanability.</li>
+                <li>Course status such as Open, Waitlist, and Closed is made easier to notice.</li>
+                <li>High-risk actions are broken into guided steps.</li>
+                <li>Confirmation screens make outcomes clearer before and after an action is completed.</li>
               </ul>
             </div>
 
@@ -802,8 +822,15 @@
           <div class="story-content">
             <div class="panel">
               <p>
-                The final design keeps Cornell red as the main accent while using a cleaner visual system to support action hierarchy. The screens emphasize speed, readability, and confidence. Key changes include stronger status indicators, clearer schedule visualization, and confirmation states that remove ambiguity.
+                After validating the enrollment flows through mid-fidelity wireframes, high-fidelity screens were created to refine typography, visual hierarchy, and clarity. The final design introduces several improvements.
               </p>
+              <ul>
+                <li>Course tables were replaced with card-based layouts that make class information easier to scan.</li>
+                <li>Clear status indicators show whether a class is Open, Waitlist, or Closed.</li>
+                <li>Guided step-by-step enrollment flows help students safely complete actions.</li>
+                <li>Visual schedule blocks allow students to quickly detect time conflicts.</li>
+                <li>Stronger confirmation states communicate when enrollment actions succeed.</li>
+              </ul>
             </div>
 
             <figure class="full-bleed">
@@ -828,7 +855,7 @@
               <div class="side-copy">
                 <h4>Less risky drop flow</h4>
                 <p>
-                  The drop flow is designed to reduce hesitation. Course information stays readable, the action stays prominent, and confirmation feels more explicit so users are not left wondering whether the change actually went through.
+                  The drop flow is designed to reduce hesitation. Course information stays readable, the action remains clear, and confirmation feels more explicit so users are not left wondering whether the change actually went through.
                 </p>
               </div>
               <figure class="visual">
@@ -905,7 +932,10 @@
           <div class="story-content">
             <div class="panel">
               <p>
-                In quick usability testing, students completed add, swap, and drop tasks with less hesitation than they described in the current Student Center experience. The strongest improvements came from more visible system status, better previews before committing, and clearer confirmation states after actions were complete.
+                In quick usability testing, students completed add, swap, and drop tasks faster and with less hesitation than in the current Student Center experience. Participants noted that the swap preview helped them feel more confident about replacing a course, while the visual schedule blocks made time conflicts easier to understand.
+              </p>
+              <p style="margin-top:12px;">
+                These results suggest that improving visibility, system feedback, and structured workflows can significantly reduce uncertainty during enrollment.
               </p>
             </div>
 
