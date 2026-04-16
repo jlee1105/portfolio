@@ -1,618 +1,743 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YJ Lee Portfolio</title>
   <link rel="canonical" href="https://yjleeportfolio.vercel.app/" />
-  <meta name="description" content="Portfolio of YJ Lee – view projects, experience, and contact information at https://yjleeportfolio.vercel.app/." />
+  <meta name="description" content="Portfolio of YJ Lee – sports-inspired UX portfolio with case studies, resume, and contact information." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!--
+    Circular Std is a licensed font.
+    If you own the webfont files, place them in a /fonts folder and uncomment the @font-face blocks below.
+  -->
+  <!--
+  <style>
+    @font-face {
+      font-family: "Circular Std";
+      src: url("fonts/CircularStd-Book.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Circular Std";
+      src: url("fonts/CircularStd-Medium.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Circular Std";
+      src: url("fonts/CircularStd-Bold.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+  -->
 
   <style>
     :root {
-      --bg: #000000;                 /* pure black */
-      --bg-alt: #0a0a0a;             /* dark black */
-      --gold: #FFB81C;               /* Boston Bruins gold */
-      --gold-soft: rgba(255, 184, 28, 0.15);
-
-      --text: #f5f5f7;
-      --muted: #a0a3b1;
-      --card: #0a0a0a;
-      --border: rgba(255, 184, 28, 0.3);
-
-      --radius-lg: 1.5rem;
-      --radius-full: 999px;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.85);
-      --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.7);
-      --nav-height: 4.25rem;
+      --bg: #050505;
+      --bg-soft: #0b0b0b;
+      --surface: #101010;
+      --surface-2: #151515;
+      --line: rgba(255,255,255,0.12);
+      --line-strong: rgba(255,255,255,0.22);
+      --text: #f5f5f5;
+      --muted: #ababab;
+      --muted-2: #7f7f7f;
+      --white: #ffffff;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --nav-height: 78px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body {
+    html {
       scroll-behavior: smooth;
-      background: radial-gradient(circle at top, #111827 0, var(--bg) 45%);
-      color: var(--text);
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
     }
 
-    body { min-height: 100vh; }
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,0.02), transparent 12%),
+        radial-gradient(circle at top right, rgba(255,255,255,0.05), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Circular Std", "Avenir Next", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: -0.01em;
+    }
 
     a { color: inherit; text-decoration: none; }
 
-    .page-shell {
-      max-width: 1120px;
+    img { max-width: 100%; display: block; }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
-      padding-inline: 1.25rem;
     }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 40;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(
-        to bottom,
-        rgba(5, 8, 22, 0.95),
-        rgba(5, 8, 22, 0.8),
-        transparent
-      );
-      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(5,5,5,0.86);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav {
-      height: var(--nav-height);
+      min-height: var(--nav-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
+      gap: 20px;
     }
 
-    .nav-left {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 14px;
     }
 
-    .logo-mark {
-      width: 2.3rem;
-      height: 2.3rem;
-      border-radius: 1rem;
-      background: radial-gradient(circle at 30% 10%, rgba(212,175,55,0.95), rgba(212,175,55,0.25) 55%, rgba(255,255,255,0.05));
-      position: relative;
-      box-shadow: 0 0 35px rgba(212, 175, 55, 0.22);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .logo-mark::after {
-      content: "";
-      position: absolute;
-      inset: 2px;
-      border-radius: 0.9rem;
-      background: radial-gradient(circle at 20% 0%, #1f2937, #020617 65%);
-      opacity: 0.7;
-    }
-
-    .logo-initials {
-      position: relative;
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--line-strong);
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03)),
+        #0d0d0d;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
       font-weight: 700;
       font-size: 0.95rem;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
     }
 
-    .nav-title { display: flex; flex-direction: column; gap: 0.1rem; }
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-    .nav-name {
-      font-weight: 600;
-      letter-spacing: 0.03em;
+    .brand-name {
       font-size: 0.95rem;
+      font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
-    .nav-tagline { color: var(--muted); font-size: 0.8rem; }
+    .brand-role {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
-      font-size: 0.9rem;
+      gap: 10px;
     }
 
     .nav-link {
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
       color: var(--muted);
+      padding: 10px 14px;
+      border-radius: var(--radius-pill);
       border: 1px solid transparent;
-      transition: all 0.18s ease-out;
+      font-size: 0.92rem;
+      transition: 0.2s ease;
     }
 
     .nav-link:hover {
-      color: var(--text);
-      border-color: rgba(148, 163, 184, 0.4);
-      background: rgba(15, 23, 42, 0.9);
-      box-shadow: var(--shadow-subtle);
+      color: var(--white);
+      border-color: var(--line);
+      background: rgba(255,255,255,0.04);
     }
 
     .nav-link.primary {
-      background: var(--gold);
-      border-color: transparent;
-      color: #05060f;
-      font-weight: 600;
-      box-shadow: 0 16px 35px rgba(212, 175, 55, 0.4);
+      color: #050505;
+      background: var(--white);
+      border-color: var(--white);
+      font-weight: 700;
+    }
+
+    .nav-link.primary:hover {
+      background: #eaeaea;
+      border-color: #eaeaea;
     }
 
     .nav-toggle {
       display: none;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      border-radius: 999px;
-      padding: 0.45rem 0.7rem;
-      background: rgba(15, 23, 42, 0.78);
-      color: var(--muted);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      border-radius: var(--radius-pill);
+      padding: 11px 14px;
       cursor: pointer;
-      font-size: 0.8rem;
-      gap: 0.45rem;
-      align-items: center;
+      font: inherit;
     }
 
-    .nav-toggle span {
-      width: 1.05rem;
-      height: 2px;
-      border-radius: 999px;
-      background: var(--muted);
-      box-shadow: 0 4px 0 var(--muted), 0 -4px 0 var(--muted);
-    }
-
-    main { padding-bottom: 5rem; }
+    main { padding-bottom: 72px; }
 
     .hero {
-      padding-top: calc(var(--nav-height) + 2.5rem);
-      padding-bottom: 3.25rem;
+      padding-top: 44px;
+      padding-bottom: 48px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
-      gap: 3.2rem;
-      align-items: center;
+      grid-template-columns: minmax(0, 1.45fr) minmax(360px, 0.95fr);
+      gap: 30px;
+      align-items: stretch;
     }
 
-    .hero-kicker {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
+    .hero-left {
+      padding: 28px 0 12px;
+    }
+
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(212, 175, 55, 0.5);
-      background: var(--gold-soft);
-      margin-bottom: 1.4rem;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-pill);
+      padding: 10px 14px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 22px;
+      background: rgba(255,255,255,0.03);
     }
 
-    .hero-kicker-dot {
-      width: 0.45rem;
-      height: 0.45rem;
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
       border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+      background: var(--white);
     }
 
     .hero-title {
-      font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
-      font-size: clamp(2.4rem, 3vw + 1.5rem, 3.4rem);
-      line-height: 1.1;
-      margin-bottom: 1.3rem;
+      font-size: clamp(3rem, 5vw, 5.7rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      font-weight: 700;
+      max-width: 11ch;
     }
 
-    .hero-title span {
-      color: var(--gold);
+    .hero-title .outline {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.75);
     }
 
     .hero-subtitle {
-      font-size: 1rem;
+      max-width: 640px;
       color: var(--muted);
-      max-width: 36rem;
-      line-height: 1.6;
-      margin-bottom: 1.9rem;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
     }
 
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-bottom: 2.1rem;
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+      max-width: 760px;
     }
 
-    .pill {
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(16px);
+    .stat {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 16px;
     }
 
-    .pill-dot { width: 0.4rem; height: 0.4rem; border-radius: 999px; background: #38bdf8; }
+    .stat-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted-2);
+      margin-bottom: 10px;
+    }
+
+    .stat-value {
+      font-size: 1.18rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.9rem;
-      align-items: center;
+      gap: 12px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      border-radius: 999px;
-      padding: 0.75rem 1.4rem;
-      font-size: 0.9rem;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: var(--radius-pill);
       border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: 0.2s ease;
       cursor: pointer;
-      transition: all 0.18s ease-out;
-      white-space: nowrap;
     }
 
     .btn-primary {
-      background: var(--gold);
-      color: #05060f;
-      font-weight: 600;
-      box-shadow: 0 18px 40px rgba(212, 175, 55, 0.55);
+      background: var(--white);
+      color: #050505;
+      border-color: var(--white);
     }
 
-    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 24px 55px rgba(212, 175, 55, 0.7); }
+    .btn-primary:hover { transform: translateY(-1px); }
 
-    .btn-ghost {
-      border-color: rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.85);
-      color: var(--muted);
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--line-strong);
     }
 
-    .btn-ghost:hover {
-      color: var(--text);
-      border-color: rgba(148, 163, 184, 0.85);
-      box-shadow: var(--shadow-subtle);
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.3);
     }
 
-    .hero-media { position: relative; display: flex; justify-content: center; }
-
-    .hero-card {
-      width: min(100%, 360px);
-      border-radius: 1.7rem;
-      padding: 1.2rem 1.3rem;
-      background: radial-gradient(circle at top, #111827, #020617 55%);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: var(--shadow-soft);
-      position: relative;
+    .hero-right {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015)),
+        var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 32px;
       overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 0 0, var(--gold-soft), transparent 55%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .avatar-shell { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.1rem; }
-
-    .avatar {
-      width: 3.1rem;
-      height: 3.1rem;
-      border-radius: 1.1rem;
-      background: linear-gradient(135deg, var(--gold), rgba(212, 175, 55, 0.6));
-      padding: 2px;
-      flex-shrink: 0;
-    }
-
-    .avatar-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 0.95rem;
-      background: linear-gradient(145deg, #111827, #020617);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-    }
-
-    .avatar-inner span { font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif; }
-
-    .avatar-meta { display: flex; flex-direction: column; gap: 0.1rem; }
-
-    .avatar-name { font-size: 0.95rem; font-weight: 600; }
-
-    .avatar-role { font-size: 0.8rem; color: var(--muted); }
-
-    .avatar-location { font-size: 0.78rem; color: var(--muted); }
-
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(34, 197, 94, 0.6);
-      background: rgba(22, 163, 74, 0.1);
-      font-size: 0.7rem;
-      color: #bbf7d0;
-      margin-bottom: 1rem;
-    }
-
-    .status-dot { width: 0.4rem; height: 0.4rem; border-radius: 999px; background: #22c55e; }
-
-    .chip-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1rem; }
-
-    .chip {
-      font-size: 0.7rem;
-      padding: 0.25rem 0.55rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: var(--muted);
-    }
-
-    .hero-card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .hero-links { display: flex; gap: 0.45rem; }
-
-    .hero-link-icon {
-      width: 1.9rem;
-      height: 1.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      cursor: pointer;
-      background: rgba(15, 23, 42, 0.9);
-      transition: all 0.18s ease-out;
-    }
-
-    .hero-link-icon:hover {
-      border-color: rgba(248, 250, 252, 0.9);
-      color: #e5e7eb;
-      box-shadow: var(--shadow-subtle);
-      transform: translateY(-1px);
-    }
-
-    section { padding-block: 3rem; }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .section-kicker {
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .section-title { font-size: 1.5rem; font-weight: 600; }
-
-    .section-subtitle { color: var(--muted); font-size: 0.9rem; max-width: 26rem; }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top left, #111827, var(--card));
-      padding: 1.2rem 1.3rem;
-      box-shadow: var(--shadow-subtle);
+      box-shadow: var(--shadow);
+      min-height: 100%;
       display: flex;
       flex-direction: column;
-      gap: 0.7rem;
-      position: relative;
-      overflow: hidden;
     }
 
-    .card-label {
-      font-size: 0.72rem;
+    .scoreboard-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.025);
+    }
+
+    .scoreboard-label {
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--muted);
+      color: var(--muted-2);
     }
 
-    .card-title { font-size: 1rem; font-weight: 600; }
-
-    .card-meta { font-size: 0.78rem; color: var(--muted); }
-
-    .card-body { font-size: 0.85rem; color: var(--muted); flex-grow: 1; line-height: 1.55; }
-
-    .card-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
-
-    .tag {
-      font-size: 0.72rem;
-      padding: 0.22rem 0.55rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      color: var(--muted);
-    }
-
-    .card-footer-link {
-      font-size: 0.78rem;
+    .scoreboard-status {
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
-      margin-top: 0.7rem;
-      color: #e5e7eb;
+      gap: 8px;
+      font-size: 0.74rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
 
-    .card.coming-soon { border-color: rgba(212, 175, 55, 0.35); }
-
-    .soon-badge {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.3rem 0.65rem;
+    .scoreboard-status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
       border-radius: 999px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: rgba(255, 236, 179, 0.95);
-      background: rgba(6, 7, 13, 0.88);
-      border: 1px solid rgba(212, 175, 55, 0.7);
+      background: var(--white);
     }
 
-    .resume-card {
-      border-radius: 1.5rem;
-      border: 1px solid rgba(148, 163, 184, 0.22);
-      background: radial-gradient(circle at top left, #111827, #020617);
-      padding: 1.5rem 1.6rem;
-      box-shadow: var(--shadow-soft);
+    .scoreboard-body {
+      padding: 22px 20px 20px;
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 1.2rem;
-      align-items: center;
+      gap: 18px;
+      flex: 1;
     }
 
-    .resume-copy {
+    .profile-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .profile-badge {
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      border: 1px solid var(--line-strong);
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+    }
+
+    .profile-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .profile-role,
+    .profile-location {
       color: var(--muted);
-      line-height: 1.65;
+      font-size: 0.9rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--line);
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .mini-panel {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255,255,255,0.025);
+    }
+
+    .mini-panel-label {
+      font-size: 0.74rem;
+      color: var(--muted-2);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .mini-panel-value {
+      font-size: 0.98rem;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .chip-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      border-radius: var(--radius-pill);
+      padding: 9px 12px;
+      font-size: 0.8rem;
+    }
+
+    section {
+      padding: 40px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted-2);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 2vw, 2.4rem);
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 420px;
+      line-height: 1.6;
       font-size: 0.95rem;
     }
 
-    .resume-actions {
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+        var(--surface);
+      padding: 22px;
+      min-height: 320px;
       display: flex;
       flex-direction: column;
-      gap: 0.7rem;
+      justify-content: space-between;
+      transition: 0.25s ease;
     }
 
-    .contact-card {
-      border-radius: 1.5rem;
-      border: 1px solid rgba(148, 163, 184, 0.22);
-      background: radial-gradient(circle at top left, #111827, #020617);
-      padding: 1.5rem 1.6rem;
-      box-shadow: var(--shadow-soft);
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 1.6rem;
-      align-items: center;
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.22);
     }
 
-    .contact-copy { font-size: 0.95rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.9rem; }
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
 
-    .contact-meta { display: flex; flex-wrap: wrap; gap: 0.7rem; font-size: 0.85rem; }
+    .project-type {
+      font-size: 0.72rem;
+      color: var(--muted-2);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
 
-    .contact-meta span {
+    .project-number {
+      font-size: 0.82rem;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+
+    .project-title {
+      font-size: 1.45rem;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+      max-width: 12ch;
+    }
+
+    .project-meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 12px;
+    }
+
+    .project-body {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.92rem;
+      max-width: 32ch;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .project-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      padding: 0.4rem 0.7rem;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .coming-soon {
+      opacity: 0.8;
+    }
+
+    .coming-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      border: 1px solid var(--line-strong);
+      padding: 8px 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(255,255,255,0.05);
+      margin-bottom: 18px;
+    }
+
+    .split-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.95fr);
+      gap: 18px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+        var(--surface);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .split-copy {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.97rem;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .info-item {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      padding: 14px 16px;
+    }
+
+    .info-label {
+      color: var(--muted-2);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
+    }
+
+    .info-value {
+      font-size: 0.98rem;
+      line-height: 1.5;
+      word-break: break-word;
     }
 
     footer {
-      padding: 1.5rem 0 2.5rem;
-      border-top: 1px solid rgba(148, 163, 184, 0.2);
-      margin-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      padding: 24px 0 38px;
     }
 
-    .footer-inner {
+    .footer-row {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 0.8rem;
-      font-size: 0.78rem;
+      flex-wrap: wrap;
+      gap: 12px;
       color: var(--muted);
+      font-size: 0.84rem;
     }
 
-    @media (max-width: 880px) {
-      .hero-grid { grid-template-columns: minmax(0, 1fr); }
-      .hero-media { order: -1; }
-      .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .contact-card, .resume-card { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    @media (max-width: 720px) {
-      .nav-links {
-        position: fixed;
-        inset-inline: 1.25rem;
-        top: calc(var(--nav-height) + 0.6rem);
-        border-radius: 1.2rem;
-        padding: 0.9rem;
-        flex-direction: column;
-        align-items: stretch;
-        background: rgba(15, 23, 42, 0.98);
-        box-shadow: 0 26px 60px rgba(15, 23, 42, 0.95);
-        transform-origin: top center;
-        transform: scaleY(0.7);
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.18s ease-out;
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .split-card,
+      .projects {
+        grid-template-columns: 1fr;
       }
 
-      .nav-links.open { opacity: 1; pointer-events: auto; transform: scaleY(1); }
-      .nav-link { width: 100%; text-align: center; justify-content: center; }
+      .hero-right {
+        max-width: 680px;
+      }
+    }
+
+    @media (max-width: 760px) {
       .nav-toggle { display: inline-flex; }
-      .card-grid { grid-template-columns: minmax(0, 1fr); }
-      .page-shell { padding-inline: 1rem; }
+
+      .nav-links {
+        position: fixed;
+        top: calc(var(--nav-height) + 10px);
+        left: 16px;
+        right: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: rgba(10,10,10,0.98);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: 0.2s ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-link { text-align: center; }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      .hero-title {
+        max-width: none;
+      }
+
+      .hero-stats,
+      .panel-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
-
 <body>
   <header>
-    <div class="page-shell nav">
-      <div class="nav-left">
-        <div class="logo-mark" aria-hidden="true">
-          <div class="logo-initials">YJ</div>
+    <div class="shell nav">
+      <a class="brand" href="#home" aria-label="YJ Lee home">
+        <div class="brand-mark">YJ</div>
+        <div class="brand-copy">
+          <div class="brand-name">YJ Lee</div>
+          <div class="brand-role">Product UX • Sports-forward portfolio</div>
         </div>
-        <div class="nav-title">
-          <div class="nav-name">YJ Lee</div>
-          <div class="nav-tagline">UX Designer and UX Research</div>
-        </div>
-      </div>
+      </a>
 
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle navigation">
-        <span aria-hidden="true"></span>
-        Menu
-      </button>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
 
       <nav class="nav-links" id="navLinks">
-        <a href="#case-studies" class="nav-link">Case Studies</a>
+        <a href="#case-studies" class="nav-link">Work</a>
         <a href="#resume" class="nav-link">Resume</a>
         <a href="#contact" class="nav-link primary">Contact</a>
       </nav>
@@ -621,235 +746,120 @@
 
   <main>
     <section class="hero" id="home">
-      <div class="page-shell hero-grid">
-        <div>
-          <div class="hero-kicker">
-            <span class="hero-kicker-dot"></span>
-            Open to full time roles after graduation
-          </div>
-
-          <h1 class="hero-title">
-            Designing clear product experiences for <span>sports and beyond</span>.
-          </h1>
-
-          <p class="hero-subtitle">
-            I am <strong>YJ Lee</strong>, an Information Science student at Cornell graduating in 2026.
-            I design product UX and UX research focused experiences that help people move fast with confidence.
-          </p>
-
-          <div class="hero-meta">
-            <div class="pill">
-              <span class="pill-dot"></span>
-              Product UX, UX Research, Interaction Design
-            </div>
-            <div class="pill">Sports and esports focused, open to any domain</div>
-          </div>
-
-          <div class="hero-actions">
-            <a href="#case-studies" class="btn btn-primary">View case studies</a>
-          </div>
-        </div>
-
-        <div class="hero-media">
-          <div class="hero-card" aria-label="Profile summary">
-            <div class="avatar-shell">
-              <div class="avatar">
-                <div class="avatar-inner"><span>YJ</span></div>
-              </div>
-              <div class="avatar-meta">
-                <div class="avatar-name">YJ Lee</div>
-                <div class="avatar-role">Cornell Information Science, UX</div>
-                <div class="avatar-location">Ithaca, New York</div>
-              </div>
-            </div>
-
-            <div class="status-pill">
-              <span class="status-dot"></span>
-              Seeking entry level UX roles
-            </div>
-
-            <div class="chip-row">
-              <span class="chip">UI UX</span>
-              <span class="chip">User research</span>
-              <span class="chip">Figma</span>
-              <span class="chip">Prototyping</span>
-            </div>
-
-            <div class="hero-card-footer">
-              <div class="hero-links">
-                <a href="https://www.linkedin.com/in/yj-lee-49b14a232" class="hero-link-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
-                  <span>in</span>
-                </a>
-                <a href="Resume.html" class="hero-link-icon" aria-label="Resume">
-                  <span>CV</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
+  <div class="shell" style="display:flex; align-items:center; justify-content:center; min-height:70vh; text-align:center;">
+    <h1 style="font-size: clamp(3rem, 6vw, 6rem); line-height:1; letter-spacing:-0.05em; text-transform:uppercase; font-weight:700;">
+      Designing clear product experiences
+    </h1>
+  </div>
+</section>
 
     <section id="case-studies">
-      <div class="page-shell">
-        <div class="section-header">
+      <div class="shell">
+        <div class="section-head">
           <div>
-            <div class="section-kicker">Case Studies</div>
-            <h2 class="section-title">Selected work</h2>
+            <div class="section-label">Selected work</div>
+            <h2 class="section-title">Case studies</h2>
           </div>
-          <p class="section-subtitle">Two case studies are live. More projects are on the way.</p>
+          <p class="section-copy">A more athletic, editorial presentation of work. Live projects first, with upcoming concepts still visible.</p>
         </div>
 
-        <div class="card-grid">
-          <article class="card">
-            <div class="card-label">Live case study</div>
-            <h3 class="card-title">Cornell Enrollment Mobile App</h3>
-            <div class="card-meta">Mobile UX, high stakes flows</div>
-            <p class="card-body">
-              Mobile first redesign of Cornell Student Center focused on add, drop, and swap clarity during deadlines.
-            </p>
-            <div class="card-tags">
-              <span class="tag">Interaction design</span>
-              <span class="tag">Risk reduction</span>
-              <span class="tag">Prototype</span>
+        <div class="projects">
+          <article class="project-card">
+            <div>
+              <div class="project-top">
+                <div class="project-type">Live case study</div>
+                <div class="project-number">01</div>
+              </div>
+              <h3 class="project-title">Cornell Enrollment Mobile App</h3>
+              <div class="project-meta">Mobile UX • High-stakes task flow redesign</div>
+              <p class="project-body">A mobile-first redesign of Cornell’s Student Center focused on making add, drop, and swap actions feel clearer and less risky during stressful deadlines.</p>
+              <div class="project-tags">
+                <span class="chip">Interaction design</span>
+                <span class="chip">Risk reduction</span>
+                <span class="chip">Prototype</span>
+              </div>
             </div>
-            <a href="CE/cornell-enrollment.html" class="card-footer-link">View case study</a>
+            <a href="CE/cornell-enrollment.html" class="project-link"><span>View study</span><span>→</span></a>
           </article>
 
-          <article class="card">
-            <div class="card-label">Live case study</div>
-            <h3 class="card-title">VCT Sync</h3>
-            <div class="card-meta">Sports and esports UX</div>
-            <p class="card-body">
-              Esports companion app concept for match results, pivotal moments, and tournament flow without clutter.
-            </p>
-            <div class="card-tags">
-              <span class="tag">Information architecture</span>
-              <span class="tag">Clarity</span>
-              <span class="tag">Concept</span>
+          <article class="project-card">
+            <div>
+              <div class="project-top">
+                <div class="project-type">Live case study</div>
+                <div class="project-number">02</div>
+              </div>
+              <h3 class="project-title">VCT Sync</h3>
+              <div class="project-meta">Esports UX • Fast information design</div>
+              <p class="project-body">A companion app concept for following Valorant Champions Tour through scores, brackets, momentum, and player context without clutter or ad-heavy friction.</p>
+              <div class="project-tags">
+                <span class="chip">Sports UX</span>
+                <span class="chip">IA</span>
+                <span class="chip">Concept</span>
+              </div>
             </div>
-            <a href="vct-sync/vct-sync.html" class="card-footer-link">View case study</a>
+            <a href="vct-sync/vct-sync.html" class="project-link"><span>View study</span><span>→</span></a>
           </article>
 
-          <article class="card">
-  <div class="card-label">Live case study</div>
-  <h3 class="card-title">Boston Bruins Fan Experience</h3>
-  <div class="card-meta">Sports UX · Mobile Design</div>
-  <p class="card-body">
-    A team-first sports app focused on real-time game tracking, momentum, and emotional engagement through a score-first experience.
-  </p>
-  <div class="card-tags">
-    <span class="tag">Sports UX</span>
-    <span class="tag">Interaction</span>
-    <span class="tag">Concept</span>
-  </div>
-  <a href="/boston-bruins.html" class="card-footer-link">
-    View case study
-  </a>
-</article>
-
-          <article class="card coming-soon">
-            <div class="soon-badge">Coming soon</div>
-            <div class="card-label">Coming soon</div>
-            <h3 class="card-title">Volleyball Serving Machine</h3>
-            <div class="card-meta">Arduino and C plus plus</div>
-            <p class="card-body">
-              Hardware and software project to automate consistent volleyball serves. Build details and results coming soon.
-            </p>
-            <div class="card-tags">
-              <span class="tag">Arduino</span>
-              <span class="tag">C plus plus</span>
-              <span class="tag">Prototyping</span>
+          <article class="project-card">
+            <div>
+              <div class="project-top">
+                <div class="project-type">Live case study</div>
+                <div class="project-number">03</div>
+              </div>
+              <h3 class="project-title">Boston Bruins Fan Experience</h3>
+              <div class="project-meta">Sports app concept • Real-time game experience</div>
+              <p class="project-body">A score-first fan experience concept that emphasizes game state, momentum swings, and player impact through a more immersive mobile flow.</p>
+              <div class="project-tags">
+                <span class="chip">Game-day UX</span>
+                <span class="chip">Realtime UI</span>
+                <span class="chip">Concept</span>
+              </div>
             </div>
-            <span class="card-footer-link">Coming soon</span>
+            <a href="/boston-bruins.html" class="project-link"><span>View study</span><span>→</span></a>
           </article>
 
-          <article class="card coming-soon">
-            <div class="soon-badge">Coming soon</div>
-            <div class="card-label">Coming soon</div>
-            <h3 class="card-title">Mind Sync</h3>
-            <div class="card-meta">Emotion responsive companion app</div>
-            <p class="card-body">
-              A new case study I am currently shaping. Full writeup will be published soon.
-            </p>
-            <div class="card-tags">
-              <span class="tag">Discovery</span>
-              <span class="tag">Prototype</span>
-              <span class="tag">Testing</span>
+          <article class="project-card coming-soon">
+            <div>
+              <span class="coming-badge">Coming soon</span>
+              <h3 class="project-title">Volleyball Serving Machine</h3>
+              <div class="project-meta">Physical computing • Arduino build</div>
+              <p class="project-body">A hardware and software prototype exploring repeatable volleyball serves through automation, mechanics, and control logic.</p>
+              <div class="project-tags">
+                <span class="chip">Arduino</span>
+                <span class="chip">C++</span>
+                <span class="chip">Prototyping</span>
+              </div>
             </div>
-            <span class="card-footer-link">Coming soon</span>
+            <div class="project-link"><span>Coming soon</span><span>•</span></div>
+          </article>
+
+          <article class="project-card coming-soon">
+            <div>
+              <span class="coming-badge">Coming soon</span>
+              <h3 class="project-title">Mind Sync</h3>
+              <div class="project-meta">Companion app concept</div>
+              <p class="project-body">An in-progress case study exploring emotional responsiveness, support, and interaction design through a calmer digital product experience.</p>
+              <div class="project-tags">
+                <span class="chip">Discovery</span>
+                <span class="chip">Prototype</span>
+                <span class="chip">Testing</span>
+              </div>
+            </div>
+            <div class="project-link"><span>Coming soon</span><span>•</span></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="resume">
-      <div class="page-shell">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Resume</div>
-            <h2 class="section-title">Quick resume</h2>
-          </div>
-          <p class="section-subtitle">A fast snapshot with a link to the full page.</p>
-        </div>
+    
 
-        <div class="resume-card">
-          <div>
-            <p class="resume-copy">
-              Cornell Information Science student graduating in 2026. Interested in product UX, UX research, and interaction design.
-              I love designing for sports and esports, and I am always excited to explore new domains.
-            </p>
-            <p class="resume-copy" style="margin-top: 0.9rem;">
-              Email: <strong>yl3286@cornell.edu</strong><br>
-              Phone: <strong>607 351 9241</strong><br>
-              LinkedIn: <strong>www.linkedin.com/in/yj-lee-49b14a232</strong>
-            </p>
-          </div>
-
-          <div class="resume-actions">
-  <a class="btn btn-primary" href="Resume.html">View full resume</a>
-</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="page-shell">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Contact</div>
-            <h2 class="section-title">Contact me</h2>
-          </div>
-          <p class="section-subtitle">Best way to reach me is email.</p>
-        </div>
-
-        <div class="contact-card">
-          <div>
-            <p class="contact-copy">
-              If you want to talk about a role, a project, or collaboration, feel free to email me.
-            </p>
-            <div class="contact-meta">
-              <span>📧 yl3286@cornell.edu</span>
-              <span>🔗 www.linkedin.com/in/yj-lee-49b14a232</span>
-              <span>📍 Ithaca, New York</span>
-            </div>
-          </div>
-
-          <div>
-            <a class="btn btn-primary" href="mailto:yl3286@cornell.edu" style="width: 100%;">Email me</a>
-            <div style="height: 0.75rem;"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    
   </main>
 
   <footer>
-    <div class="page-shell footer-inner">
+    <div class="shell footer-row">
       <div>© <span id="year"></span> YJ Lee. All rights reserved.</div>
+      <div>Designed with a black-and-white sports editorial direction.</div>
     </div>
   </footer>
 
