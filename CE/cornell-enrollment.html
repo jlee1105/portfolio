@@ -395,7 +395,12 @@
       box-shadow: var(--shadow);
     }
 
-    .visual img { width: 100%; }
+    .visual img {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  display: block;
+}
 
     .caption {
       padding: 14px 16px 16px;
@@ -441,7 +446,12 @@
       background: rgba(255,255,255,0.02);
     }
 
-    .full-bleed img { width: 100%; }
+    .full-bleed img {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: block;
+}
 
     .result-grid {
       display: grid;
@@ -530,7 +540,48 @@
       .phone.four { left: 8%; bottom: 0; }
       .phone.five { right: 8%; bottom: 2%; }
     }
-  </style>
+  
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 999;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+.visual img,
+.full-bleed img {
+  cursor: zoom-in;
+}
+
+</style>
 </head>
 <body>
   <header class="topbar">
@@ -809,5 +860,37 @@
       <div>Built as a cleaner, visual-first case study presentation.</div>
     </div>
   </footer>
+
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightboxClose">×</span>
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
+<script>
+  const images = document.querySelectorAll('.visual img, .full-bleed img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const closeBtn = document.getElementById('lightboxClose');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.classList.add('active');
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target !== lightboxImg) {
+      lightbox.classList.remove('active');
+    }
+  });
+</script>
+
 </body>
 </html>
