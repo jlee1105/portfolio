@@ -346,8 +346,8 @@
 
     .story-block {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
       align-items: start;
     }
 
@@ -381,39 +381,40 @@
 
     .two-col {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 18px;
+      align-items: start;
     }
 
     .side-by-side {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      align-items: start;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+      gap: 20px;
+      align-items: center;
     }
 
     .side-copy {
       border-radius: var(--radius-lg);
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.03);
-      padding: 22px;
+      padding: 24px;
       box-shadow: var(--shadow);
     }
 
     .side-copy h4 {
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       text-transform: uppercase;
       letter-spacing: -0.03em;
       line-height: 1.1;
       margin-bottom: 10px;
-      max-width: none;
+      max-width: 14ch;
     }
 
     .side-copy p {
       color: var(--muted);
       line-height: 1.7;
       font-size: 0.95rem;
-      max-width: none;
+      max-width: 34ch;
     }
 
     .side-copy h4 {
@@ -744,15 +745,29 @@
               </ul>
             </div>
 
-            <div class="two-col">
+            <div class="side-by-side">
               <figure class="visual">
                 <img src="../images/CE Interview.png" alt="Interview observations from Cornell enrollment walkthrough sessions" />
-                <figcaption class="caption">Walkthrough sessions surfaced hesitation, repeated checking, and uncertainty around what enrollment actions would do.</figcaption>
+                <figcaption class="caption">Walkthrough sessions with students navigating the current enrollment experience.</figcaption>
               </figure>
+              <div class="side-copy">
+                <h4>Research observations</h4>
+                <p>
+                  Students often paused before confirming actions, re-read key screens, and checked their schedules again afterward. The issue was not only navigation complexity, but low confidence in the outcome.
+                </p>
+              </div>
+            </div>
 
+            <div class="side-by-side">
+              <div class="side-copy">
+                <h4>Research synthesis</h4>
+                <p>
+                  I grouped interview notes into themes around scanability, feedback, and confidence during risky actions. That synthesis helped define the core design direction for the rest of the project.
+                </p>
+              </div>
               <figure class="visual">
                 <img src="../images/CE Ideation.PNG" alt="Affinity mapping and design synthesis for Cornell enrollment redesign" />
-                <figcaption class="caption">Research notes were grouped into themes around confidence, scanability, feedback, and safer decision-making.</figcaption>
+                <figcaption class="caption">Grouped themes from interviews and walkthrough sessions.</figcaption>
               </figure>
             </div>
 
@@ -795,20 +810,43 @@
               </ul>
             </div>
 
-            <figure class="full-bleed">
-              <img src="../images/CE Midfi 1.png" alt="Mid fidelity Cornell enrollment wireframes set one" />
-              <div class="caption">Mid-fidelity exploration focused first on structure: dashboard, add flow, confirmation, and schedule visibility.</div>
-            </figure>
+            <div class="side-by-side">
+              <figure class="visual">
+                <img src="../images/CE Midfi 1.png" alt="Mid fidelity Cornell enrollment wireframes set one" />
+                <figcaption class="caption">Mid-fidelity exploration of dashboard, add flow, confirmation, and schedule visibility.</figcaption>
+              </figure>
+              <div class="side-copy">
+                <h4>Early structure</h4>
+                <p>
+                  Mid-fidelity wireframes were used to test layout, navigation, and enrollment steps before moving into visual design. The goal was to make common tasks easier to find and easier to follow on mobile.
+                </p>
+              </div>
+            </div>
 
-            <div class="two-col">
+            <div class="side-by-side">
+              <div class="side-copy">
+                <h4>Mid-fi refinement</h4>
+                <p>
+                  Course detail and drop flows were simplified around clearer hierarchy and scannable cards, while swap was redesigned as a guided sequence instead of a table-heavy utility flow.
+                </p>
+              </div>
               <figure class="visual">
                 <img src="../images/CE Midfi 2.png" alt="Mid fidelity Cornell enrollment wireframes set two" />
-                <figcaption class="caption">Course detail pages and drop flow were simplified around scannable cards and safer next steps.</figcaption>
+                <figcaption class="caption">Course detail and drop flow exploration.</figcaption>
               </figure>
+            </div>
+
+            <div class="side-by-side">
               <figure class="visual">
                 <img src="../images/CE Midfi 3.png" alt="Mid fidelity Cornell enrollment wireframes set three" />
-                <figcaption class="caption">Swap became a guided sequence with clear step labels instead of a confusing table-heavy utility flow.</figcaption>
+                <figcaption class="caption">Swap flow exploration with guided steps.</figcaption>
               </figure>
+              <div class="side-copy">
+                <h4>Guided swap logic</h4>
+                <p>
+                  The wireframes helped establish a step-by-step structure for swap so students could better understand what they were replacing, what fit their schedule, and what would happen next.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -833,10 +871,18 @@
               </ul>
             </div>
 
-            <figure class="full-bleed">
-              <img src="../images/CE Hifi 1.png" alt="Cornell enrollment high fidelity screen collage one" />
-              <div class="caption">The entry point reframes Student Center around quick actions and an obvious path into enrollment.</div>
-            </figure>
+            <div class="side-by-side">
+              <figure class="visual">
+                <img src="../images/CE Hifi 1.png" alt="Cornell enrollment high fidelity screen collage one" />
+                <figcaption class="caption">Entry point and dashboard screens.</figcaption>
+              </figure>
+              <div class="side-copy">
+                <h4>Faster entry point</h4>
+                <p>
+                  The redesigned dashboard makes core actions easier to spot right away, giving students a clearer path into enrollment without first decoding a desktop-style interface.
+                </p>
+              </div>
+            </div>
 
             <div class="side-by-side">
               <figure class="visual">
