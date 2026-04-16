@@ -383,8 +383,37 @@
 
     .two-col {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .side-by-side {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .side-copy {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .side-copy h4 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .side-copy p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
     }
 
     .visual {
@@ -500,6 +529,7 @@
       .overview,
       .story-block,
       .two-col,
+      .side-by-side,
       .result-grid,
       .callout-row {
         grid-template-columns: 1fr;
@@ -781,36 +811,81 @@
               <div class="caption">The entry point reframes Student Center around quick actions and an obvious path into enrollment.</div>
             </figure>
 
-            <div class="two-col">
+            <div class="side-by-side">
               <figure class="visual">
                 <img src="../images/CE Hifi 2.png" alt="Cornell enrollment high fidelity screen collage two" />
-                <figcaption class="caption">Add flow uses visible status, card-based course information, and strong confirmation feedback.</figcaption>
+                <figcaption class="caption">Add flow and course detail screens.</figcaption>
               </figure>
+              <div class="side-copy">
+                <h4>Clearer course decisions</h4>
+                <p>
+                  The add flow makes status, course details, and next steps easier to scan at a glance. Instead of forcing users to decode a dense table, the screen surfaces what matters first and supports faster decisions on mobile.
+                </p>
+              </div>
+            </div>
+
+            <div class="side-by-side">
+              <div class="side-copy">
+                <h4>Less risky drop flow</h4>
+                <p>
+                  The drop flow is designed to reduce hesitation. Course information stays readable, the action stays prominent, and confirmation feels more explicit so users are not left wondering whether the change actually went through.
+                </p>
+              </div>
               <figure class="visual">
                 <img src="../images/CE Hifi 3.png" alt="Cornell enrollment high fidelity screen collage three" />
-                <figcaption class="caption">Course detail and drop flow improve scannability while making consequences easier to understand.</figcaption>
+                <figcaption class="caption">Course detail and drop flow screens.</figcaption>
               </figure>
             </div>
 
-            <div class="two-col">
+            <div class="side-by-side">
               <figure class="visual">
                 <img src="../images/CE Hifi 4.png" alt="Cornell enrollment high fidelity screen collage four" />
-                <figcaption class="caption">Drop confirmation updates the schedule clearly and gives users immediate next actions.</figcaption>
+                <figcaption class="caption">Drop confirmation screens.</figcaption>
               </figure>
+              <div class="side-copy">
+                <h4>Stronger confirmation</h4>
+                <p>
+                  Confirmation is treated as an important part of the experience, not an afterthought. The screen clearly reflects the updated schedule and reassures users that the action is complete.
+                </p>
+              </div>
+            </div>
+
+            <div class="side-by-side">
+              <div class="side-copy">
+                <h4>Guided swap sequence</h4>
+                <p>
+                  Swap is one of the most stressful actions in the existing system, so the redesign turns it into a more guided sequence. Step labels, clearer hierarchy, and stronger previews make the process easier to follow.
+                </p>
+              </div>
               <figure class="visual">
                 <img src="../images/CE Hifi 5.png" alt="Cornell enrollment high fidelity screen collage five" />
-                <figcaption class="caption">Swap becomes a guided, safer workflow with explicit step progression and fewer unknowns.</figcaption>
+                <figcaption class="caption">Swap flow screens.</figcaption>
               </figure>
             </div>
 
-            <div class="two-col">
+            <div class="side-by-side">
               <figure class="visual">
                 <img src="../images/CE Hifi 6.png" alt="Cornell enrollment high fidelity screen collage six" />
-                <figcaption class="caption">The swap confirmation screen highlights why the new course fits before users commit.</figcaption>
+                <figcaption class="caption">Swap confirmation screens.</figcaption>
               </figure>
+              <div class="side-copy">
+                <h4>Better preview before commit</h4>
+                <p>
+                  Before users confirm a swap, the interface gives them a clearer sense of what they are changing and why it fits. That added visibility helps reduce second-guessing during a high-stakes action.
+                </p>
+              </div>
+            </div>
+
+            <div class="side-by-side">
+              <div class="side-copy">
+                <h4>Consistent product system</h4>
+                <p>
+                  Supporting screens like profile, grades, and transcripts extend the same visual language. That consistency makes the app feel more cohesive and less like a collection of disconnected admin pages.
+                </p>
+              </div>
               <figure class="visual">
                 <img src="../images/CE Hifi 7.png" alt="Cornell enrollment high fidelity screen collage seven" />
-                <figcaption class="caption">Supporting flows like profile and transcripts still follow the same cleaner, card-led system.</figcaption>
+                <figcaption class="caption">Profile and supporting screens.</figcaption>
               </figure>
             </div>
 
