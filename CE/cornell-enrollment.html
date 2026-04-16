@@ -314,15 +314,15 @@
     }
 
     .aside-stack {
-      display: grid;
-      gap: 14px;
+      display: block;
     }
 
     .mini-card {
       border: 1px solid var(--line);
       border-radius: 18px;
       background: rgba(255,255,255,0.03);
-      padding: 16px;
+      padding: 18px;
+      margin-bottom: 12px;
     }
 
     .mini-card-label {
@@ -330,13 +330,33 @@
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .mini-card-value {
-      font-weight: 700;
-      line-height: 1.45;
+      font-weight: 600;
+      line-height: 1.55;
       font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .overview-meta {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .overview-meta p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .overview-meta strong {
+      color: var(--text);
+      font-weight: 600;
     }
 
     .story-grid {
@@ -455,16 +475,14 @@
     }
 
     .callout-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
+      display: block;
     }
 
     .callout {
       border-radius: 18px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.03);
-      padding: 16px;
+      padding: 18px;
     }
 
     .callout-title {
@@ -476,9 +494,10 @@
     }
 
     .callout-body {
-      font-size: 0.94rem;
-      line-height: 1.55;
-      font-weight: 600;
+      font-size: 0.96rem;
+      line-height: 1.7;
+      font-weight: 500;
+      color: var(--muted);
     }
 
     .full-bleed {
@@ -497,29 +516,28 @@
     }
 
     .result-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      display: block;
     }
 
     .result {
       border-radius: 20px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.03);
-      padding: 18px;
+      padding: 20px;
     }
 
     .result-number {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.05em;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
       margin-bottom: 8px;
+      text-transform: uppercase;
     }
 
     .result-copy {
       color: var(--muted);
-      line-height: 1.6;
-      font-size: 0.93rem;
+      line-height: 1.7;
+      font-size: 0.95rem;
     }
 
     footer {
@@ -643,7 +661,7 @@
             
             <h1>Cornell Enrollment</h1>
             <p class="hero-subtitle">
-              Cornell’s current Student Center was designed primarily for desktop workflows. However, many students check schedules, add courses, and manage enrollment while moving between classes or using their phones around campus. This redesign explores how a mobile-first experience could make enrollment actions faster, clearer, and less stressful.
+              Mobile UX redesign for high-stakes course registration. Focused on improving clarity, reducing cognitive load, and helping students confidently complete add, drop, and swap actions.
             </p>
             <div class="hero-tags">
               <span class="tag">Mobile UX</span>
@@ -694,29 +712,24 @@
 
         <div class="overview">
           <div class="panel">
-            <div class="quote">Students need a faster and safer way to add, drop, and swap classes on mobile without feeling uncertain about the outcome.</div>
+            <div class="quote">Students struggled to understand what would happen after taking an action.</div>
             <p>
-              Cornell’s Student Center was built for desktop workflows, yet students often manage enrollment on phones between classes. The existing system slows decision-making because it requires navigating multiple pages and interpreting dense tables of information.
+              Cornell’s Student Center was originally designed for desktop workflows, relying heavily on dense tables and multi-step navigation. However, many students access enrollment through their phones while moving between classes.
             </p>
             <p style="margin-top:12px;">
-              The redesign focuses on reducing cognitive load, making status visible, and guiding users safely through high-risk actions like adding, dropping, and swapping courses.
+              This mismatch creates friction during critical moments such as adding, dropping, or swapping courses, where mistakes can have real academic consequences.
             </p>
           </div>
 
           <div class="aside-stack">
-            <div class="mini-card">
-              <div class="mini-card-label">Role</div>
-              <div class="mini-card-value">UX / UI Designer</div>
-            </div>
-            <div class="mini-card">
-              <div class="mini-card-label">Methods</div>
-              <div class="mini-card-value">Interviews, walkthroughs, wireframing, prototyping, usability testing</div>
-            </div>
-            <div class="mini-card">
-              <div class="mini-card-label">Primary design principle</div>
-              <div class="mini-card-value">Help users know what will happen before they commit</div>
+            <div class="overview-meta">
+              <p><strong>Role</strong><br>UX / UI Designer</p>
+              <p style="margin-top:14px;"><strong>Methods</strong><br>Interviews, walkthroughs, wireframing, prototyping, and usability testing</p>
+              <p style="margin-top:14px;"><strong>Design principle</strong><br>Help users understand what will happen before they commit to an action</p>
             </div>
           </div>
+        </div>
+      </div>
         </div>
       </div>
     </section>
@@ -726,22 +739,22 @@
         <div class="story-block">
           <aside class="story-index">
             <div class="story-index-num">01</div>
-            <h3>Research and pain points</h3>
+            <h3>Empathize</h3>
           </aside>
 
           <div class="story-content">
             <div class="panel">
               <p>
-                To better understand how students interact with the enrollment system, I conducted informal interviews and walkthrough sessions with Cornell undergraduates during add/drop week.
+                To better understand the problem, I conducted informal interviews and walkthrough sessions with Cornell undergraduates during add/drop week.
               </p>
               <p>
-                Participants were asked to describe how they normally add, drop, or swap courses and were observed completing tasks inside Student Center.
+                Students were asked to complete common enrollment tasks while describing their thought process.
               </p>
               <ul>
-                <li>Students frequently hesitate before confirming enrollment changes because they are unsure what will happen next.</li>
-                <li>The swap feature was often described as confusing or risky, since replacing a course can unintentionally remove a class that students still want to keep.</li>
-                <li>Important information such as seat availability, waitlist status, and time conflicts is buried inside dense tables.</li>
-                <li>Students often double-check their schedule after submitting an enrollment action because they do not fully trust the system feedback.</li>
+                <li>Students often hesitated before confirming actions due to uncertainty.</li>
+                <li>The swap feature felt especially risky and confusing.</li>
+                <li>Important information such as availability and conflicts was difficult to scan.</li>
+                <li>Users frequently double-checked outcomes after submitting changes.</li>
               </ul>
             </div>
 
@@ -773,7 +786,12 @@
 
             <div class="callout-row">
               <div class="callout">
-                <div class="callout-title">Pain point</div>
+                <div class="callout-title">Key pain points</div>
+                <div class="callout-body">
+                  Dense tables slow down scanning on mobile. Swap feels risky because the consequence is not obvious enough. Users also double-check outcomes because the system feedback feels weak.
+                </div>
+              </div>
+            </div>
                 <div class="callout-body">Dense tables slow down scanning on mobile.</div>
               </div>
               <div class="callout">
@@ -791,22 +809,22 @@
         <div class="story-block">
           <aside class="story-index">
             <div class="story-index-num">02</div>
-            <h3>Design direction</h3>
+            <h3>Define</h3>
           </aside>
 
           <div class="story-content">
             <div class="panel">
               <p>
-                After synthesizing the research insights, I explored ways to restructure the enrollment experience for mobile use. One important concept that emerged was shifting enrollment from a form-based system into a guided workflow.
+                Based on these findings, I explored ways to redesign the enrollment experience for mobile.
               </p>
               <p>
-                Instead of asking students to navigate complex tables and forms, the redesigned experience guides them through step-by-step flows for adding, dropping, or swapping classes.
+                The goal was to transform a dense, table-based system into a clearer, more guided flow.
               </p>
               <ul>
-                <li>Card-based layouts replace dense tables to improve scanability.</li>
-                <li>Course status such as Open, Waitlist, and Closed is made easier to notice.</li>
-                <li>High-risk actions are broken into guided steps.</li>
-                <li>Confirmation screens make outcomes clearer before and after an action is completed.</li>
+                <li>Replace tables with card-based layouts</li>
+                <li>Make status indicators more visible</li>
+                <li>Guide users step-by-step through actions</li>
+                <li>Provide clearer confirmation states</li>
               </ul>
             </div>
 
@@ -854,20 +872,19 @@
         <div class="story-block">
           <aside class="story-index">
             <div class="story-index-num">03</div>
-            <h3>Final screens</h3>
+            <h3>Ideate</h3>
           </aside>
 
           <div class="story-content">
             <div class="panel">
               <p>
-                After validating the enrollment flows through mid-fidelity wireframes, high-fidelity screens were created to refine typography, visual hierarchy, and clarity. The final design introduces several improvements.
+                High-fidelity designs refined the interaction patterns and visual hierarchy established in earlier stages.
               </p>
               <ul>
-                <li>Course tables were replaced with card-based layouts that make class information easier to scan.</li>
-                <li>Clear status indicators show whether a class is Open, Waitlist, or Closed.</li>
-                <li>Guided step-by-step enrollment flows help students safely complete actions.</li>
-                <li>Visual schedule blocks allow students to quickly detect time conflicts.</li>
-                <li>Stronger confirmation states communicate when enrollment actions succeed.</li>
+                <li>Improved scanability through structured layouts</li>
+                <li>Clearer visibility of course status</li>
+                <li>Guided flows for complex actions like swap</li>
+                <li>Stronger confirmation and feedback</li>
               </ul>
             </div>
 
@@ -972,22 +989,27 @@
         <div class="story-block">
           <aside class="story-index">
             <div class="story-index-num">04</div>
-            <h3>What improved</h3>
+            <h3>Prototype & Test</h3>
           </aside>
 
           <div class="story-content">
             <div class="panel">
               <p>
-                In quick usability testing, students completed add, swap, and drop tasks faster and with less hesitation than in the current Student Center experience. Participants noted that the swap preview helped them feel more confident about replacing a course, while the visual schedule blocks made time conflicts easier to understand.
+                In usability testing, students were able to complete tasks more quickly and with greater confidence.
               </p>
               <p style="margin-top:12px;">
-                These results suggest that improving visibility, system feedback, and structured workflows can significantly reduce uncertainty during enrollment.
+                Improvements in clarity, feedback, and flow structure helped reduce hesitation and made the experience feel more predictable.
               </p>
             </div>
 
             <div class="result-grid">
               <div class="result">
-                <div class="result-number">Clearer</div>
+                <div class="result-number">What improved</div>
+                <div class="result-copy">
+                  Card-based information and schedule blocks reduced the need to decode dense tables on mobile. Swap and drop flows made consequences easier to understand before users confirmed, and important actions became easier to reach without bouncing between multiple admin-style pages.
+                </div>
+              </div>
+            </div>
                 <div class="result-copy">Card-based information and schedule blocks reduced the need to decode dense tables on mobile.</div>
               </div>
               <div class="result">
