@@ -3,1128 +3,399 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cornell Enrollment Mobile App | YJ Lee</title>
-  <meta name="description" content="Cornell Enrollment Mobile App case study by YJ Lee." />
+  <title>Cornell Enrollment Mobile App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
   <style>
     :root {
-      --bg: #060606;
-      --bg-soft: #0f0f10;
+      --bg: #0b0b0c;
       --panel: #121214;
-      --panel-2: #18181b;
-      --line: rgba(255,255,255,0.1);
-      --line-strong: rgba(255,255,255,0.18);
       --text: #f5f5f5;
-      --muted: #aaaaae;
-      --muted-2: #7d7d84;
+      --muted: #b1b1b7;
+      --line: rgba(255,255,255,0.09);
       --accent: #b31b1b;
-      --accent-soft: rgba(179, 27, 27, 0.14);
-      --radius-xl: 32px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --radius-sm: 14px;
-      --shadow: 0 20px 70px rgba(0,0,0,0.42);
-      --max: 1180px;
+      --max: 760px;
+      --radius: 22px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(179,27,27,0.12), transparent 18%),
-        linear-gradient(to bottom, rgba(255,255,255,0.02), transparent 10%),
-        var(--bg);
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
       color: var(--text);
-      letter-spacing: -0.01em;
+      line-height: 1.7;
+      padding: 32px 20px 80px;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-
-    .shell {
-      width: min(calc(100% - 32px), var(--max));
+    .page {
+      max-width: var(--max);
       margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(16px);
-      background: rgba(6,6,6,0.82);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .topbar-inner {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
     }
 
     .back {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 11px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--line-strong);
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      font-weight: 600;
-      font-size: 0.93rem;
-    }
-
-    .back:hover { background: rgba(255,255,255,0.06); }
-
-    .case-meta-top {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      display: inline-block;
+      margin-bottom: 28px;
       color: var(--muted);
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+      text-decoration: none;
+      font-size: 0.95rem;
     }
 
     .hero {
-      padding: 34px 0 24px;
+      margin-bottom: 72px;
     }
 
-    .hero-wrap {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .hero-copy,
-    .hero-visual {
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-copy {
-      padding: 38px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100%;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      width: fit-content;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(179,27,27,0.4);
-      background: var(--accent-soft);
-      color: #f3c0c0;
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-bottom: 18px;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 5.4rem);
-      line-height: 0.94;
-      letter-spacing: -0.06em;
-      text-transform: uppercase;
-      max-width: 8ch;
-      margin-bottom: 16px;
-    }
-
-    .hero-subtitle {
-      color: var(--muted);
-      font-size: 1.03rem;
-      line-height: 1.75;
-      max-width: 44ch;
-      margin-bottom: 22px;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 24px;
-    }
-
-    .tag {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      color: var(--muted);
-      border-radius: 999px;
-      padding: 10px 13px;
-      font-size: 0.84rem;
-    }
-
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .stat {
-      padding: 14px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-    }
-
-    .stat-label {
-      color: var(--muted-2);
-      font-size: 0.73rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 7px;
-    }
-
-    .stat-value {
-      font-size: 0.96rem;
-      line-height: 1.45;
-      font-weight: 700;
-    }
-
-    .hero-visual {
-      padding: 18px;
-      overflow: hidden;
-      position: relative;
-      min-height: 620px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle at 70% 20%, rgba(179,27,27,0.16), transparent 30%),
-        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-    }
-
-    .device-collage {
-      position: relative;
-      width: min(100%, 760px);
-      height: 100%;
-      min-height: 560px;
-    }
-
-    .phone {
-      position: absolute;
-      width: 34%;
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 22px 60px rgba(0,0,0,0.45);
-      background: #0c0c0d;
-      transition: transform 0.25s ease;
-    }
-
-    .phone img { width: 100%; height: auto; display: block; }
-    .phone:hover { transform: translateY(-6px); }
-
-    .phone.one { left: 2%; top: 8%; transform: rotate(-7deg); }
-    .phone.two { left: 33%; top: 0; z-index: 2; }
-    .phone.three { right: 2%; top: 10%; transform: rotate(7deg); }
-    .phone.four { left: 18%; bottom: 0; transform: rotate(-4deg); }
-    .phone.five { right: 16%; bottom: 2%; transform: rotate(4deg); }
-
-    .section {
-      padding: 56px 0;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 18px;
-      margin-bottom: 32px;
-    }
-
-    .section-label {
-      color: var(--muted-2);
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-bottom: 8px;
-    }
-
-    .section-title {
-      font-size: clamp(1.6rem, 2vw, 2.3rem);
-      text-transform: uppercase;
-      letter-spacing: -0.05em;
-      line-height: 1;
-    }
-
-    .section-copy {
-      max-width: 460px;
-      color: var(--muted);
-      line-height: 1.65;
-      font-size: 0.95rem;
-    }
-
-    .overview {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) 320px;
-      gap: 18px;
-      align-items: start;
-    }
-
-    .panel {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .panel p,
-    .panel li {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 0.96rem;
-    }
-
-    .panel ul {
-      margin-top: 12px;
-      padding-left: 18px;
-    }
-
-    .quote {
-      font-size: 1.35rem;
-      line-height: 1.35;
-      letter-spacing: -0.03em;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 16px;
-    }
-
-    .aside-stack {
-      display: block;
-    }
-
-    .mini-card {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      padding: 18px;
-      margin-bottom: 12px;
-    }
-
-    .mini-card-label {
-      color: var(--muted-2);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 6px;
-    }
-
-    .mini-card-value {
-      font-weight: 600;
-      line-height: 1.55;
-      font-size: 0.95rem;
-      color: var(--text);
-    }
-
-    .overview-meta {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
-
-    .overview-meta p {
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 0.95rem;
-    }
-
-    .overview-meta strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .story-grid {
-      display: grid;
-      gap: 42px;
-    }
-
-    .story-block {
-      display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      gap: 24px;
-      align-items: start;
-    }
-
-    .story-index {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      padding: 18px;
-    }
-
-    .story-index-num {
+    .hero .label {
       color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
       font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
       font-weight: 700;
     }
 
-    .story-index h3 {
-      font-size: 1.15rem;
-      line-height: 1.15;
-      text-transform: uppercase;
-      letter-spacing: -0.03em;
+    h1 {
+      font-size: clamp(2.4rem, 7vw, 4rem);
+      line-height: 0.96;
+      margin-bottom: 18px;
+      letter-spacing: -0.05em;
     }
 
-    .story-content {
-      display: grid;
-      gap: 24px;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      align-items: start;
-    }
-
-    .side-by-side {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-  margin: 80px 0;
-}
-
-    .side-copy {
-  padding: 0;
-  border: none;
-  background: none;
-  box-shadow: none;
-}
-
-    .side-copy h4 {
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  letter-spacing: -0.04em;
-  margin-bottom: 10px;
-}
-
-    .side-copy p {
-  font-size: 0.95rem;
-  color: var(--muted);
-  line-height: 1.7;
-  max-width: 32ch;
-}
-
-    .side-copy h4 {
+    .subtitle {
       font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: -0.03em;
-      margin-bottom: 10px;
-    }
-
-    .side-copy p {
       color: var(--muted);
-      line-height: 1.7;
-      font-size: 0.95rem;
+      max-width: 60ch;
     }
 
-    .visual {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.02);
-      box-shadow: var(--shadow);
+    section {
+      margin-bottom: 88px;
     }
 
-    .visual img {
-  width: 100%;
-  max-width: 360px;
-  margin: 0 auto;
-  display: block;
-}
-
-    .caption { display: none; }
-
-    .callout-row {
-      display: block;
-    }
-
-    .callout {
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      padding: 18px;
-    }
-
-    .callout-title {
-      font-size: 0.76rem;
-      color: var(--muted-2);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 10px;
-    }
-
-    .callout-body {
-      font-size: 0.96rem;
-      line-height: 1.7;
-      font-weight: 500;
-      color: var(--muted);
-    }
-
-    .full-bleed {
-      border-radius: 28px;
-      border: 1px solid var(--line);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      background: rgba(255,255,255,0.02);
-    }
-
-    .full-bleed img {
-      width: 100%;
-      max-width: 640px;
-      margin: 0 auto;
-      display: block;
-    }
-
-    .result-grid {
-      display: block;
-    }
-
-    .result {
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      padding: 20px;
-    }
-
-    .result-number {
-      font-size: 1.05rem;
-      font-weight: 700;
+    h2 {
+      font-size: 1.45rem;
+      margin-bottom: 18px;
       letter-spacing: -0.03em;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin-top: 20px;
       margin-bottom: 8px;
-      text-transform: uppercase;
     }
 
-    .result-copy {
+    p, li {
       color: var(--muted);
-      line-height: 1.7;
-      font-size: 0.95rem;
+      font-size: 0.97rem;
     }
 
-    footer {
-      padding: 38px 0 56px;
-      border-top: 1px solid var(--line);
+    ul {
+      padding-left: 20px;
       margin-top: 10px;
     }
 
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
+    .image-wrap {
+      margin-top: 28px;
+      text-align: center;
+    }
+
+    .image-wrap img {
+      width: 100%;
+      max-width: 360px;
+      border-radius: var(--radius);
+      display: block;
+      margin: 0 auto;
+      cursor: zoom-in;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      border-radius: var(--radius);
+      display: block;
+      cursor: zoom-in;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      display: none;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.84rem;
+      justify-content: center;
+      z-index: 999;
+      padding: 24px;
     }
 
-    @media (max-width: 1100px) {
-      .side-by-side {
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 90vh;
+      border-radius: 16px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 700px) {
+      .image-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
       }
-
-      .story-index {
-        position: static;
-      }
-
-      .hero h1 { max-width: none; }
-      .hero-visual { min-height: 540px; }
     }
-
-    @media (max-width: 760px) {
-      .topbar-inner {
-        min-height: 68px;
-        flex-wrap: wrap;
-        padding: 10px 0;
-      }
-
-      .hero-copy,
-      .hero-visual,
-      .panel,
-      .story-index,
-      .visual,
-      .full-bleed {
-        border-radius: 22px;
-      }
-
-      .hero-copy { padding: 22px; }
-      .hero h1 { font-size: clamp(2.2rem, 11vw, 3.7rem); }
-      .stat-grid { grid-template-columns: 1fr; }
-      .device-collage { min-height: 450px; }
-      .phone { width: 42%; }
-      .phone.one { left: 0; top: 7%; }
-      .phone.two { left: 29%; top: 1%; }
-      .phone.three { right: 0; top: 11%; }
-      .phone.four { left: 8%; bottom: 0; }
-      .phone.five { right: 8%; bottom: 2%; }
-    }
-  
-
-/* LIGHTBOX */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-  z-index: 999;
-}
-
-.lightbox.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 16px;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
-}
-
-.visual img,
-.full-bleed img {
-  cursor: zoom-in;
-}
-
-</style>
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="shell topbar-inner">
-      <a class="back" href="../index.html">← Back to work</a>
-      <div class="case-meta-top">Mobile app case study</div>
-    </div>
-  </header>
+  <div class="page">
+    <a class="back" href="../index.html">← Back</a>
 
-  <main>
-    <section class="hero">
-      <div class="shell hero-wrap">
-        <div class="hero-copy">
-          <div>
-            
-            <h1>Cornell Enrollment Mobile App</h1>
-            <p class="hero-subtitle">
-              Cornell’s Student Center was designed primarily for desktop workflows, yet students frequently manage enrollment on their phones between classes. This project explores how a mobile-first redesign can make enrollment faster, clearer, and less stressful.
-            </p>
-            <div class="hero-tags">
-              <span class="tag">Mobile UX Redesign</span>
-            </div>
-          </div>
+    <header class="hero">
+      <div class="label">Mobile UX Redesign</div>
+      <h1>Cornell Enrollment Mobile App</h1>
+      <p class="subtitle">
+        Cornell’s Student Center was designed primarily for desktop workflows, yet students frequently manage enrollment on their phones between classes. This project explores how a mobile-first redesign can make enrollment faster, clearer, and less stressful.
+      </p>
+    </header>
 
-          <div class="stat-grid">
-            <div class="stat">
-              <div class="stat-label">Focus</div>
-              <div class="stat-value">Reducing cognitive load</div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">Focus</div>
-              <div class="stat-value">Improving visibility of enrollment status</div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">Focus</div>
-              <div class="stat-value">Guiding students through high-risk actions</div>
-            </div>
-          </div>
-              <div class="stat-value">Desktop-first enrollment flow on a phone</div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">Focus</div>
-              <div class="stat-value">Reduce uncertainty in add, drop, and swap</div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">Outcome</div>
-              <div class="stat-value">Guided flows, clearer status, stronger confirmation</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="device-collage">
-            <div class="phone one"><img src="../images/CE Hifi 1.png" alt="Cornell enrollment login and dashboard screens" /></div>
-            <div class="phone two"><img src="../images/CE Hifi 2.png" alt="Cornell enrollment add and confirmation screens" /></div>
-            <div class="phone three"><img src="../images/CE Hifi 3.png" alt="Course detail and drop flow screens" /></div>
-            <div class="phone four"><img src="../images/CE Hifi 5.png" alt="Swap flow screens" /></div>
-            <div class="phone five"><img src="../images/CE Hifi 8.png" alt="Transcript and grades screens" /></div>
-          </div>
-        </div>
+    <section>
+      <h2>Overview</h2>
+      <p>
+        The Cornell Enrollment Mobile App reimagines the Student Center experience as a guided mobile workflow instead of a dense, table-based system.
+      </p>
+      <p style="margin-top:12px;">
+        Rather than asking students to interpret complex information across multiple pages, the redesigned experience prioritizes clarity, speed, and confidence during decision-making.
+      </p>
+      <div class="image-wrap">
+        <img src="../images/CE Hifi 1.png" alt="Cornell Enrollment overview screen">
       </div>
     </section>
 
-    <section class="section">
-      <div class="shell">
-        <div class="section-head">
-          <div>
-            <div>
-            <div class="section-label">Overview</div>
-            <h2 class="section-title">The Cornell Enrollment Mobile App reimagines the Student Center experience as a guided mobile workflow instead of a dense, table-based system.</h2>
-          </div>
-          <p class="section-copy">Rather than asking students to interpret complex information across multiple pages, the redesigned experience prioritizes clarity, speed, and confidence during decision-making.</p>
-        </div>
+    <section>
+      <h2>1. Empathize</h2>
+      <p>
+        To understand how students interact with the enrollment system, I conducted informal interviews and walkthrough sessions with Cornell undergraduates during add/drop week.
+      </p>
+      <p style="margin-top:12px;">
+        Students were asked to walk through how they normally add a class, drop a class, and swap a class, and were observed navigating the current Student Center interface.
+      </p>
 
-        <div class="overview">
-          <div class="panel">
-            <div class="quote">Rather than asking students to interpret complex information across multiple pages, the redesigned experience prioritizes clarity, speed, and confidence during decision-making.</div>
-            <p>
-              The Cornell Enrollment Mobile App reimagines the Student Center experience as a guided mobile workflow instead of a dense, table-based system.
-            </p>
-            <p style="margin-top:12px;">
-              This redesign focuses on making enrollment actions faster, clearer, and less stressful on mobile.
-            </p>
-          </div>
+      <h3>Participants</h3>
+      <ul>
+        <li>6 Cornell undergraduate students</li>
+        <li>First-year to senior</li>
+        <li>Mix of majors across engineering, arts, and sciences</li>
+      </ul>
 
-          <div class="aside-stack">
-            <div class="overview-meta">
-              <p><strong>Participants</strong><br>6 Cornell undergraduate students, first-year to senior, across engineering, arts, and sciences</p>
-              <p style="margin-top:14px;"><strong>Observed tasks</strong><br>Add a class, drop a class, swap a class</p>
-              <p style="margin-top:14px;"><strong>Core insight</strong><br>The problem is not just usability. It is lack of confidence during high-stakes actions.</p>
-            </div>
-          </div>
-        </div>
+      <h3>Key Observations</h3>
+      <ul>
+        <li>Students hesitate before confirming enrollment changes</li>
+        <li>Swap is perceived as risky and unclear</li>
+        <li>Important information is buried in dense tables</li>
+        <li>Students double-check schedules after submitting actions</li>
+        <li>Mobile experience is difficult and not optimized</li>
+      </ul>
+
+      <p style="margin-top:16px;">
+        <strong style="color:#f5f5f5;">Key Insight:</strong> The core problem is not just usability. It is lack of confidence during high-stakes actions.
+      </p>
+
+      <div class="image-grid">
+        <img src="../images/CE Interview.png" alt="Interview observations">
+        <img src="../images/CE Ideation.PNG" alt="Research synthesis">
       </div>
-        </div>
+    </section>
+
+    <section>
+      <h2>2. Define</h2>
+      <p>
+        Students need a faster and safer way to manage enrollment on mobile devices without feeling uncertain about the outcome of their actions.
+      </p>
+      <p style="margin-top:12px;">
+        The current system slows decision-making because it requires navigating multiple pages, presents information in dense tables, and provides weak feedback after actions.
+      </p>
+
+      <h3>Design Goals</h3>
+      <ul>
+        <li>Reduce cognitive load</li>
+        <li>Increase confidence in risky actions</li>
+        <li>Improve mobile navigation</li>
+        <li>Improve system feedback</li>
+      </ul>
+
+      <div class="image-wrap">
+        <img src="../images/CE Midfi 1.png" alt="Define stage screen">
       </div>
     </section>
 
-    <section class="section">
-      <div class="shell story-grid">
-        <div class="story-block">
-          <aside class="story-index">
-            <div class="story-index-num">01</div>
-            <h3>1. Empathize</h3>
-          </aside>
+    <section>
+      <h2>3. Ideate</h2>
+      <p>
+        After synthesizing research insights, I explored ways to restructure the enrollment experience for mobile.
+      </p>
+      <p style="margin-top:12px;">
+        The ideation process focused on reducing cognitive load, increasing confidence in risky actions, improving navigation speed, and handling edge cases such as conflicts, waitlists, and prerequisites.
+      </p>
 
-          <div class="story-content">
-            <div class="panel">
-              <p>
-                To understand how students interact with the enrollment system, I conducted informal interviews and walkthrough sessions with Cornell undergraduates during add/drop week.
-              </p>
-              <p>
-                Students were asked to walk through how they normally add a class, drop a class, and swap a class, while navigating the current Student Center interface.
-              </p>
-              <h4 style="margin-top:14px; margin-bottom:8px; font-size:0.95rem;">Key Observations</h4>
-              <ul>
-                <li>Students hesitate before confirming enrollment changes</li>
-                <li>Swap is perceived as risky and unclear</li>
-                <li>Important information is buried in dense tables</li>
-                <li>Students double-check schedules after submitting actions</li>
-                <li>Mobile experience is difficult and not optimized</li>
-              </ul>
-            </div>
+      <h3>Concept Direction</h3>
+      <p>
+        A key idea was shifting enrollment from a form-based system into a guided workflow. Instead of navigating tables and forms, users move through Select → Review → Confirm → Result.
+      </p>
 
-            <div class="side-by-side">
-              <figure class="visual">
-                <img src="../images/CE Interview.png" alt="Interview observations from Cornell enrollment walkthrough sessions" />
-                <figcaption class="caption">Walkthrough sessions with students navigating the current enrollment experience.</figcaption>
-              </figure>
-              <div class="side-copy">
-                <h4>Research observations</h4>
-                <p>
-                  Students often paused before confirming actions, re-read key screens, and checked their schedules again afterward. The issue was not only navigation complexity, but low confidence in the outcome.
-                </p>
-              </div>
-            </div>
+      <h3>Design Directions Explored</h3>
+      <ul>
+        <li>Card-based course layout for faster scanning</li>
+        <li>Step-by-step enrollment flows</li>
+        <li>Side-by-side swap preview</li>
+        <li>Visual schedule blocks for conflict detection</li>
+        <li>Clear status indicators</li>
+        <li>Strong confirmation and success states</li>
+      </ul>
 
-            <div class="side-by-side">
-              <div class="side-copy">
-                <h4>Research synthesis</h4>
-                <p>
-                  I grouped interview notes into themes around scanability, feedback, and confidence during risky actions. That synthesis helped define the core design direction for the rest of the project.
-                </p>
-              </div>
-              <figure class="visual">
-                <img src="../images/CE Ideation.PNG" alt="Affinity mapping and design synthesis for Cornell enrollment redesign" />
-                <figcaption class="caption">Grouped themes from interviews and walkthrough sessions.</figcaption>
-              </figure>
-            </div>
-
-            <div class="callout-row">
-              <div class="callout">
-                <div class="callout-title">Key Insight</div>
-                <div class="callout-body">
-                  The core problem is not just usability. It is lack of confidence during high-stakes actions. Students are not just trying to complete tasks. They are trying to avoid making irreversible mistakes.
-                </div>
-              </div>
-            </div>
-                <div class="callout-body">
-                  Dense tables slow down scanning on mobile. Swap feels risky because the consequence is not obvious enough. Users also double-check outcomes because the system feedback feels weak.
-                </div>
-              </div>
-            </div>
-                <div class="callout-body">Dense tables slow down scanning on mobile.</div>
-              </div>
-              <div class="callout">
-                <div class="callout-title">Pain point</div>
-                <div class="callout-body">Swap feels risky because the consequence is not obvious enough.</div>
-              </div>
-              <div class="callout">
-                <div class="callout-title">Pain point</div>
-                <div class="callout-body">Users double-check outcomes because the system feedback feels weak.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="story-block">
-          <aside class="story-index">
-            <div class="story-index-num">02</div>
-            <h3>2. Define</h3>
-          </aside>
-
-          <div class="story-content">
-            <div class="panel">
-              <p>
-                Students need a faster and safer way to manage enrollment on mobile devices without feeling uncertain about the outcome of their actions.
-              </p>
-              <p>
-                The current system slows decision-making because it requires navigating multiple pages, presents information in dense tables, and provides weak feedback after actions.
-              </p>
-              <h4 style="margin-top:14px; margin-bottom:8px; font-size:0.95rem;">Design Goals</h4>
-              <ul>
-                <li>Reduce cognitive load and make course information easy to scan quickly</li>
-                <li>Increase confidence in risky actions</li>
-                <li>Improve mobile navigation with fewer steps</li>
-                <li>Improve system feedback so actions clearly succeed or fail</li>
-              </ul>
-            </div>
-
-            <div class="side-by-side">
-              <figure class="visual">
-                <img src="../images/CE Midfi 1.png" alt="Mid fidelity Cornell enrollment wireframes set one" />
-                <figcaption class="caption">Mid-fidelity exploration of dashboard, add flow, confirmation, and schedule visibility.</figcaption>
-              </figure>
-              <div class="side-copy">
-                <h4>Early structure</h4>
-                <p>
-                  Mid-fidelity wireframes were used to test layout, navigation, and enrollment steps before moving into visual design. The goal was to make common tasks easier to find and easier to follow on mobile.
-                </p>
-              </div>
-            </div>
-
-            <div class="side-by-side">
-              <div class="side-copy">
-                <h4>Mid-fi refinement</h4>
-                <p>
-                  Course detail and drop flows were simplified around clearer hierarchy and scannable cards, while swap was redesigned as a guided sequence instead of a table-heavy utility flow.
-                </p>
-              </div>
-              <figure class="visual">
-                <img src="../images/CE Midfi 2.png" alt="Mid fidelity Cornell enrollment wireframes set two" />
-                <figcaption class="caption">Course detail and drop flow exploration.</figcaption>
-              </figure>
-            </div>
-
-            <div class="side-by-side">
-              <figure class="visual">
-                <img src="../images/CE Midfi 3.png" alt="Mid fidelity Cornell enrollment wireframes set three" />
-                <figcaption class="caption">Swap flow exploration with guided steps.</figcaption>
-              </figure>
-              <div class="side-copy">
-                <h4>Guided swap logic</h4>
-                <p>
-                  The wireframes helped establish a step-by-step structure for swap so students could better understand what they were replacing, what fit their schedule, and what would happen next.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="story-block">
-          <aside class="story-index">
-            <div class="story-index-num">03</div>
-            <h3>3. Ideate</h3>
-          </aside>
-
-          <div class="story-content">
-            <div class="panel">
-              <p>
-                After synthesizing research insights, I explored ways to restructure the enrollment experience for mobile.
-              </p>
-              <p>
-                The ideation process focused on reducing cognitive load, increasing confidence in risky actions, improving navigation speed, and handling edge cases such as conflicts, waitlists, and prerequisites.
-              </p>
-              <h4 style="margin-top:14px; margin-bottom:8px; font-size:0.95rem;">Concept Direction</h4>
-              <p>
-                A key idea was shifting enrollment from a form-based system into a guided workflow. Instead of navigating tables and forms, users move through Select → Review → Confirm → Result.
-              </p>
-              <h4 style="margin-top:14px; margin-bottom:8px; font-size:0.95rem;">Design Directions Explored</h4>
-              <ul>
-                <li>Card-based course layout for faster scanning</li>
-                <li>Step-by-step enrollment flows</li>
-                <li>Side-by-side swap preview</li>
-                <li>Visual schedule blocks for conflict detection</li>
-                <li>Clear status indicators: Open, Waitlist, Closed</li>
-                <li>Strong confirmation and success states</li>
-              </ul>
-              <p style="margin-top:12px;">
-                Enrollment is not just a usability problem. It is an emotional experience. The ideation phase focused on reducing anxiety and helping students feel confident in their decisions.
-              </p>
-            </div>
-
-            <div class="side-by-side">
-              <figure class="visual">
-                <img src="../images/CE Hifi 1.png" alt="Cornell enrollment high fidelity screen collage one" />
-                <figcaption class="caption">Entry point and dashboard screens.</figcaption>
-              </figure>
-              <div class="side-copy">
-                <h4>Faster entry point</h4>
-                <p>
-                  The redesigned dashboard makes core actions easier to spot right away, giving students a clearer path into enrollment without first decoding a desktop-style interface.
-                </p>
-              </div>
-            </div>
-
-            <div class="side-by-side">
-              <figure class="visual">
-                <img src="../images/CE Hifi 2.png" alt="Cornell enrollment high fidelity screen collage two" />
-                <figcaption class="caption">Add flow and course detail screens.</figcaption>
-              </figure>
-              <div class="side-copy">
-                <h4>Clearer course decisions</h4>
-                <p>
-                  The add flow makes status, course details, and next steps easier to scan at a glance. Instead of forcing users to decode a dense table, the screen surfaces what matters first and supports faster decisions on mobile.
-                </p>
-              </div>
-            </div>
-
-            <div class="side-by-side">
-              <div class="side-copy">
-                <h4>Less risky drop flow</h4>
-                <p>
-                  The drop flow is designed to reduce hesitation. Course information stays readable, the action remains clear, and confirmation feels more explicit so users are not left wondering whether the change actually went through.
-                </p>
-              </div>
-              <figure class="visual">
-                <img src="../images/CE Hifi 3.png" alt="Cornell enrollment high fidelity screen collage three" />
-                <figcaption class="caption">Course detail and drop flow screens.</figcaption>
-              </figure>
-            </div>
-
-            <div class="side-by-side">
-              <figure class="visual">
-                <img src="../images/CE Hifi 4.png" alt="Cornell enrollment high fidelity screen collage four" />
-                <figcaption class="caption">Drop confirmation screens.</figcaption>
-              </figure>
-              <div class="side-copy">
-                <h4>Stronger confirmation</h4>
-                <p>
-                  Confirmation is treated as an important part of the experience, not an afterthought. The screen clearly reflects the updated schedule and reassures users that the action is complete.
-                </p>
-              </div>
-            </div>
-
-            <div class="side-by-side">
-              <div class="side-copy">
-                <h4>Guided swap sequence</h4>
-                <p>
-                  Swap is one of the most stressful actions in the existing system, so the redesign turns it into a more guided sequence. Step labels, clearer hierarchy, and stronger previews make the process easier to follow.
-                </p>
-              </div>
-              <figure class="visual">
-                <img src="../images/CE Hifi 5.png" alt="Cornell enrollment high fidelity screen collage five" />
-                <figcaption class="caption">Swap flow screens.</figcaption>
-              </figure>
-            </div>
-
-            <div class="side-by-side">
-              <figure class="visual">
-                <img src="../images/CE Hifi 6.png" alt="Cornell enrollment high fidelity screen collage six" />
-                <figcaption class="caption">Swap confirmation screens.</figcaption>
-              </figure>
-              <div class="side-copy">
-                <h4>Better preview before commit</h4>
-                <p>
-                  Before users confirm a swap, the interface gives them a clearer sense of what they are changing and why it fits. That added visibility helps reduce second-guessing during a high-stakes action.
-                </p>
-              </div>
-            </div>
-
-            <div class="side-by-side">
-              <div class="side-copy">
-                <h4>Consistent product system</h4>
-                <p>
-                  Supporting screens like profile, grades, and transcripts extend the same visual language. That consistency makes the app feel more cohesive and less like a collection of disconnected admin pages.
-                </p>
-              </div>
-              <figure class="visual">
-                <img src="../images/CE Hifi 7.png" alt="Cornell enrollment high fidelity screen collage seven" />
-                <figcaption class="caption">Profile and supporting screens.</figcaption>
-              </figure>
-            </div>
-
-            <figure class="full-bleed">
-              <img src="../images/CE Hifi 8.png" alt="Cornell enrollment high fidelity screen collage eight" />
-              <div class="caption">Grades and transcript pages extend the product language without returning to dense utility layouts.</div>
-            </figure>
-          </div>
-        </div>
-
-        <div class="story-block">
-          <aside class="story-index">
-            <div class="story-index-num">04</div>
-            <h3>4. Prototype</h3>
-          </aside>
-
-          <div class="story-content">
-            <div class="panel">
-              <p>
-                Mid-fidelity wireframes were created to test structure and flows before visual design.
-              </p>
-              <h4 style="margin-top:14px; margin-bottom:8px; font-size:0.95rem;">Focus areas</h4>
-              <ul>
-                <li>Clear action hierarchy</li>
-                <li>Guided step-by-step flows</li>
-                <li>Improved scanability</li>
-                <li>Visibility of important information</li>
-              </ul>
-              <h4 style="margin-top:14px; margin-bottom:8px; font-size:0.95rem;">Key Flows</h4>
-              <ul>
-                <li>Student Center dashboard</li>
-                <li>Add course flow</li>
-                <li>Swap course flow</li>
-                <li>Drop course flow</li>
-                <li>Schedule view</li>
-              </ul>
-              <h4 style="margin-top:14px; margin-bottom:8px; font-size:0.95rem;">Improvements Introduced</h4>
-              <ul>
-                <li>Card-based layouts replacing tables</li>
-                <li>Step-based navigation for enrollment actions</li>
-                <li>Clear visibility of seat availability and conflicts</li>
-                <li>Simplified interaction patterns</li>
-              </ul>
-              <h4 style="margin-top:14px; margin-bottom:8px; font-size:0.95rem;">High-Fidelity Design</h4>
-              <p>
-                After validating structure, high-fidelity screens refined the experience visually.
-              </p>
-              <h4 style="margin-top:14px; margin-bottom:8px; font-size:0.95rem;">Final Design Features</h4>
-              <ul>
-                <li>Card-based UI for easy scanning</li>
-                <li>Clear status indicators</li>
-                <li>Guided enrollment flows</li>
-                <li>Visual schedule blocks</li>
-                <li>Strong confirmation feedback</li>
-              </ul>
-              <p style="margin-top:12px;">
-                Cornell’s red was used as a primary accent to maintain branding while highlighting important actions.
-              </p>
-            </div>
-
-            <div class="result-grid">
-              <div class="result">
-                <div class="result-number">5. Test</div>
-                <div class="result-copy">
-                  Quick usability testing was conducted with students using the prototype. Tasks included adding a class, swapping a class, and dropping a class. Students completed tasks faster, hesitated less before confirming actions, and found that swap preview, schedule blocks, and confirmation screens improved confidence and reduced the need to double-check.
-                  <br><br>
-                  <strong style="color: var(--text);">Key Insight</strong><br>
-                  Strong feedback and structured flows significantly reduce uncertainty.
-                  <br><br>
-                  <strong style="color: var(--text);">Reflection</strong><br>
-                  This project highlighted how administrative systems often prioritize functionality over user confidence. While the original system technically works, it creates unnecessary stress during an already high-pressure process.
-                  <br><br>
-                  <strong style="color: var(--text);">What I Learned</strong><br>
-                  UX is not just about efficiency. It is about confidence. Clear feedback is critical in high-risk interactions, and mobile-first design requires rethinking structure, not just resizing screens.
-                  <br><br>
-                  <strong style="color: var(--text);">Future Improvements</strong><br>
-                  Real-time waitlist updates, push notifications for seat availability, and integration with long-term academic planning tools.
-                </div>
-              </div>
-            </div>
-                <div class="result-copy">Card-based information and schedule blocks reduced the need to decode dense tables on mobile.</div>
-              </div>
-              <div class="result">
-                <div class="result-number">Safer</div>
-                <div class="result-copy">Swap and drop flows made consequences easier to understand before users confirmed.</div>
-              </div>
-              <div class="result">
-                <div class="result-number">Faster</div>
-                <div class="result-copy">Important actions became easier to reach without bouncing between multiple admin-style pages.</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="image-grid">
+        <img src="../images/CE Midfi 2.png" alt="Mid fidelity course flow">
+        <img src="../images/CE Midfi 3.png" alt="Mid fidelity swap flow">
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="shell footer-row">
-      <div>YJ Lee • Cornell Enrollment Mobile App</div>
-      <div>Built as a cleaner, visual-first case study presentation.</div>
-    </div>
-  </footer>
+    <section>
+      <h2>4. Prototype</h2>
+      <p>
+        Mid-fidelity wireframes were created to test structure and flows before visual design.
+      </p>
 
+      <h3>Focus Areas</h3>
+      <ul>
+        <li>Clear action hierarchy</li>
+        <li>Guided step-by-step flows</li>
+        <li>Improved scanability</li>
+        <li>Visibility of important information</li>
+      </ul>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <span class="lightbox-close" id="lightboxClose">×</span>
-  <img id="lightboxImg" src="" alt="" />
-</div>
+      <h3>Key Flows</h3>
+      <ul>
+        <li>Student Center dashboard</li>
+        <li>Add course flow</li>
+        <li>Swap course flow</li>
+        <li>Drop course flow</li>
+        <li>Schedule view</li>
+      </ul>
 
-<script>
-  const images = document.querySelectorAll('.visual img, .full-bleed img');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const closeBtn = document.getElementById('lightboxClose');
+      <h3>Final Design Features</h3>
+      <ul>
+        <li>Card-based UI for easy scanning</li>
+        <li>Clear status indicators</li>
+        <li>Guided enrollment flows</li>
+        <li>Visual schedule blocks</li>
+        <li>Strong confirmation feedback</li>
+      </ul>
 
-  images.forEach(img => {
-    img.addEventListener('click', () => {
-      lightbox.classList.add('active');
-      lightboxImg.src = img.src;
+      <div class="image-grid">
+        <img src="../images/CE Hifi 2.png" alt="High fidelity design 1">
+        <img src="../images/CE Hifi 3.png" alt="High fidelity design 2">
+        <img src="../images/CE Hifi 5.png" alt="High fidelity design 3">
+        <img src="../images/CE Hifi 6.png" alt="High fidelity design 4">
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Test</h2>
+      <p>
+        Quick usability testing was conducted with students using the prototype.
+      </p>
+
+      <h3>Tasks</h3>
+      <ul>
+        <li>Add a class</li>
+        <li>Swap a class</li>
+        <li>Drop a class</li>
+      </ul>
+
+      <h3>Results</h3>
+      <ul>
+        <li>Students completed tasks faster</li>
+        <li>Less hesitation before confirming actions</li>
+        <li>Swap preview increased confidence</li>
+        <li>Schedule blocks improved understanding of conflicts</li>
+        <li>Confirmation screens reduced need to double-check</li>
+      </ul>
+
+      <p style="margin-top:16px;">
+        <strong style="color:#f5f5f5;">Key Insight:</strong> Strong feedback and structured flows significantly reduce uncertainty.
+      </p>
+
+      <div class="image-wrap">
+        <img src="../images/CE Hifi 8.png" alt="Testing outcome screens">
+      </div>
+    </section>
+
+    <section>
+      <h2>Reflection</h2>
+      <p>
+        This project highlighted how administrative systems often prioritize functionality over user confidence.
+      </p>
+      <p style="margin-top:12px;">
+        While the original system technically works, it creates unnecessary stress during an already high-pressure process.
+      </p>
+
+      <h3>What I Learned</h3>
+      <ul>
+        <li>UX is not just about efficiency. It is about confidence</li>
+        <li>Clear feedback is critical in high-risk interactions</li>
+        <li>Mobile-first design requires rethinking structure, not just resizing screens</li>
+      </ul>
+
+      <h3>Future Improvements</h3>
+      <ul>
+        <li>Real-time waitlist updates</li>
+        <li>Push notifications for seat availability</li>
+        <li>Integration with long-term academic planning tools</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <span class="close" id="closeBtn">×</span>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script>
+    const images = document.querySelectorAll(".image-wrap img, .image-grid img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeBtn = document.getElementById("closeBtn");
+
+    images.forEach((img) => {
+      img.addEventListener("click", () => {
+        lightbox.classList.add("active");
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+      });
     });
-  });
 
-  closeBtn.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-  });
+    closeBtn.addEventListener("click", () => {
+      lightbox.classList.remove("active");
+    });
 
-  lightbox.addEventListener('click', (e) => {
-    if (e.target !== lightboxImg) {
-      lightbox.classList.remove('active');
-    }
-  });
-</script>
-
+    lightbox.addEventListener("click", (e) => {
+      if (e.target !== lightboxImg) {
+        lightbox.classList.remove("active");
+      }
+    });
+  </script>
 </body>
 </html>
