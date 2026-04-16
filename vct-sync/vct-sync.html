@@ -4,366 +4,681 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VCT Sync | YJ Lee</title>
-  <link rel="canonical" href="https://yjleeportfolio.vercel.app/vct-sync/vct-sync.html" />
-  <meta name="description" content="VCT Sync project page by YJ Lee, part of the portfolio at https://yjleeportfolio.vercel.app/." />
-
+  <meta name="description" content="VCT Sync case study by YJ Lee." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg:#080812;
-      --card:#0f1119;
-      --accent:#7c7c8a;
-      --accent-bright:#9a9aa8;
-      --purple:#a78bfa;
-      --text:#f5f5f7;
-      --muted:#7a7a88;
-      --border:rgba(122,124,138,.3);
-      --radius:1.5rem;
+      --bg: #07070a;
+      --panel: #121217;
+      --text: #f5f5f7;
+      --muted: #aaaab3;
+      --muted-2: #7f7f8d;
+      --line: rgba(255,255,255,0.09);
+      --accent: #b89cff;
+      --accent-soft: rgba(184,156,255,0.14);
+      --max: 860px;
+      --radius: 24px;
+      --shadow: 0 20px 60px rgba(0,0,0,0.34);
     }
 
-    *{box-sizing:border-box;margin:0;padding:0;}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html,body{
-      background:#050508;
-      color:var(--text);
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(167,139,250,0.12), transparent 18%),
+        linear-gradient(to bottom, rgba(255,255,255,0.02), transparent 10%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 32px 20px 80px;
     }
 
-    a{color:inherit;text-decoration:none;}
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-    .page{
-      max-width:1100px;
-      margin:0 auto;
-      padding:2.25rem 1.25rem 4rem;
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
     }
 
-    .top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:1.6rem;
-      gap:1rem;
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 30px;
     }
 
-    .back{
-      padding:.55rem .9rem;
-      border-radius:999px;
-      border:2px solid var(--accent);
-      background:transparent;
-      color:var(--accent-bright);
-      font-weight:600;
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.93rem;
     }
 
-    .back:hover{
-      background:rgba(122,124,138,.1);
-      box-shadow:0 0 15px rgba(122,124,138,.2);
+    .back:hover { background: rgba(255,255,255,0.06); color: var(--text); }
+
+    .case-label {
+      color: var(--muted-2);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.76rem;
+      font-weight: 700;
     }
 
-    .kicker{
-      font-size:.78rem;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:var(--accent-bright);
-      font-weight:700;
+    .hero {
+      margin-bottom: 84px;
+      text-align: center;
     }
 
-    .hero-section{
-      border:2px solid var(--muted);
-      border-radius:1.5rem;
-      background:rgba(122,124,138,.05);
-      padding:2.5rem 2rem;
-      margin-bottom:2rem;
-      box-shadow:0 4px 20px rgba(0,0,0,.6);
+    .hero .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 14px;
     }
 
-    .hero-section h1{
-      color:var(--purple);
-      margin-bottom:1rem;
-      font-size:clamp(2rem,3vw,2.5rem);
-      font-family:"Playfair Display",serif;
+    .hero h1 {
+      font-size: clamp(2.6rem, 7vw, 4.5rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      margin-bottom: 18px;
     }
 
-    .hero-section p{
-      color:var(--muted);
-      line-height:1.6;
-      font-size:1rem;
-      max-width:760px;
+    .hero p {
+      max-width: 64ch;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1rem;
     }
 
-    .grid{
-      display:grid;
-      gap:1.1rem;
-      margin-top:1.7rem;
+    .focus-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 28px auto 0;
+      max-width: 760px;
     }
 
-    .card{
-      border-radius:var(--radius);
-      border:1px solid var(--border);
-      background:var(--card);
-      padding:1.35rem 1.4rem;
-      box-shadow:0 4px 15px rgba(0,0,0,.5);
+    .focus-card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: var(--shadow);
     }
 
-    .card h2{
-      font-size:1.08rem;
-      margin-bottom:.65rem;
-      color:var(--purple);
+    .focus-label {
+      color: var(--muted-2);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      margin-bottom: 8px;
     }
 
-    .card p,.card li{
-      color:var(--muted);
-      line-height:1.75;
-      font-size:.95rem;
+    .focus-value {
+      font-size: 0.94rem;
+      font-weight: 700;
+      line-height: 1.45;
     }
 
-    .card ul,
-    .card ol{
-      padding-left:1.2rem;
-      margin-top:.55rem;
+    section {
+      margin-bottom: 92px;
     }
 
-    .card h3{
-      color:var(--purple);
-      margin-top:0.95rem;
-      margin-bottom:0.3rem;
-      font-size:0.98rem;
+    .section-intro {
+      margin-bottom: 22px;
     }
 
-    /* image styling */
-    .image-group{
-      margin-top:1.2rem;
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0, 1fr));
-      gap:1rem;
-      align-items:start;
+    .section-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.76rem;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
-    .image-group.single{
-      grid-template-columns:1fr;
-      max-width:900px;
-      margin-left:auto;
-      margin-right:auto;
+    h2 {
+      font-size: 1.65rem;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
     }
 
-    .image-group img{
-      width:100%;
-      display:block;
-      border-radius:1rem;
-      border:1px solid var(--border);
-      background:#0b0c12;
-      padding:.45rem;
-      box-shadow:0 6px 18px rgba(0,0,0,.35);
+    h3 {
+      font-size: 1rem;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      color: var(--text);
     }
 
-    .image-caption{
-      font-size:.82rem;
-      color:var(--muted);
-      margin-top:1rem;
+    p, li {
+      color: var(--muted);
+      font-size: 0.97rem;
     }
 
-    @media (max-width: 820px){
-      .page{
-        max-width:920px;
+    ul, ol {
+      padding-left: 20px;
+      margin-top: 12px;
+    }
+
+    .story-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .quote {
+      color: var(--text);
+      font-size: 1.25rem;
+      line-height: 1.35;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .info-block {
+      margin-top: 18px;
+    }
+
+    .image-stack {
+      margin-top: 28px;
+      display: grid;
+      gap: 22px;
+    }
+
+    .media-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.9fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .media-row.reverse .media-copy {
+      order: 1;
+    }
+
+    .media-row.reverse .media-visual {
+      order: 2;
+    }
+
+    .media-visual img {
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+      border-radius: var(--radius);
+      cursor: zoom-in;
+      box-shadow: var(--shadow);
+    }
+
+    .media-copy h4 {
+      font-size: 1.2rem;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .media-copy p {
+      max-width: 34ch;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      border-radius: var(--radius);
+      cursor: zoom-in;
+      box-shadow: var(--shadow);
+    }
+
+    .summary-box {
+      margin-top: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      border-radius: 20px;
+      padding: 18px 20px;
+    }
+
+    .summary-box strong { color: var(--text); }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 24px;
+    }
+
+    .lightbox.active { display: flex; }
+
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 90vh;
+      border-radius: 16px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .focus-row,
+      .gallery,
+      .media-row {
+        grid-template-columns: 1fr;
       }
 
-      .image-group{
-        grid-template-columns:1fr;
-      }
-
-      .hero-section{
-        padding:2rem 1.35rem;
-      }
-
-      .card{
-        padding:1.15rem 1.1rem;
+      .media-row.reverse .media-copy,
+      .media-row.reverse .media-visual {
+        order: initial;
       }
     }
   </style>
 </head>
-
 <body>
-<div class="page">
+  <div class="page">
+    <div class="topbar">
+      <a class="back" href="../index.html">← Back</a>
+      <div class="case-label">Case Study</div>
+    </div>
 
-  <div class="top">
-    <a class="back" href="../index.html">← Back</a>
-    <div class="kicker">Case Study</div>
-  </div>
-
-  <div class="hero-section">
-    <h1>VCT Sync</h1>
-    <p>
-      A mobile experience designed for Valorant Champions Tour fans who want structured match insights without clutter or distraction.
-    </p>
-  </div>
-
-  <div class="grid">
-
-    <!-- Overview -->
-    <section class="card">
-      <h2>Overview</h2>
+    <header class="hero">
+      <div class="eyebrow">Mobile UX Case Study</div>
+      <h1>VCT Sync</h1>
       <p>
-        VCT Sync is a mobile esports companion designed for Valorant Champions Tour fans who want fast, meaningful match insight without clutter. While existing platforms emphasize dense statistics and aggressive monetization, VCT Sync prioritizes clarity, momentum, and mobile scan speed.
+        A mobile experience designed for Valorant Champions Tour fans who want structured match insights without clutter or distraction.
       </p>
-      <p>
-        The goal is not simply to show who won, but to help fans quickly understand what changed the match and why it mattered.
-      </p>
-    </section>
 
-    <!-- Empathize -->
-    <section class="card">
-      <h2>1. Empathize</h2>
-      <h3>Understanding the Esports Viewing Experience</h3>
-      <p>Valorant Champions Tour matches occur across different regions and time zones, making it difficult for fans to follow every game live. To understand how viewers currently track tournament progress, I conducted short interviews with several esports fans who regularly follow competitive Valorant.</p>
-      <p>Participants described relying on a mix of sources such as tournament websites, Liquipedia pages, social media updates, and live streams to stay informed. While these platforms provide detailed information, they often require navigating multiple pages to access basic details like match results, schedules, and team statistics.</p>
-      <p>Many participants mentioned that they frequently check match updates while multitasking during work, school, or gameplay. Because of this, they prefer interfaces that allow them to quickly glance at essential information rather than navigating complex tournament pages.</p>
-      <p>Another consistent insight was that users rarely follow every match in a tournament. Instead, they often track specific teams they care about, checking schedules primarily to see when those teams are playing.</p>
-      <p>These conversations revealed an opportunity to design an experience that focuses on speed, clarity, and team-centered viewing.</p>
+      <div class="focus-row">
+        <div class="focus-card">
+          <div class="focus-label">Focus</div>
+          <div class="focus-value">Fast, meaningful match insight</div>
+        </div>
+        <div class="focus-card">
+          <div class="focus-label">Problem</div>
+          <div class="focus-value">Dense stats and clutter slow quick check-ins</div>
+        </div>
+        <div class="focus-card">
+          <div class="focus-label">Goal</div>
+          <div class="focus-value">Clarity, momentum, and mobile scan speed</div>
+        </div>
+      </div>
+    </header>
 
-      <h3>Participants</h3>
-      <p>I spoke with three VCT fans with different viewing habits:</p>
-      <ul>
-        <li><strong>Participant A:</strong> Watches most matches live, cares about bracket implications</li>
-        <li><strong>Participant B:</strong> Watches highlights and checks scores between classes</li>
-        <li><strong>Participant C:</strong> Ranked player, uses stats to learn and improve</li>
-      </ul>
+    <section>
+      <div class="section-intro">
+        <div class="section-label">Overview</div>
+        <h2>Esports companion for fans who want clarity, not clutter</h2>
+      </div>
 
-      <h3>Method</h3>
-      <p>Semi-structured interviews plus task walkthroughs on mobile. I asked participants to use their current apps and talk out loud while completing the same tasks.</p>
+      <div class="story-card">
+        <div class="quote">The goal is not simply to show who won, but to help fans quickly understand what changed the match and why it mattered.</div>
+        <p>
+          VCT Sync is a mobile esports companion designed for Valorant Champions Tour fans who want fast, meaningful match insight without clutter. While existing platforms emphasize dense statistics and aggressive monetization, VCT Sync prioritizes clarity, momentum, and mobile scan speed.
+        </p>
+      </div>
 
-      <h3>Research synthesis</h3>
-      <p>Affinity mapping of interview notes surfaced three core themes:</p>
-      <ul>
-        <li>Fans want contextual storytelling, not just final scores</li>
-        <li>Intrusive ads damage trust and interrupt focus</li>
-        <li>Dense layouts increase cognitive load during quick check-ins</li>
-      </ul>
-
-      <div class="image-caption">Affinity map: Interview themes and behavioral patterns.</div>
-      <div class="image-group single">
-        <img src="../images/VCT Interview.png" alt="Research affinity map" />
+      <div class="image-stack">
+        <div class="media-row">
+          <div class="media-visual">
+            <img src="../images/VCT Hifi 1.png" alt="VCT Sync onboarding screens" />
+          </div>
+          <div class="media-copy">
+            <h4>Quick setup around viewer preference</h4>
+            <p>
+              The onboarding flow narrows the experience around the leagues and teams each user actually cares about, supporting team-centered navigation from the start.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Define -->
-    <section class="card">
-      <h2>2. Define</h2>
-      <h3>Identifying the core problem</h3>
-      <p>Esports fans need a faster and more focused way to track matches, follow their favorite teams, and understand tournament progress without navigating complex tournament interfaces.</p>
-      <h3>Design goals</h3>
-      <ul>
-        <li>Improve scanability – quickly identify matchups, scores, and upcoming matches.</li>
-        <li>Support team-centered navigation – enable fans to follow specific teams easily.</li>
-        <li>Reduce information overload – prioritize essential match information while keeping deeper statistics accessible.</li>
-      </ul>
-    </section>
+    <section>
+      <div class="section-intro">
+        <div class="section-label">1. Empathize</div>
+        <h2>Understanding the esports viewing experience</h2>
+      </div>
 
-    <!-- Ideate -->
-    <section class="card">
-      <h2>3. Ideate</h2>
-      <p>With a clearer understanding of the problem space, I began exploring ways to structure esports information within a mobile interface. Early brainstorming focused on organizing match information into patterns that would support quick browsing. Several layout concepts were explored, including list-based views, simplified bracket diagrams, and card-based match displays. Through this exploration, the card-based match layout emerged as the most effective solution. Cards allow match information such as team names, scores, and match times to be grouped into a single visual component, making it easier for users to scan multiple matches quickly.</p>
-      <p>Additional ideas explored during this phase included:</p>
-      <ul>
-        <li>Simplifying tournament bracket structures</li>
-        <li>Highlighting match results visually</li>
-        <li>Allowing users to prioritize favorite teams</li>
-      </ul>
-      <div class="image-caption">Concept sketches and mid-fidelity exploration.</div>
-      <div class="image-group">
-        <img src="../images/VCT Midfi 1.png" alt="Mid-fidelity exploration 1">
-        <img src="../images/VCT Midfi 2.png" alt="Mid-fidelity exploration 2">
-        <img src="../images/VCT Midfi 3.png" alt="Mid-fidelity exploration 3">
-        <img src="../images/VCT Midfi 4.png" alt="Mid-fidelity exploration 4">
+      <div class="story-card">
+        <p>
+          Valorant Champions Tour matches occur across different regions and time zones, making it difficult for fans to follow every game live. To understand how viewers currently track tournament progress, I conducted short interviews with several esports fans who regularly follow competitive Valorant.
+        </p>
+        <p style="margin-top:12px;">
+          Participants described relying on a mix of sources such as tournament websites, Liquipedia pages, social media updates, and live streams to stay informed. While these platforms provide detailed information, they often require navigating multiple pages to access basic details like match results, schedules, and team statistics.
+        </p>
+        <p style="margin-top:12px;">
+          Many participants mentioned that they frequently check match updates while multitasking during work, school, or gameplay. Because of this, they prefer interfaces that allow them to quickly glance at essential information rather than navigating complex tournament pages.
+        </p>
+        <p style="margin-top:12px;">
+          Another consistent insight was that users rarely follow every match in a tournament. Instead, they often track specific teams they care about, checking schedules primarily to see when those teams are playing.
+        </p>
+        <p style="margin-top:12px;">
+          These conversations revealed an opportunity to design an experience that focuses on speed, clarity, and team-centered viewing.
+        </p>
+
+        <div class="info-block">
+          <h3>Participants</h3>
+          <p>I spoke with three VCT fans with different viewing habits:</p>
+          <ul>
+            <li><strong>Participant A:</strong> Watches most matches live, cares about bracket implications</li>
+            <li><strong>Participant B:</strong> Watches highlights and checks scores between classes</li>
+            <li><strong>Participant C:</strong> Ranked player, uses stats to learn and improve</li>
+          </ul>
+        </div>
+
+        <div class="info-block">
+          <h3>Method</h3>
+          <p>Semi-structured interviews plus task walkthroughs on mobile. I asked participants to use their current apps and talk out loud while completing the same tasks.</p>
+        </div>
+
+        <div class="info-block">
+          <h3>Research synthesis</h3>
+          <p>Affinity mapping of interview notes surfaced three core themes:</p>
+          <ul>
+            <li>Fans want contextual storytelling, not just final scores</li>
+            <li>Intrusive ads damage trust and interrupt focus</li>
+            <li>Dense layouts increase cognitive load during quick check-ins</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="image-stack">
+        <div class="media-row reverse">
+          <div class="media-copy">
+            <h4>Research synthesis</h4>
+            <p>
+              Affinity mapping helped turn scattered interview observations into clearer themes around context, trust, and scanability.
+            </p>
+          </div>
+          <div class="media-visual">
+            <img src="../images/VCT Interview.png" alt="VCT Sync interview synthesis affinity map" />
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Prototype -->
-    <section class="card">
-      <h2>4. Prototype</h2>
-      <p>After narrowing down the most promising ideas, I developed mid-fidelity wireframes to refine the structure and interaction flow of the application. At this stage, the focus shifted toward establishing clear information hierarchy and repeatable interface patterns. Match cards were introduced as the primary container for tournament data. Each card displays team matchups, scores, and match timing in a format that allows users to quickly scan through multiple matches. To support readability, I established a typography hierarchy using the Inter typeface:</p>
-      <ul>
-        <li>Bold weights for section headers</li>
-        <li>Semi-bold weights for team names and matchups</li>
-        <li>Regular weights for supporting information such as match time and statistics</li>
-      </ul>
-      <p>Mid-fidelity designs intentionally removed team logos, images, and colors. Instead, placeholders were used to represent visual elements. This allowed the layout and interaction patterns to be evaluated independently from visual styling. These wireframes served as the structural blueprint before introducing branding and visual design in the high-fidelity stage.</p>
-      <h3>Primary flow</h3>
-      <ol>
-        <li>Open the app and land on Live or Recent matches</li>
-        <li>Tap a match to see score and momentum story</li>
-        <li>Swipe or tap into key moments for context</li>
-        <li>Jump into bracket to see what the result changes</li>
-        <li>Optional: open deeper stats only if needed</li>
-      </ol>
-      <p>An interactive high-fidelity prototype was developed to test this flow and validate hierarchy decisions.</p>
-      <div class="image-caption">High-fidelity prototype screens.</div>
-      <div class="image-group">
-        <img src="../images/VCT Hifi 1.png" alt="High-fidelity screen 1">
-        <img src="../images/VCT Hifi 2.png" alt="High-fidelity screen 2">
-        <img src="../images/VCT Hifi 3.png" alt="High-fidelity screen 3">
-        <img src="../images/VCT Hifi 4.png" alt="High-fidelity screen 4">
+    <section>
+      <div class="section-intro">
+        <div class="section-label">2. Define</div>
+        <h2>Identifying the core problem</h2>
+      </div>
+
+      <div class="story-card">
+        <p>
+          Esports fans need a faster and more focused way to track matches, follow their favorite teams, and understand tournament progress without navigating complex tournament interfaces.
+        </p>
+
+        <div class="info-block">
+          <h3>Design goals</h3>
+          <ul>
+            <li>Improve scanability – quickly identify matchups, scores, and upcoming matches.</li>
+            <li>Support team-centered navigation – enable fans to follow specific teams easily.</li>
+            <li>Reduce information overload – prioritize essential match information while keeping deeper statistics accessible.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- Test & validation -->
-    <section class="card">
-      <h2>5. Test</h2>
-      <h3>Testing setup</h3>
-      <p>I ran two rounds of task-based walkthrough testing with three participants on mobile to validate design decisions.</p>
-      <h3>Tasks</h3>
-      <ul>
-        <li>Find who won a missed match</li>
-        <li>Identify the turning point</li>
-        <li>Explain how it affects bracket progression</li>
-        <li>Find a team roster and top performer</li>
-      </ul>
-      <p>The card-based match layout proved effective for quickly scanning scores and identifying upcoming games. Participants were able to navigate between match lists, team pages, and tournament brackets without confusion. However, testing also revealed several areas for improvement. Some users initially overlooked the bracket navigation option, suggesting that the tournament section needed stronger visual cues. Others suggested clearer distinctions between completed matches and upcoming games.</p>
-      <h3>Improvements</h3>
-      <ul>
-        <li>Participants reached the match outcome faster because score hierarchy was visually dominant</li>
-        <li>Participants explained momentum with fewer stops because pivotal rounds were labeled</li>
-        <li>Bracket navigation felt clearer after increasing spacing and reducing visual noise</li>
-        <li>Users no longer needed to switch platforms to understand match context</li>
-      </ul>
-      <p>Based on this feedback, I refined the layout by improving section labels, adjusting spacing between match cards, and strengthening the visual hierarchy between live matches, upcoming matches, and completed results. These improvements helped ensure the interface remained easy to navigate while supporting both quick score checking and deeper exploration of tournament data.</p>
-      <h3>Next tests</h3>
-      <ul>
-        <li>Validate spoiler mode behavior with more users</li>
-        <li>A/B test two momentum layouts: timeline vs. key moments list</li>
-        <li>Evaluate where monetization can exist without interruption</li>
-      </ul>
-      <p>With the structural layout validated through mid-fidelity testing, I moved into high-fidelity design. This stage introduced team branding, esports-inspired visual elements, and a darker interface theme designed to emphasize match information while maintaining readability. The final design preserves the clear information hierarchy established during wireframing while creating a more immersive and visually engaging experience for esports fans.</p>
+    <section>
+      <div class="section-intro">
+        <div class="section-label">3. Ideate</div>
+        <h2>Exploring clearer structures for esports information</h2>
+      </div>
+
+      <div class="story-card">
+        <p>
+          With a clearer understanding of the problem space, I began exploring ways to structure esports information within a mobile interface. Early brainstorming focused on organizing match information into patterns that would support quick browsing. Several layout concepts were explored, including list-based views, simplified bracket diagrams, and card-based match displays. Through this exploration, the card-based match layout emerged as the most effective solution. Cards allow match information such as team names, scores, and match times to be grouped into a single visual component, making it easier for users to scan multiple matches quickly.
+        </p>
+        <p style="margin-top:12px;">Additional ideas explored during this phase included:</p>
+        <ul>
+          <li>Simplifying tournament bracket structures</li>
+          <li>Highlighting match results visually</li>
+          <li>Allowing users to prioritize favorite teams</li>
+        </ul>
+      </div>
+
+      <div class="gallery">
+        <img src="../images/VCT Midfi 1.png" alt="VCT Sync mid-fidelity exploration 1" />
+        <img src="../images/VCT Midfi 2.png" alt="VCT Sync mid-fidelity exploration 2" />
+        <img src="../images/VCT Midfi 3.png" alt="VCT Sync mid-fidelity exploration 3" />
+        <img src="../images/VCT Midfi 4.png" alt="VCT Sync mid-fidelity exploration 4" />
+      </div>
     </section>
 
-    <!-- Iteration example: match hierarchy -->
-    <section class="card">
-      <h2>Iteration example: match hierarchy</h2>
-      <h3>Initial observation</h3>
-      <p>In early versions, the live match screen displayed score and stats with similar visual weight. During walkthrough testing, participants immediately located the score but hesitated when identifying key momentum shifts.</p>
-      <h3>Design adjustment</h3>
-      <p>To address this, I:</p>
-      <ul>
-        <li>Increased visual emphasis on pivotal round markers</li>
-        <li>Reduced competing stat density in the primary view</li>
-        <li>Strengthened contrast hierarchy between score and secondary data</li>
-      </ul>
-      <h3>Result</h3>
-      <p>Participants were able to describe the match flow faster and reported that the layout felt more focused and less overwhelming.</p>
+    <section>
+      <div class="section-intro">
+        <div class="section-label">4. Prototype</div>
+        <h2>Refining structure, hierarchy, and repeatable patterns</h2>
+      </div>
+
+      <div class="story-card">
+        <p>
+          After narrowing down the most promising ideas, I developed mid-fidelity wireframes to refine the structure and interaction flow of the application. At this stage, the focus shifted toward establishing clear information hierarchy and repeatable interface patterns. Match cards were introduced as the primary container for tournament data. Each card displays team matchups, scores, and match timing in a format that allows users to quickly scan through multiple matches. To support readability, I established a typography hierarchy using the Inter typeface:
+        </p>
+        <ul>
+          <li>Bold weights for section headers</li>
+          <li>Semi-bold weights for team names and matchups</li>
+          <li>Regular weights for supporting information such as match time and statistics</li>
+        </ul>
+        <p style="margin-top:12px;">
+          Mid-fidelity designs intentionally removed team logos, images, and colors. Instead, placeholders were used to represent visual elements. This allowed the layout and interaction patterns to be evaluated independently from visual styling. These wireframes served as the structural blueprint before introducing branding and visual design in the high-fidelity stage.
+        </p>
+
+        <div class="info-block">
+          <h3>Primary flow</h3>
+          <ol>
+            <li>Open the app and land on Live or Recent matches</li>
+            <li>Tap a match to see score and momentum story</li>
+            <li>Swipe or tap into key moments for context</li>
+            <li>Jump into bracket to see what the result changes</li>
+            <li>Optional: open deeper stats only if needed</li>
+          </ol>
+        </div>
+
+        <p style="margin-top:12px;">An interactive high-fidelity prototype was developed to test this flow and validate hierarchy decisions.</p>
+      </div>
+
+      <div class="image-stack">
+        <div class="media-row">
+          <div class="media-visual">
+            <img src="../images/VCT Hifi 2.png" alt="VCT Sync live match screens" />
+          </div>
+          <div class="media-copy">
+            <h4>Live match clarity</h4>
+            <p>
+              Match cards make score, matchup, and current status easier to scan at a glance during quick mobile check-ins.
+            </p>
+          </div>
+        </div>
+
+        <div class="media-row reverse">
+          <div class="media-copy">
+            <h4>Highlights, bracket, and team views</h4>
+            <p>
+              The prototype expands beyond score checking into tournament context, team tracking, and highlight browsing without overloading the main view.
+            </p>
+          </div>
+          <div class="media-visual">
+            <img src="../images/VCT Hifi 3.png" alt="VCT Sync highlights bracket and teams screens" />
+          </div>
+        </div>
+
+        <div class="media-row">
+          <div class="media-visual">
+            <img src="../images/VCT Hifi 4.png" alt="VCT Sync team stats and results screens" />
+          </div>
+          <div class="media-copy">
+            <h4>Deeper team context</h4>
+            <p>
+              Team intro, stats, and past results stay accessible for fans who want more depth, but remain secondary to the faster top-level match flow.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Constraints and design considerations -->
-    <section class="card">
-      <h2>Constraints and tradeoffs</h2>
-      <ul>
-        <li><strong>No official live data integration.</strong> Because this was a concept project without direct API access, the design had to assume limited real-time data control. This influenced the decision to prioritize clarity and summary views over complex stat dashboards.</li>
-        <li><strong>Balancing depth and simplicity.</strong> Hardcore fans want depth, while casual viewers want speed. Instead of overloading the main interface, progressive disclosure ensures deeper stats appear only when requested.</li>
-        <li><strong>Spoiler sensitivity.</strong> Some users prefer immediate full results, while others avoid spoilers. The design explores spoiler-aware navigation to accommodate both behaviors.</li>
-      </ul>
+    <section>
+      <div class="section-intro">
+        <div class="section-label">5. Test</div>
+        <h2>Validating speed, clarity, and focus</h2>
+      </div>
+
+      <div class="story-card">
+        <div class="info-block">
+          <h3>Testing setup</h3>
+          <p>I ran two rounds of task-based walkthrough testing with three participants on mobile to validate design decisions.</p>
+        </div>
+
+        <div class="info-block">
+          <h3>Tasks</h3>
+          <ul>
+            <li>Find who won a missed match</li>
+            <li>Identify the turning point</li>
+            <li>Explain how it affects bracket progression</li>
+            <li>Find a team roster and top performer</li>
+          </ul>
+        </div>
+
+        <p style="margin-top:12px;">
+          The card-based match layout proved effective for quickly scanning scores and identifying upcoming games. Participants were able to navigate between match lists, team pages, and tournament brackets without confusion. However, testing also revealed several areas for improvement. Some users initially overlooked the bracket navigation option, suggesting that the tournament section needed stronger visual cues. Others suggested clearer distinctions between completed matches and upcoming games.
+        </p>
+
+        <div class="info-block">
+          <h3>Improvements</h3>
+          <ul>
+            <li>Participants reached the match outcome faster because score hierarchy was visually dominant</li>
+            <li>Participants explained momentum with fewer stops because pivotal rounds were labeled</li>
+            <li>Bracket navigation felt clearer after increasing spacing and reducing visual noise</li>
+            <li>Users no longer needed to switch platforms to understand match context</li>
+          </ul>
+        </div>
+
+        <p style="margin-top:12px;">
+          Based on this feedback, I refined the layout by improving section labels, adjusting spacing between match cards, and strengthening the visual hierarchy between live matches, upcoming matches, and completed results. These improvements helped ensure the interface remained easy to navigate while supporting both quick score checking and deeper exploration of tournament data.
+        </p>
+
+        <div class="info-block">
+          <h3>Next tests</h3>
+          <ul>
+            <li>Validate spoiler mode behavior with more users</li>
+            <li>A/B test two momentum layouts: timeline vs. key moments list</li>
+            <li>Evaluate where monetization can exist without interruption</li>
+          </ul>
+        </div>
+
+        <p style="margin-top:12px;">
+          With the structural layout validated through mid-fidelity testing, I moved into high-fidelity design. This stage introduced team branding, esports-inspired visual elements, and a darker interface theme designed to emphasize match information while maintaining readability. The final design preserves the clear information hierarchy established during wireframing while creating a more immersive and visually engaging experience for esports fans.
+        </p>
+      </div>
     </section>
 
+    <section>
+      <div class="section-intro">
+        <div class="section-label">Iteration example</div>
+        <h2>Match hierarchy</h2>
+      </div>
+
+      <div class="story-card">
+        <div class="info-block">
+          <h3>Initial observation</h3>
+          <p>In early versions, the live match screen displayed score and stats with similar visual weight. During walkthrough testing, participants immediately located the score but hesitated when identifying key momentum shifts.</p>
+        </div>
+
+        <div class="info-block">
+          <h3>Design adjustment</h3>
+          <p>To address this, I:</p>
+          <ul>
+            <li>Increased visual emphasis on pivotal round markers</li>
+            <li>Reduced competing stat density in the primary view</li>
+            <li>Strengthened contrast hierarchy between score and secondary data</li>
+          </ul>
+        </div>
+
+        <div class="summary-box">
+          <strong>Result</strong><br>
+          Participants were able to describe the match flow faster and reported that the layout felt more focused and less overwhelming.
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-intro">
+        <div class="section-label">Constraints and tradeoffs</div>
+        <h2>Design considerations</h2>
+      </div>
+
+      <div class="story-card">
+        <ul>
+          <li><strong>No official live data integration.</strong> Because this was a concept project without direct API access, the design had to assume limited real-time data control. This influenced the decision to prioritize clarity and summary views over complex stat dashboards.</li>
+          <li><strong>Balancing depth and simplicity.</strong> Hardcore fans want depth, while casual viewers want speed. Instead of overloading the main interface, progressive disclosure ensures deeper stats appear only when requested.</li>
+          <li><strong>Spoiler sensitivity.</strong> Some users prefer immediate full results, while others avoid spoilers. The design explores spoiler-aware navigation to accommodate both behaviors.</li>
+        </ul>
+      </div>
+    </section>
   </div>
-</div>
+
+  <div class="lightbox" id="lightbox">
+    <span class="close" id="closeBtn">×</span>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.media-visual img, .gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeBtn = document.getElementById('closeBtn');
+
+    images.forEach((img) => {
+      img.addEventListener('click', () => {
+        lightbox.classList.add('active');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg) {
+        lightbox.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
