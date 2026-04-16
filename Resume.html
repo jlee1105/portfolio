@@ -4,322 +4,437 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YJ Lee Resume</title>
-
     <link rel="canonical" href="https://yjleeportfolio.vercel.app/Resume.html" />
-    <meta
-      name="description"
-      content="Resume page for YJ Lee, hosted at https://yjleeportfolio.vercel.app/."
-    />
+    <meta name="description" content="Resume page for YJ Lee." />
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <style>
       :root {
-        --bg: #050816;
-        --text: #f5f5f7;
-        --muted: #a0a3b1;
-        --card: #0f172a;
-        --border: rgba(148, 163, 184, 0.25);
-        --shadow: 0 18px 45px rgba(15, 23, 42, 0.75);
-        --radius: 1.2rem;
+        --bg: #050505;
+        --panel: #101010;
+        --panel-2: #141414;
+        --text: #f5f5f5;
+        --muted: #a8a8a8;
+        --muted-2: #7f7f7f;
+        --line: rgba(255,255,255,0.09);
+        --line-strong: rgba(255,255,255,0.16);
+        --white: #ffffff;
+        --radius-xl: 30px;
+        --radius-lg: 22px;
+        --radius-md: 16px;
+        --radius-pill: 999px;
+        --shadow: 0 22px 60px rgba(0,0,0,0.42);
+        --max: 1120px;
       }
 
-      /* Base */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      html {
+        scroll-behavior: smooth;
+        background: var(--bg);
       }
 
-      html,
       body {
-        background: radial-gradient(circle at top, #111827 0, var(--bg) 45%);
+        min-height: 100vh;
+        background:
+          linear-gradient(to bottom, rgba(255,255,255,0.02), transparent 12%),
+          radial-gradient(circle at top right, rgba(255,255,255,0.05), transparent 24%),
+          var(--bg);
         color: var(--text);
-        font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        letter-spacing: -0.01em;
+        padding: 28px 20px 56px;
       }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+      a { color: inherit; text-decoration: none; }
+      ul { padding-left: 18px; }
+      li { color: var(--muted); line-height: 1.65; }
 
-      ul {
-        padding-left: 1.2rem;
-      }
-
-      /* Layout */
-      .wrap {
-        max-width: 980px;
+      .page {
+        max-width: var(--max);
         margin: 0 auto;
-        padding: 2.2rem 1.25rem 4rem;
       }
 
       .topbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
+        gap: 14px;
+        margin-bottom: 22px;
       }
 
-      .grid {
+      .back,
+      .action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 16px;
+        border-radius: var(--radius-pill);
+        border: 1px solid var(--line-strong);
+        background: rgba(255,255,255,0.03);
+        color: var(--text);
+        font-weight: 600;
+        font-size: 0.92rem;
+        transition: 0.2s ease;
+      }
+
+      .back:hover,
+      .action:hover {
+        background: rgba(255,255,255,0.06);
+      }
+
+      .hero {
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
+          var(--panel);
+        border-radius: 34px;
+        padding: 30px;
+        box-shadow: var(--shadow);
+        margin-bottom: 24px;
+      }
+
+      .hero-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 18px;
+        margin-bottom: 22px;
+      }
+
+      .eyebrow {
+        color: var(--muted-2);
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        font-size: clamp(2.6rem, 6vw, 5rem);
+        line-height: 0.95;
+        letter-spacing: -0.06em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+
+      .subhead {
+        max-width: 58ch;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .action.primary {
+        background: var(--white);
+        border-color: var(--white);
+        color: #050505;
+        font-weight: 700;
+      }
+
+      .contact-row {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: 1.2rem;
-        margin-top: 1.2rem;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
       }
 
-      @media (max-width: 860px) {
-        .grid {
+      .contact-card {
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.03);
+        border-radius: 18px;
+        padding: 14px;
+      }
+
+      .contact-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted-2);
+        margin-bottom: 8px;
+      }
+
+      .contact-value {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        word-break: break-word;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 300px minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .sidebar,
+      .content {
+        display: grid;
+        gap: 18px;
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
+          var(--panel-2);
+        border-radius: 26px;
+        padding: 22px;
+        box-shadow: var(--shadow);
+      }
+
+      .panel h2 {
+        font-size: 0.82rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted-2);
+        margin-bottom: 16px;
+      }
+
+      .panel p {
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 0.96rem;
+      }
+
+      .stack { display: grid; gap: 14px; }
+
+      .skill-group {
+        border-top: 1px solid var(--line);
+        padding-top: 12px;
+      }
+
+      .skill-group:first-of-type {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      .skill-title {
+        color: var(--text);
+        font-size: 0.94rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      .tag-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-pill);
+        padding: 8px 11px;
+        background: rgba(255,255,255,0.03);
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .resume-section {
+        margin-bottom: 8px;
+      }
+
+      .resume-item {
+        padding: 18px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .resume-item:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 8px;
+      }
+
+      .item-title {
+        font-size: 1.02rem;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      .item-subtitle {
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin-top: 2px;
+      }
+
+      .item-date {
+        color: var(--muted-2);
+        font-size: 0.84rem;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .resume-item ul {
+        margin-top: 10px;
+      }
+
+      .resume-item p {
+        margin-top: 6px;
+      }
+
+      .note {
+        color: var(--muted-2);
+        font-size: 0.84rem;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 960px) {
+        .layout,
+        .contact-row {
           grid-template-columns: 1fr;
         }
       }
 
-      /* Components */
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.7rem 1.1rem;
-        border-radius: 999px;
-        border: 1px solid rgba(148, 163, 184, 0.45);
-        background: rgba(15, 23, 42, 0.85);
-        color: var(--text);
-        font-size: 0.9rem;
-        cursor: pointer;
-      }
+      @media (max-width: 760px) {
+        .hero {
+          padding: 22px;
+          border-radius: 26px;
+        }
 
-      .btn:hover {
-        border-color: rgba(248, 250, 252, 0.9);
-      }
+        .hero-top,
+        .item-head,
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
 
-      .card {
-        border-radius: var(--radius);
-        border: 1px solid var(--border);
-        background: radial-gradient(circle at top left, #111827, var(--card));
-        box-shadow: var(--shadow);
-        padding: 1.6rem;
-      }
-
-      .section {
-        border: 1px solid rgba(148, 163, 184, 0.18);
-        border-radius: 1rem;
-        background: rgba(2, 6, 23, 0.28);
-        padding: 1rem 1.05rem;
-      }
-
-      .section h2 {
-        font-size: 0.78rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 0.7rem;
-      }
-
-      .section p,
-      .section li {
-        color: rgba(226, 232, 240, 0.88);
-        font-size: 0.95rem;
-        line-height: 1.65;
-      }
-
-      /* Typography */
-      .name {
-        font-family: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
-        font-size: 2.2rem;
-        line-height: 1.1;
-        margin-bottom: 0.4rem;
-      }
-
-      .contact {
-        color: var(--muted);
-        line-height: 1.7;
-        margin-bottom: 1.2rem;
-        font-size: 0.95rem;
-      }
-
-      /* Resume item helpers */
-      .item-title {
-        font-weight: 600;
-        margin-top: 0.6rem;
-        margin-bottom: 0.2rem;
-      }
-
-      .item-meta {
-        color: var(--muted);
-        font-size: 0.9rem;
-        margin-bottom: 0.4rem;
-      }
-
-      .item-title.is-spaced {
-        margin-top: 1rem;
-      }
-
-      .small {
-        color: var(--muted);
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
-
-      .spacer-sm {
-        height: 0.7rem;
+        .item-date {
+          white-space: normal;
+        }
       }
     </style>
   </head>
-
   <body>
-    <div class="wrap">
+    <div class="page">
       <div class="topbar">
-        <a class="btn" href="index.html">Back to portfolio</a>
+        <a class="back" href="index.html">← Back to portfolio</a>
       </div>
 
-      <div class="card">
-        <div class="name">YJ Lee</div>
+      <header class="hero">
+        <div class="hero-top">
+          <div>
+            <div class="eyebrow">Resume</div>
+            <h1>YJ Lee</h1>
+            <p class="subhead">
+              Product UX and UI designer focused on clear, confident digital experiences. Interested in sports, esports, and real-time product design, while staying open to broader product work.
+            </p>
+          </div>
 
-        <div class="contact">
-          yl3286@cornell.edu<br />
-          607 351 9241<br />
-          www.linkedin.com/in/yj-lee-49b14a232<br />
-          Ithaca, New York 14853
+          <div class="hero-actions">
+            <a class="action primary" href="mailto:yl3286@cornell.edu">Email</a>
+            <a class="action" href="https://www.linkedin.com/in/yj-lee-49b14a232" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
         </div>
 
-        <div class="grid">
-          <!-- Education -->
-          <section class="section">
+        <div class="contact-row">
+          <div class="contact-card">
+            <div class="contact-label">Email</div>
+            <div class="contact-value">yl3286@cornell.edu</div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-label">Phone</div>
+            <div class="contact-value">607 351 9241</div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value">www.linkedin.com/in/yj-lee-49b14a232</div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Ithaca, New York 14853</div>
+          </div>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar">
+          <section class="panel">
             <h2>Education</h2>
-            <p>
-              Cornell University, Ithaca, New York<br />
-              Bachelor of Arts, Information Science<br />
-              Anticipated May 2026
-            </p>
+            <div class="stack">
+              <div>
+                <div class="item-title">Cornell University</div>
+                <div class="item-subtitle">Bachelor of Arts, Information Science</div>
+                <p>Anticipated May 2026</p>
+              </div>
+            </div>
           </section>
 
-          <!-- Summary -->
-          <section class="section">
+          <section class="panel">
             <h2>Professional Summary</h2>
             <p>
-              UX and UI designer with a background in product and interior design. I focus on
-              building clear, confident experiences and I enjoy designing for sports and esports while
-              staying open to any domain.
+              UX and UI designer with a background in product and interior design. I focus on building clear, confident experiences and enjoy designing for sports and esports while staying open to any domain.
             </p>
           </section>
 
-           <!-- Experience -->
-          <section class="section">
-            <h2>Experience</h2>
-
-            <div class="item-title">UX Designer | Grace Building | Seoul, South Korea</div>
-            <div class="item-meta">June 2024 – Present</div>
-            <ul>
-              <li>Designed and launched a responsive website improving tenant and visitor access to building services and information</li>
-              <li>Applied UX design principles to simplify navigation structure and reduce friction in key user flows</li>
-              <li>Collaborated with stakeholders to improve communication between building management and tenants</li>
-            </ul>
-
-            <div class="item-title is-spaced">Marketing Assistant | Grace Building | Seoul, South Korea</div>
-            <div class="item-meta">June 2024 – Present</div>
-            <ul>
-              <li>Produced digital marketing assets and promotional materials to strengthen brand visibility and tenant engagement</li>
-              <li>Supported marketing initiatives by creating visual content and online materials for tenant communications</li>
-              <li>Assisted in maintaining the building’s digital presence across website and promotional channels</li>
-            </ul>
-          </section>
-          <!-- Projects -->
-          <section class="section">
-            <h2>UX and UI Project Experience</h2>
-
-            <div class="item-title">Cornell Enrollment Mobile App</div>
-            <div class="item-meta">Personal UX case study, 2025</div>
-            <ul>
-              <li>
-                Redesigned the desktop enrollment system into a mobile first experience to reduce
-                cognitive load during deadlines
-              </li>
-              <li>Structured add, drop, and swap into guided flows with warnings and confirmation states</li>
-              <li>Converted dense tables into card based UI optimized for thumb use</li>
-              <li>Built a high fidelity interactive prototype in Figma covering the full journey</li>
-            </ul>
-
-            <div class="item-title is-spaced">VCT Sync</div>
-            <div class="item-meta">Personal project, 2024</div>
-            <ul>
-              <li>Designed an esports companion app focused on match results, stats, and tournament flow</li>
-              <li>Created over 20 mobile screens with a dark UI and clear hierarchy</li>
-              <li>Prioritized fast navigation, stat readability, and user focused tracking</li>
-            </ul>
-          </section>
-
-          <!-- Experience -->
-          <section class="section">
-            <h2>Experience</h2>
-
-            <div class="item-title">Cornell Athletic Fan Event Staff</div>
-            <div class="item-meta">November 2025</div>
-            <ul>
-              <li>Supported in game elements including music, videoboard, promotions, and event operations</li>
-            </ul>
-
-            <div class="item-title is-spaced">Museum Ground, Operating Assistant</div>
-            <div class="item-meta">South Korea, March 2019 to January 2020</div>
-            <ul>
-              <li>Assisted preparation of exhibits and supported event organization</li>
-            </ul>
-
-            <div class="item-title is-spaced">Kids Future Foundation, Teaching Assistant</div>
-            <div class="item-meta">South Korea, September 2018 to August 2020</div>
-            <ul>
-              <li>Worked with elementary students on drawing and supported program staff</li>
-            </ul>
-
-            <div class="item-title is-spaced">Educational Toolkit Assistant</div>
-            <div class="item-meta">South Korea, March 2020 to 2022</div>
-            <ul>
-              <li>Conducted surveys for childrens art program development and organized findings</li>
-              <li>Helped organize data and client responses</li>
-            </ul>
-          </section>
-
-          <!-- Leadership -->
-          <section class="section">
-            <h2>Leadership</h2>
-
-            <div class="item-title">President, Korean Church at Cornell</div>
-            <div class="item-meta">Cornell University</div>
-            <ul>
-              <li>Led a campus organization serving over 100 members through weekly services and small groups</li>
-              <li>Oversaw leadership team across worship, outreach, and operations</li>
-              <li>Coordinated events, retreats, and guest speakers</li>
-              <li>Managed logistics and budget planning</li>
-              <li>Mentored members and supported an inclusive community</li>
-            </ul>
-          </section>
-
-          <!-- Skills -->
-          <section class="section">
+          <section class="panel">
             <h2>Skills</h2>
-
-            <p><strong>Design tools</strong></p>
-            <p class="small">Figma, Adobe Illustrator, Adobe Photoshop, Fusion 360, HTML, Arduino IDE, C++</p>
-
-            <div class="spacer-sm"></div>
-
-            <p><strong>UX skills</strong></p>
-            <p class="small">Wireframing, UI design, user flows, prototyping, visual hierarchy</p>
-
-            <div class="spacer-sm"></div>
-
-            <p><strong>Research skills</strong></p>
-            <p class="small">Survey design, observation, data organization</p>
+            <div class="stack">
+              <div class="skill-group">
+                <div class="skill-title">Design tools</div>
+                <div class="tag-wrap">
+                  <span class="tag">Figma</span>
+                  <span class="tag">Illustrator</span>
+                  <span class="tag">Photoshop</span>
+                  <span class="tag">Fusion 360</span>
+                  <span class="tag">HTML</span>
+                  <span class="tag">Arduino IDE</span>
+                  <span class="tag">C++</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <div class="skill-title">UX skills</div>
+                <div class="tag-wrap">
+                  <span class="tag">Wireframing</span>
+                  <span class="tag">UI design</span>
+                  <span class="tag">User flows</span>
+                  <span class="tag">Prototyping</span>
+                  <span class="tag">Visual hierarchy</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <div class="skill-title">Research skills</div>
+                <div class="tag-wrap">
+                  <span class="tag">Survey design</span>
+                  <span class="tag">Observation</span>
+                  <span class="tag">Data organization</span>
+                </div>
+              </div>
+            </div>
           </section>
 
-          <!-- Certifications -->
-          <section class="section">
+          <section class="panel">
+            <h2>Leadership</h2>
+            <div class="resume-item">
+              <div class="item-title">President, Korean Church at Cornell</div>
+              <div class="item-subtitle">Cornell University</div>
+              <ul>
+                <li>Led a campus organization serving over 100 members through weekly services and small groups</li>
+                <li>Oversaw leadership team across worship, outreach, and operations</li>
+                <li>Coordinated events, retreats, and guest speakers</li>
+                <li>Managed logistics and budget planning</li>
+                <li>Mentored members and supported an inclusive community</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="panel">
             <h2>Certifications</h2>
             <ul>
               <li>Scholastic Art and Writing Awards, Gold Key 2019</li>
@@ -327,7 +442,130 @@
               <li>Celebrating Art Contest, multiple publication awards 2018 to 2021</li>
             </ul>
           </section>
-        </div>
+        </aside>
+
+        <main class="content">
+          <section class="panel resume-section">
+            <h2>Experience</h2>
+
+            <div class="resume-item">
+              <div class="item-head">
+                <div>
+                  <div class="item-title">UX Designer</div>
+                  <div class="item-subtitle">Grace Building • Seoul, South Korea</div>
+                </div>
+                <div class="item-date">June 2024 – Present</div>
+              </div>
+              <ul>
+                <li>Designed and launched a responsive website improving tenant and visitor access to building services and information</li>
+                <li>Applied UX design principles to simplify navigation structure and reduce friction in key user flows</li>
+                <li>Collaborated with stakeholders to improve communication between building management and tenants</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <div class="item-head">
+                <div>
+                  <div class="item-title">Marketing Assistant</div>
+                  <div class="item-subtitle">Grace Building • Seoul, South Korea</div>
+                </div>
+                <div class="item-date">June 2024 – Present</div>
+              </div>
+              <ul>
+                <li>Produced digital marketing assets and promotional materials to strengthen brand visibility and tenant engagement</li>
+                <li>Supported marketing initiatives by creating visual content and online materials for tenant communications</li>
+                <li>Assisted in maintaining the building’s digital presence across website and promotional channels</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <div class="item-head">
+                <div>
+                  <div class="item-title">Cornell Athletic Fan Event Staff</div>
+                </div>
+                <div class="item-date">November 2025</div>
+              </div>
+              <ul>
+                <li>Supported in-game elements including music, videoboard, promotions, and event operations</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <div class="item-head">
+                <div>
+                  <div class="item-title">Museum Ground, Operating Assistant</div>
+                  <div class="item-subtitle">South Korea</div>
+                </div>
+                <div class="item-date">March 2019 – January 2020</div>
+              </div>
+              <ul>
+                <li>Assisted preparation of exhibits and supported event organization</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <div class="item-head">
+                <div>
+                  <div class="item-title">Kids Future Foundation, Teaching Assistant</div>
+                  <div class="item-subtitle">South Korea</div>
+                </div>
+                <div class="item-date">September 2018 – August 2020</div>
+              </div>
+              <ul>
+                <li>Worked with elementary students on drawing and supported program staff</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <div class="item-head">
+                <div>
+                  <div class="item-title">Educational Toolkit Assistant</div>
+                  <div class="item-subtitle">South Korea</div>
+                </div>
+                <div class="item-date">March 2020 – 2022</div>
+              </div>
+              <ul>
+                <li>Conducted surveys for children’s art program development and organized findings</li>
+                <li>Helped organize data and client responses</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="panel resume-section">
+            <h2>UX and UI Project Experience</h2>
+
+            <div class="resume-item">
+              <div class="item-head">
+                <div>
+                  <div class="item-title">Cornell Enrollment Mobile App</div>
+                  <div class="item-subtitle">Personal UX case study</div>
+                </div>
+                <div class="item-date">2025</div>
+              </div>
+              <ul>
+                <li>Redesigned the desktop enrollment system into a mobile-first experience to reduce cognitive load during deadlines</li>
+                <li>Structured add, drop, and swap into guided flows with warnings and confirmation states</li>
+                <li>Converted dense tables into card-based UI optimized for thumb use</li>
+                <li>Built a high-fidelity interactive prototype in Figma covering the full journey</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <div class="item-head">
+                <div>
+                  <div class="item-title">VCT Sync</div>
+                  <div class="item-subtitle">Personal project</div>
+                </div>
+                <div class="item-date">2024</div>
+              </div>
+              <ul>
+                <li>Designed an esports companion app focused on match results, stats, and tournament flow</li>
+                <li>Created over 20 mobile screens with a dark UI and clear hierarchy</li>
+                <li>Prioritized fast navigation, stat readability, and user-focused tracking</li>
+              </ul>
+            </div>
+          </section>
+        </main>
       </div>
     </div>
   </body>
