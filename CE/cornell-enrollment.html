@@ -152,6 +152,48 @@
       font-size: 2rem;
       cursor: pointer;
     }
+    .project-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 28px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.project-meta h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.flow div {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.flow span {
+  color: var(--accent);
+}
+
+@media (max-width: 700px) {
+  .project-meta {
+    grid-template-columns: 1fr;
+  }
+}
 
     @media (max-width: 700px) {
       .image-grid {
@@ -185,11 +227,30 @@
       </div>
     </section>
 
+<div class="project-meta">
+  <div>
+    <h3>Role</h3>
+    <p>UX/UI Designer, Researcher, Prototyper</p>
+  </div>
+  <div>
+    <h3>Timeline</h3>
+    <p>2025</p>
+  </div>
+  <div>
+    <h3>Tools</h3>
+    <p>Figma, User Interviews, Usability Testing</p>
+  </div>
+  <div>
+    <h3>Focus</h3>
+    <p>Mobile workflow redesign, confidence, system feedback</p>
+  </div>
+</div>
+
     <section>
       <h2>1. Empathize</h2>
-      <p>
-        To understand how students interact with the enrollment system, I conducted informal interviews and walkthrough sessions with Cornell undergraduates during add/drop week.
-      </p>
+<p>
+  To understand where students lose confidence during enrollment, I conducted informal interviews and walkthrough sessions with Cornell undergraduates during add/drop week.
+</p>     
       <p style="margin-top:12px;">
         Students were asked to walk through how they normally add a class, drop a class, and swap a class, and were observed navigating the current Student Center interface.
       </p>
@@ -209,6 +270,13 @@
         <li>Students double-check schedules after submitting actions</li>
         <li>Mobile experience is difficult and not optimized</li>
       </ul>
+      
+      <h3>Research Synthesis</h3>
+<ul>
+  <li>Students were not only confused by the interface, but uncertain about whether important actions were completed correctly.</li>
+  <li>The most stressful moments happened around irreversible or high-impact actions, especially swapping and dropping classes.</li>
+  <li>Students had to mentally track availability, conflicts, credits, and confirmation feedback across separate parts of the system.</li>
+</ul>
 
       <p style="margin-top:16px;">
         <strong style="color:#f5f5f5;">Key Insight:</strong> The core problem is not just usability. It is lack of confidence during high-stakes actions.
@@ -228,6 +296,11 @@
       <p style="margin-top:12px;">
         The current system slows decision-making because it requires navigating multiple pages, presents information in dense tables, and provides weak feedback after actions.
       </p>
+      
+      <h3>Problem Statement</h3>
+<p>
+  How might a mobile enrollment experience help students understand course status, review risk, and confirm outcomes without needing to repeatedly double-check the system?
+</p>
 
       <h3>Design Goals</h3>
       <ul>
@@ -241,6 +314,31 @@
         <img src="../images/CE Midfi 1.png" alt="Define stage screen">
       </div>
     </section>
+
+<section>
+  <h2>User Flow</h2>
+  <p>
+    I reframed enrollment as a guided decision-making flow instead of a set of disconnected forms and tables.
+  </p>
+
+  <div class="flow">
+    <div>Search</div>
+    <span>→</span>
+    <div>Select Course</div>
+    <span>→</span>
+    <div>Review Details</div>
+    <span>→</span>
+    <div>Check Conflicts</div>
+    <span>→</span>
+    <div>Confirm Action</div>
+    <span>→</span>
+    <div>Result Feedback</div>
+  </div>
+
+  <p style="margin-top:16px;">
+    This flow helped prioritize the moments where students needed the most reassurance: reviewing risk before an action and receiving clear confirmation after an action.
+  </p>
+</section>
 
     <section>
       <h2>3. Ideate</h2>
@@ -295,6 +393,14 @@
         <li>Schedule view</li>
       </ul>
 
+      <h3>Key Design Decisions</h3>
+<ul>
+  <li>Used course cards instead of dense tables to make course status, time, and availability easier to scan.</li>
+  <li>Added a review step before risky actions so students could confirm what would change before submitting.</li>
+  <li>Designed stronger success and confirmation screens to reduce the need for students to double-check outcomes.</li>
+  <li>Used visual schedule blocks to make conflicts easier to understand without reading through multiple pages.</li>
+</ul>
+
       <h3>Final Design Features</h3>
       <ul>
         <li>Card-based UI for easy scanning</li>
@@ -327,7 +433,7 @@
 
       <h3>Results</h3>
       <ul>
-        <li>Students completed tasks faster</li>
+        <li>Students moved through tasks with fewer pauses and less visible hesitation</li>
         <li>Less hesitation before confirming actions</li>
         <li>Swap preview increased confidence</li>
         <li>Schedule blocks improved understanding of conflicts</li>
