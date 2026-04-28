@@ -3,48 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>YJ Lee Portfolio</title>
   <link rel="canonical" href="https://yjleeportfolio.vercel.app/" />
-  <meta name="description" content="Portfolio of YJ Lee – sports-inspired UX portfolio with case studies, resume, and contact information." />
-
-  <!--
-    Circular Std is a licensed font.
-    If you own the webfont files, place them in a /fonts folder and uncomment the @font-face blocks below.
-  -->
-  <!--
-  <style>
-    @font-face {
-      font-family: "Circular Std";
-      src: url("fonts/CircularStd-Book.woff2") format("woff2");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: "Circular Std";
-      src: url("fonts/CircularStd-Medium.woff2") format("woff2");
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: "Circular Std";
-      src: url("fonts/CircularStd-Bold.woff2") format("woff2");
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-  </style>
-  -->
+  <meta name="description" content="Portfolio of YJ Lee – UX/UI designer focused on clear product experiences, sports UX, and mobile interaction design." />
 
   <style>
     :root {
       --bg: #050505;
-      --bg-soft: #0b0b0b;
       --surface: #101010;
-      --surface-2: #151515;
       --line: rgba(255,255,255,0.12);
       --line-strong: rgba(255,255,255,0.22);
       --text: #f5f5f5;
@@ -52,15 +19,17 @@
       --muted-2: #7f7f7f;
       --white: #ffffff;
       --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
       --radius-pill: 999px;
       --shadow: 0 18px 60px rgba(0,0,0,0.45);
       --nav-height: 78px;
       --max: 1180px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     html {
       scroll-behavior: smooth;
@@ -78,9 +47,15 @@
       letter-spacing: -0.01em;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    img { max-width: 100%; display: block; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
     .shell {
       width: min(calc(100% - 32px), var(--max));
@@ -108,22 +83,6 @@
       display: flex;
       align-items: center;
       gap: 14px;
-    }
-
-    .brand-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      border: 1px solid var(--line-strong);
-      display: grid;
-      place-items: center;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03)),
-        #0d0d0d;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: 0.06em;
     }
 
     .brand-copy {
@@ -188,271 +147,30 @@
       font: inherit;
     }
 
-    main { padding-bottom: 72px; }
+    main {
+      padding-bottom: 72px;
+    }
 
     .hero {
       padding-top: 44px;
       padding-bottom: 48px;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.45fr) minmax(360px, 0.95fr);
-      gap: 30px;
-      align-items: stretch;
-    }
-
-    .hero-left {
-      padding: 28px 0 12px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
+    .hero-inner {
+      display: flex;
       align-items: center;
-      gap: 10px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-pill);
-      padding: 10px 14px;
-      color: var(--muted);
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 22px;
-      background: rgba(255,255,255,0.03);
-    }
-
-    .eyebrow-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--white);
+      justify-content: center;
+      min-height: 70vh;
+      text-align: center;
     }
 
     .hero-title {
-      font-size: clamp(3rem, 5vw, 5.7rem);
-      line-height: 0.94;
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: 1;
       letter-spacing: -0.05em;
       text-transform: uppercase;
-      margin-bottom: 18px;
       font-weight: 700;
-      max-width: 11ch;
-    }
-
-    .hero-title .outline {
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.75);
-    }
-
-    .hero-subtitle {
-      max-width: 640px;
-      color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-bottom: 28px;
-      max-width: 760px;
-    }
-
-    .stat {
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 16px;
-    }
-
-    .stat-label {
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted-2);
-      margin-bottom: 10px;
-    }
-
-    .stat-value {
-      font-size: 1.18rem;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 50px;
-      padding: 0 20px;
-      border-radius: var(--radius-pill);
-      border: 1px solid transparent;
-      font-weight: 700;
-      font-size: 0.92rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      transition: 0.2s ease;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--white);
-      color: #050505;
-      border-color: var(--white);
-    }
-
-    .btn-primary:hover { transform: translateY(-1px); }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      border-color: var(--line-strong);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.3);
-    }
-
-    .hero-right {
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015)),
-        var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 32px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .scoreboard-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 18px 20px;
-      border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,0.025);
-    }
-
-    .scoreboard-label {
-      font-size: 0.74rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted-2);
-    }
-
-    .scoreboard-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.74rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .scoreboard-status::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--white);
-    }
-
-    .scoreboard-body {
-      padding: 22px 20px 20px;
-      display: grid;
-      gap: 18px;
-      flex: 1;
-    }
-
-    .profile-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .profile-badge {
-      width: 60px;
-      height: 60px;
-      border-radius: 18px;
-      border: 1px solid var(--line-strong);
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: 0.08em;
-    }
-
-    .profile-name {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .profile-role,
-    .profile-location {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .divider {
-      height: 1px;
-      background: var(--line);
-    }
-
-    .panel-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .mini-panel {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 14px;
-      background: rgba(255,255,255,0.025);
-    }
-
-    .mini-panel-label {
-      font-size: 0.74rem;
-      color: var(--muted-2);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .mini-panel-value {
-      font-size: 0.98rem;
-      line-height: 1.45;
-      font-weight: 700;
-    }
-
-    .chip-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .chip {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      color: var(--muted);
-      border-radius: var(--radius-pill);
-      padding: 9px 12px;
-      font-size: 0.8rem;
+      max-width: 12ch;
     }
 
     section {
@@ -492,23 +210,18 @@
     .projects {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 18px;
     }
 
     .project-card {
-      position: relative;
       overflow: hidden;
       border-radius: 26px;
       border: 1px solid var(--line);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
         var(--surface);
-      padding: 22px;
-      min-height: 320px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       transition: 0.25s ease;
+      box-shadow: var(--shadow);
     }
 
     .project-card:hover {
@@ -516,12 +229,16 @@
       border-color: rgba(255,255,255,0.22);
     }
 
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      gap: 12px;
-      margin-bottom: 18px;
+    .project-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--line);
+      background: #111;
+    }
+
+    .project-info {
+      padding: 20px;
     }
 
     .project-type {
@@ -529,14 +246,7 @@
       color: var(--muted-2);
       text-transform: uppercase;
       letter-spacing: 0.14em;
-    }
-
-    .project-number {
-      font-size: 0.82rem;
-      color: var(--muted);
-      border: 1px solid var(--line);
-      padding: 8px 10px;
-      border-radius: 999px;
+      margin-bottom: 10px;
     }
 
     .project-title {
@@ -544,107 +254,13 @@
       line-height: 1.05;
       text-transform: uppercase;
       letter-spacing: -0.04em;
-      margin-bottom: 12px;
-      max-width: 12ch;
+      margin-bottom: 10px;
     }
 
     .project-meta {
       color: var(--muted);
       font-size: 0.92rem;
-      margin-bottom: 12px;
-    }
-
-    .project-body {
-      color: var(--muted);
-      line-height: 1.65;
-      font-size: 0.92rem;
-      max-width: 32ch;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      margin-top: 24px;
-      border-top: 1px solid var(--line);
-      padding-top: 16px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .coming-soon {
-      opacity: 0.8;
-    }
-
-    .coming-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      width: fit-content;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--white);
-      border: 1px solid var(--line-strong);
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      margin-bottom: 18px;
-    }
-
-    .split-card {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.95fr);
-      gap: 18px;
-      border-radius: 30px;
-      border: 1px solid var(--line);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
-        var(--surface);
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .split-copy {
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 0.97rem;
-    }
-
-    .info-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .info-item {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      padding: 14px 16px;
-    }
-
-    .info-label {
-      color: var(--muted-2);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-bottom: 6px;
-    }
-
-    .info-value {
-      font-size: 0.98rem;
       line-height: 1.5;
-      word-break: break-word;
     }
 
     footer {
@@ -663,19 +279,15 @@
     }
 
     @media (max-width: 1024px) {
-      .hero-grid,
-      .split-card,
       .projects {
         grid-template-columns: 1fr;
-      }
-
-      .hero-right {
-        max-width: 680px;
       }
     }
 
     @media (max-width: 760px) {
-      .nav-toggle { display: inline-flex; }
+      .nav-toggle {
+        display: inline-flex;
+      }
 
       .nav-links {
         position: fixed;
@@ -701,7 +313,9 @@
         transform: translateY(0);
       }
 
-      .nav-link { text-align: center; }
+      .nav-link {
+        text-align: center;
+      }
 
       .hero {
         padding-top: 28px;
@@ -711,47 +325,46 @@
         max-width: none;
       }
 
-      .hero-stats,
-      .panel-grid {
-        grid-template-columns: 1fr;
-      }
-
       .section-head {
         align-items: start;
         flex-direction: column;
       }
+
+      .project-card img {
+        height: 220px;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="shell nav">
       <a class="brand" href="#home" aria-label="YJ Lee home">
-        
         <div class="brand-copy">
           <div class="brand-name">YJ Lee</div>
           <div class="brand-role">Product UX • Sports-forward portfolio</div>
         </div>
       </a>
 
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+      </button>
 
       <nav class="nav-links" id="navLinks">
         <a href="#case-studies" class="nav-link">Case Studies</a>
         <a href="Resume.html" class="nav-link">Resume</a>
-       <a href="mailto:dudwo021105@gmail.com" class="nav-link primary">Contact</a>
+        <a href="mailto:dudwo021105@gmail.com" class="nav-link primary">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="hero" id="home">
-  <div class="shell" style="display:flex; align-items:center; justify-content:center; min-height:70vh; text-align:center;">
-    <h1 style="font-size: clamp(3rem, 6vw, 6rem); line-height:1; letter-spacing:-0.05em; text-transform:uppercase; font-weight:700;">
-      Designing clear product experiences
-    </h1>
-  </div>
-</section>
+      <div class="shell hero-inner">
+        <h1 class="hero-title">Designing clear product experiences</h1>
+      </div>
+    </section>
 
     <section id="case-studies">
       <div class="shell">
@@ -760,72 +373,41 @@
             <div class="section-label">Selected work</div>
             <h2 class="section-title">Case studies</h2>
           </div>
-          <p class="section-copy">A more athletic, editorial presentation of work. Live projects first, with upcoming concepts still visible.</p>
+          <p class="section-copy">
+            Mobile product case studies focused on workflow clarity, real-time information, and sports fan experiences.
+          </p>
         </div>
 
         <div class="projects">
-          <article class="project-card">
-            <div>
-              <div class="project-top">
-                <div class="project-type">Live case study</div>
-                <div class="project-number">01</div>
-              </div>
-              <h3 class="project-title">Cornell Enrollment Mobile App</h3>
-              <div class="project-meta">Mobile UX • High-stakes task flow redesign</div>
-              <p class="project-body">A mobile-first redesign of Cornell’s Student Center focused on making add, drop, and swap actions feel clearer and less risky during stressful deadlines.</p>
-              <div class="project-tags">
-                <span class="chip">Interaction design</span>
-                <span class="chip">Risk reduction</span>
-                <span class="chip">Prototype</span>
-              </div>
+          <a href="CE/cornell-enrollment.html" class="project-card">
+            <img src="images/CE Hifi 1.png" alt="Cornell Enrollment Mobile App">
+            <div class="project-info">
+              <p class="project-type">Mobile UX</p>
+              <h3 class="project-title">Cornell Enrollment App</h3>
+              <p class="project-meta">Simplifying high-stakes enrollment workflows</p>
             </div>
-            <a href="CE/cornell-enrollment.html" class="project-link"><span>View study</span><span>→</span></a>
-          </article>
+          </a>
 
-          <article class="project-card">
-            <div>
-              <div class="project-top">
-                <div class="project-type">Live case study</div>
-                <div class="project-number">02</div>
-              </div>
+          <a href="vct-sync/vct-sync.html" class="project-card">
+            <img src="images/VCT Hifi 1.png" alt="VCT Sync">
+            <div class="project-info">
+              <p class="project-type">Esports UX</p>
               <h3 class="project-title">VCT Sync</h3>
-              <div class="project-meta">Esports UX • Fast information design</div>
-              <p class="project-body">A companion app concept for following Valorant Champions Tour through scores, brackets, momentum, and player context without clutter or ad-heavy friction.</p>
-              <div class="project-tags">
-                <span class="chip">Sports UX</span>
-                <span class="chip">IA</span>
-                <span class="chip">Concept</span>
-              </div>
+              <p class="project-meta">Fast match insight and tournament clarity</p>
             </div>
-            <a href="vct-sync/vct-sync.html" class="project-link"><span>View study</span><span>→</span></a>
-          </article>
+          </a>
 
-          <article class="project-card">
-            <div>
-              <div class="project-top">
-                <div class="project-type">Live case study</div>
-                <div class="project-number">03</div>
-              </div>
+          <a href="boston-bruins.html" class="project-card">
+            <img src="images/BB Hifi 1.png" alt="Boston Bruins Fan Experience">
+            <div class="project-info">
+              <p class="project-type">Sports UX</p>
               <h3 class="project-title">Boston Bruins Fan Experience</h3>
-              <div class="project-meta">Sports app concept • Real-time game experience</div>
-              <p class="project-body">A score-first fan experience concept that emphasizes game state, momentum swings, and player impact through a more immersive mobile flow.</p>
-              <div class="project-tags">
-                <span class="chip">Game-day UX</span>
-                <span class="chip">Realtime UI</span>
-                <span class="chip">Concept</span>
-              </div>
+              <p class="project-meta">Score-first live game experience</p>
             </div>
-            <a href="/boston-bruins.html" class="project-link"><span>View study</span><span>→</span></a>
-          </article>
-
-          
+          </a>
         </div>
       </div>
     </section>
-
-    
-
-    
   </main>
 
   <footer>
