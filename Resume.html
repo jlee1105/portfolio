@@ -1,497 +1,544 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YJ Lee Resume</title>
-    <link rel="canonical" href="https://yjleeportfolio.vercel.app/Resume.html" />
-    <meta name="description" content="Resume page for YJ Lee." />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YJ Lee Resume</title>
+  <link rel="canonical" href="https://yjleeportfolio.vercel.app/Resume.html" />
+  <meta name="description" content="Resume page for YJ Lee." />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <style>
-      :root {
-        --bg: #050505;
-        --panel: #101010;
-        --panel-2: #141414;
-        --text: #f5f5f5;
-        --muted: #a8a8a8;
-        --muted-2: #7f7f7f;
-        --line: rgba(255,255,255,0.09);
-        --line-strong: rgba(255,255,255,0.16);
-        --white: #ffffff;
-        --radius-xl: 30px;
-        --radius-lg: 22px;
-        --radius-md: 16px;
-        --radius-pill: 999px;
-        --shadow: 0 22px 60px rgba(0,0,0,0.42);
-        --max: 1120px;
-      }
+  <style>
+    :root {
+      --bg: #ffffff;
+      --panel: #ffffff;
+      --panel-2: #ffffff;
+      --text: #111111;
+      --muted: #555555;
+      --muted-2: #777777;
+      --line: #e5e5e5;
+      --line-strong: #d0d0d0;
+      --black: #111111;
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+      --shadow: none;
+      --max: 1120px;
+    }
 
-      * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-      html {
-        scroll-behavior: smooth;
-        background: var(--bg);
-      }
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
 
-      body {
-        min-height: 100vh;
-        background:
-          linear-gradient(to bottom, rgba(255,255,255,0.02), transparent 12%),
-          radial-gradient(circle at top right, rgba(255,255,255,0.05), transparent 24%),
-          var(--bg);
-        color: var(--text);
-        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        letter-spacing: -0.01em;
-        padding: 28px 20px 56px;
-      }
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: -0.01em;
+      padding: 28px 20px 56px;
+    }
 
-      a { color: inherit; text-decoration: none; }
-      ul { padding-left: 18px; }
-      li { color: var(--muted); line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    ul { padding-left: 18px; }
+    li { color: var(--muted); line-height: 1.65; }
 
-      .page {
-        max-width: var(--max);
-        margin: 0 auto;
-      }
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
 
-      .topbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 14px;
-        margin-bottom: 22px;
-      }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
 
-      .back,
-      .action {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 46px;
-        padding: 0 16px;
-        border-radius: var(--radius-pill);
-        border: 1px solid var(--line-strong);
-        background: rgba(255,255,255,0.03);
-        color: var(--text);
-        font-weight: 600;
-        font-size: 0.92rem;
-        transition: 0.2s ease;
-      }
+    .back,
+    .action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--line-strong);
+      background: #ffffff;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: 0.2s ease;
+    }
 
-      .back:hover,
-      .action:hover {
-        background: rgba(255,255,255,0.06);
-      }
+    .back:hover,
+    .action:hover {
+      background: #f5f5f5;
+    }
 
-      .hero {
-        border: 1px solid var(--line);
-        background:
-          linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
-          var(--panel);
-        border-radius: 34px;
-        padding: 30px;
-        box-shadow: var(--shadow);
-        margin-bottom: 24px;
-      }
+    .hero {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 34px;
+      padding: 30px;
+      margin-bottom: 24px;
+    }
 
-      .hero-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 18px;
-        margin-bottom: 22px;
-      }
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
 
-      .eyebrow {
-        color: var(--muted-2);
-        font-size: 0.78rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        margin-bottom: 12px;
-      }
+    .eyebrow {
+      color: var(--muted-2);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
 
-      h1 {
-        font-size: clamp(2.6rem, 6vw, 5rem);
-        line-height: 0.95;
-        letter-spacing: -0.06em;
-        text-transform: uppercase;
-        margin-bottom: 14px;
-      }
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
 
-      .subhead {
-        max-width: 58ch;
-        color: var(--muted);
-        font-size: 1rem;
-        line-height: 1.7;
-      }
+    .role {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
 
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
+    .subhead {
+      max-width: 60ch;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
 
-      .action.primary {
-        background: var(--white);
-        border-color: var(--white);
-        color: #050505;
-        font-weight: 700;
-      }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
+    .action.primary {
+      background: var(--black);
+      border-color: var(--black);
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .contact-card {
+      border: 1px solid var(--line);
+      background: #fafafa;
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .contact-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      margin-bottom: 8px;
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .sidebar,
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      border-radius: 26px;
+      padding: 22px;
+    }
+
+    .panel h2 {
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      margin-bottom: 16px;
+    }
+
+    .panel p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.96rem;
+    }
+
+    .stack { display: grid; gap: 14px; }
+
+    .skill-group {
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+    }
+
+    .skill-group:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .skill-title {
+      color: var(--text);
+      font-size: 0.94rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .tag-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-pill);
+      padding: 8px 11px;
+      background: #fafafa;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .resume-section {
+      margin-bottom: 8px;
+    }
+
+    .resume-item {
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .resume-item:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .item-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .item-subtitle {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 2px;
+    }
+
+    .item-date {
+      color: var(--muted-2);
+      font-size: 0.84rem;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .resume-item ul {
+      margin-top: 10px;
+    }
+
+    .note {
+      color: var(--muted-2);
+      font-size: 0.84rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 960px) {
+      .layout,
       .contact-row {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 12px;
+        grid-template-columns: 1fr;
       }
+    }
 
-      .contact-card {
-        border: 1px solid var(--line);
-        background: rgba(255,255,255,0.03);
-        border-radius: 18px;
-        padding: 14px;
-      }
-
-      .contact-label {
-        font-size: 0.72rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--muted-2);
-        margin-bottom: 8px;
-      }
-
-      .contact-value {
-        font-size: 0.95rem;
-        line-height: 1.5;
-        word-break: break-word;
-      }
-
-      .layout {
-        display: grid;
-        grid-template-columns: 300px minmax(0, 1fr);
-        gap: 18px;
-      }
-
-      .sidebar,
-      .content {
-        display: grid;
-        gap: 18px;
-      }
-
-      .panel {
-        border: 1px solid var(--line);
-        background:
-          linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
-          var(--panel-2);
-        border-radius: 26px;
+    @media (max-width: 760px) {
+      .hero {
         padding: 22px;
-        box-shadow: var(--shadow);
+        border-radius: 26px;
       }
 
-      .panel h2 {
-        font-size: 0.82rem;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: var(--muted-2);
-        margin-bottom: 16px;
-      }
-
-      .panel p {
-        color: var(--muted);
-        line-height: 1.7;
-        font-size: 0.96rem;
-      }
-
-      .stack { display: grid; gap: 14px; }
-
-      .skill-group {
-        border-top: 1px solid var(--line);
-        padding-top: 12px;
-      }
-
-      .skill-group:first-of-type {
-        border-top: none;
-        padding-top: 0;
-      }
-
-      .skill-title {
-        color: var(--text);
-        font-size: 0.94rem;
-        font-weight: 700;
-        margin-bottom: 6px;
-      }
-
-      .tag-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .tag {
-        border: 1px solid var(--line);
-        border-radius: var(--radius-pill);
-        padding: 8px 11px;
-        background: rgba(255,255,255,0.03);
-        color: var(--muted);
-        font-size: 0.8rem;
-      }
-
-      .resume-section {
-        margin-bottom: 8px;
-      }
-
-      .resume-item {
-        padding: 18px 0;
-        border-top: 1px solid var(--line);
-      }
-
-      .resume-item:first-child {
-        border-top: none;
-        padding-top: 0;
-      }
-
-      .item-head {
-        display: flex;
-        justify-content: space-between;
+      .hero-top,
+      .item-head,
+      .topbar {
+        flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
-        margin-bottom: 8px;
-      }
-
-      .item-title {
-        font-size: 1.02rem;
-        font-weight: 700;
-        line-height: 1.35;
-      }
-
-      .item-subtitle {
-        color: var(--muted);
-        font-size: 0.92rem;
-        margin-top: 2px;
       }
 
       .item-date {
-        color: var(--muted-2);
-        font-size: 0.84rem;
-        white-space: nowrap;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
+        white-space: normal;
       }
+    }
+  </style>
+</head>
 
-      .resume-item ul {
-        margin-top: 10px;
-      }
-
-      .resume-item p {
-        margin-top: 6px;
-      }
-
-      .note {
-        color: var(--muted-2);
-        font-size: 0.84rem;
-        line-height: 1.6;
-      }
-
-      @media (max-width: 960px) {
-        .layout,
-        .contact-row {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 760px) {
-        .hero {
-          padding: 22px;
-          border-radius: 26px;
-        }
-
-        .hero-top,
-        .item-head,
-        .topbar {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .item-date {
-          white-space: normal;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="page">
-      <div class="topbar">
-        <a class="back" href="index.html">← Back to portfolio</a>
-      </div>
-
-      <header class="hero">
-        <div class="hero-top">
-          <div>
-            <div class="eyebrow">Resume</div>
-            <h1>YJ Lee</h1>
-            <p class="subhead">
-              UX/UI Designer focused on clear digital product experiences, strong visual hierarchy, and thoughtful interface design.
-            </p>
-          </div>
-
-          <div class="hero-actions">
-            <a class="action primary" href="mailto:yl3286@cornell.edu">Email</a>
-            <a class="action" href="https://www.linkedin.com/in/yj-lee-49b14a232" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
-        </div>
-
-        <div class="contact-row">
-          <div class="contact-card">
-            <div class="contact-label">Email</div>
-            <div class="contact-value">yl3286@cornell.edu</div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-label">Phone</div>
-            <div class="contact-value">607-351-9241</div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-label">Portfolio</div>
-            <div class="contact-value">yjleeportfolio.vercel.app</div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-label">Location</div>
-            <div class="contact-value">Ithaca, New York</div>
-          </div>
-        </div>
-      </header>
-
-      <div class="layout">
-        <aside class="sidebar">
-          <section class="panel">
-            <h2>Education</h2>
-            <div class="stack">
-              <div>
-                <div class="item-title">Cornell University</div>
-                <div class="item-subtitle">Bachelor of Arts in Information Science</div>
-                <p>May 2026</p>
-                <p class="note" style="margin-top:10px;">Coursework: Human-Computer Interaction, UX Design, Digital Product Design, Rapid Prototyping</p>
-              </div>
-            </div>
-          </section>
-
-          <section class="panel">
-            <h2>Summary</h2>
-            <p>
-              UX/UI Designer focused on clear digital product experiences, strong visual hierarchy, and thoughtful interface design.
-            </p>
-          </section>
-
-          <section class="panel">
-            <h2>Skills</h2>
-            <div class="stack">
-              <div class="skill-group">
-                <div class="skill-title">Design tools</div>
-                <div class="tag-wrap">
-                  <span class="tag">Figma</span>
-                  <span class="tag">Illustrator</span>
-                  <span class="tag">Photoshop</span>
-                  <span class="tag">Fusion 360</span>
-                  <span class="tag">HTML</span>
-                  <span class="tag">Arduino IDE</span>
-                  <span class="tag">C++</span>
-                </div>
-              </div>
-              <div class="skill-group">
-                <div class="skill-title">UX skills</div>
-                <div class="tag-wrap">
-                  <span class="tag">Wireframing</span>
-                  <span class="tag">UI design</span>
-                  <span class="tag">User flows</span>
-                  <span class="tag">Prototyping</span>
-                  <span class="tag">Visual hierarchy</span>
-                </div>
-              </div>
-              <div class="skill-group">
-                <div class="skill-title">Research skills</div>
-                <div class="tag-wrap">
-                  <span class="tag">Survey design</span>
-                  <span class="tag">Observation</span>
-                  <span class="tag">Data organization</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          
-
-          
-        </aside>
-
-        <main class="content">
-          <section class="panel resume-section">
-            <h2>Experience</h2>
-
-            <div class="resume-item">
-              <div class="item-head">
-                <div>
-                  <div class="item-title">Grace Building · UX Designer</div>
-                  <div class="item-subtitle">Seoul, South Korea</div>
-                </div>
-                <div class="item-date">June 2024 – Present</div>
-              </div>
-              <ul>
-                <li>Designed and launched a responsive website serving 500+ monthly visitors, improving average session duration by 35% through intuitive navigation and clean visual hierarchy</li>
-                <li>Consolidated 3 separate brand touchpoints into a unified design system, reducing inconsistencies by 80% and cutting developer handoff time by 40%</li>
-                <li>Shipped features across 4 sprint cycles achieving 98% design-to-implementation fidelity through close collaboration with stakeholders and developers</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <div class="item-head">
-                <div>
-                  <div class="item-title">Cornell University Athletics · Sports Media Intern</div>
-                  <div class="item-subtitle">Ithaca, New York</div>
-                </div>
-                <div class="item-date">Nov 2025 – Present</div>
-              </div>
-              <ul>
-                <li>Produce live game broadcasts including music, videoboard content, and promotional segments for varsity athletic events</li>
-                <li>Coordinate real-time execution with operations and production teams during live events</li>
-              </ul>
-            </div>
-          </section>
-
-          <section class="panel resume-section">
-            <h2>Projects</h2>
-
-            <div class="resume-item">
-              <div class="item-head">
-                <div>
-                  <div class="item-title">Boston Bruins Fan Experience App</div>
-                  <div class="item-subtitle">Product UX Designer · Personal Case Study</div>
-                </div>
-                <div class="item-date">2026</div>
-              </div>
-              <ul>
-                <li>Designed a visually engaging interface for live sports viewing and fan interaction, with intuitive layouts supporting content discovery and real-time updates</li>
-                <li>Applied strong visual hierarchy, typography, and consistent UI patterns across 15+ screens for a cohesive viewing experience</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <div class="item-head">
-                <div>
-                  <div class="item-title">Cornell Enrollment Mobile App</div>
-                  <div class="item-subtitle">UX/UI Designer · Personal Case Study</div>
-                </div>
-                <div class="item-date">2025</div>
-              </div>
-              <ul>
-                <li>Simplified a complex enrollment workflow into an intuitive mobile flow, with clean structured UI focused on spacing, hierarchy, and usability</li>
-                <li>Built high-fidelity prototypes and iterated across multiple rounds of feedback to improve clarity and user experience</li>
-              </ul>
-            </div>
-          </section>
-        </main>
-      </div>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <a class="back" href="index.html">← Back to portfolio</a>
     </div>
-  </body>
+
+    <header class="hero">
+      <div class="hero-top">
+        <div>
+          <div class="eyebrow">Resume</div>
+          <h1>YJ Lee</h1>
+          <div class="role">Product UX/UI Designer</div>
+          <p class="subhead">
+            Product designer focused on clear digital experiences, workflow clarity, visual hierarchy, and thoughtful interface design.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <a class="action primary" href="mailto:dudwo021105@gmail.com">Email</a>
+          <a class="action" href="https://www.linkedin.com/in/yj-lee-49b14a232" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-card">
+          <div class="contact-label">Email</div>
+          <div class="contact-value">dudwo021105@gmail.com</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">607-351-9241</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-label">Portfolio</div>
+          <div class="contact-value">yjleeportfolio.vercel.app</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-label">Location</div>
+          <div class="contact-value">Ithaca, New York</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>Education</h2>
+          <div class="stack">
+            <div>
+              <div class="item-title">Cornell University</div>
+              <div class="item-subtitle">Bachelor of Arts in Information Science</div>
+              <p>May 2026</p>
+              <p class="note" style="margin-top:10px;">
+                Coursework: Human-Computer Interaction, UX Design, Digital Product Design, Rapid Prototyping
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Summary</h2>
+          <p>
+            Product UX/UI Designer with experience designing AI-powered products, workflow-heavy applications, and real-time digital experiences. Focused on transforming complex systems into clear, intuitive user experiences through research, iteration, and thoughtful visual design.
+          </p>
+        </section>
+
+        <section class="panel">
+          <h2>Skills</h2>
+          <div class="stack">
+            <div class="skill-group">
+              <div class="skill-title">Planning</div>
+              <div class="tag-wrap">
+                <span class="tag">User Research</span>
+                <span class="tag">User Flows</span>
+                <span class="tag">Usability Testing</span>
+                <span class="tag">Interaction Design</span>
+                <span class="tag">Design Strategy</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-title">Design</div>
+              <div class="tag-wrap">
+                <span class="tag">Visual Design</span>
+                <span class="tag">Typography</span>
+                <span class="tag">Layout & Spacing</span>
+                <span class="tag">Visual Hierarchy</span>
+                <span class="tag">High-Fidelity UI Design</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-title">Technical</div>
+              <div class="tag-wrap">
+                <span class="tag">Figma</span>
+                <span class="tag">Wireframing</span>
+                <span class="tag">Prototyping</span>
+                <span class="tag">Interaction Design Systems</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </aside>
+
+      <main class="content">
+        <section class="panel resume-section">
+          <h2>Experience</h2>
+
+          <div class="resume-item">
+            <div class="item-head">
+              <div>
+                <div class="item-title">MAON (Startup) &lt;Stealth&gt; · Contract Product Designer</div>
+              </div>
+              <div class="item-date">Dec 2025 – May 2026</div>
+            </div>
+            <ul>
+              <li>Designed product flows and interfaces for an AI-powered health platform addressing ~30–50% user drop-off in existing apps</li>
+              <li>Turned rough product ideas into structured onboarding, insight, and feedback experiences</li>
+              <li>Built wireframes and high-fidelity prototypes in Figma and iterated rapidly through user feedback</li>
+              <li>Worked closely with teammates to improve workflows, usability, and interaction clarity</li>
+              <li>Simplified complex health data into intuitive product experiences and actionable user flows</li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <div class="item-head">
+              <div>
+                <div class="item-title">Grace Building · UX Designer</div>
+                <div class="item-subtitle">Seoul, South Korea</div>
+              </div>
+              <div class="item-date">June 2024 – Present</div>
+            </div>
+            <ul>
+              <li>Redesigned responsive web experiences focused on usability, clarity, and scalable interaction patterns</li>
+              <li>Created 15+ high-fidelity screens, reducing task completion time by ~20% during testing</li>
+              <li>Collaborated directly with developers and stakeholders, reducing revision cycles by ~25%</li>
+              <li>Improved confusing user flows through iterative testing and usability-focused refinement</li>
+              <li>Thought through edge cases and interaction behavior before implementation handoff</li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <div class="item-head">
+              <div>
+                <div class="item-title">Cornell University Athletics · Sports Media Intern</div>
+                <div class="item-subtitle">Ithaca, New York</div>
+              </div>
+              <div class="item-date">Nov 2025 – Present</div>
+            </div>
+            <ul>
+              <li>Produced and managed real-time digital experiences in fast-paced, high-visibility environments</li>
+              <li>Collaborated cross-functionally to support engaging user-facing experiences and live content delivery</li>
+              <li>Adapted quickly to changing priorities and feedback during live production workflows</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel resume-section">
+          <h2>Projects</h2>
+
+          <div class="resume-item">
+            <div class="item-head">
+              <div>
+                <div class="item-title">Boston Bruins Fan Experience App</div>
+                <div class="item-subtitle">Product UX Designer · Personal Case Study</div>
+              </div>
+              <div class="item-date">2026</div>
+            </div>
+            <ul>
+              <li>Designed a real-time sports experience focused on engagement, hierarchy, and fast interaction</li>
+              <li>Created 15+ polished high-fidelity screens optimized for live content consumption</li>
+              <li>Improved navigation and information clarity through iterative workflow and UI refinement</li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <div class="item-head">
+              <div>
+                <div class="item-title">VCT SYNC</div>
+                <div class="item-subtitle">UX/UI Designer · Personal Case Study</div>
+              </div>
+              <div class="item-date">2025</div>
+            </div>
+            <ul>
+              <li>Designed a live esports companion experience focused on fast interaction, match tracking, and real-time usability</li>
+              <li>Built scalable UI systems and adaptive layouts for dense live information</li>
+              <li>Structured user flows and navigation around speed, clarity, and efficient interaction</li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <div class="item-head">
+              <div>
+                <div class="item-title">Cornell Enrollment Mobile App</div>
+                <div class="item-subtitle">UX/UI Designer · Personal Case Study</div>
+              </div>
+              <div class="item-date">2025</div>
+            </div>
+            <ul>
+              <li>Redesigned a complex enrollment workflow into a clear mobile-first experience focused on usability and task completion</li>
+              <li>Built end-to-end flows for add/drop/swap interactions and simplified high-stakes decision points</li>
+              <li>Identified friction points and redesigned confusing system behavior into clearer workflows</li>
+              <li>Iterated quickly through testing and feedback to improve clarity and reduce user uncertainty</li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <div class="item-head">
+              <div>
+                <div class="item-title">Automated Volleyball Serving Machine</div>
+                <div class="item-subtitle">Rapid Prototype · Group Project</div>
+              </div>
+              <div class="item-date">2026</div>
+            </div>
+            <ul>
+              <li>Designed and prototyped an interactive automated system combining hardware, motion control, and real-time user interaction</li>
+              <li>Collaborated across design and engineering constraints to rapidly iterate on system behavior and usability</li>
+              <li>Built and tested workflows for aiming, launching, and automated feeding under tight technical and physical constraints</li>
+              <li>Applied rapid prototyping and iterative problem-solving to improve reliability and user interaction</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
 </html>
