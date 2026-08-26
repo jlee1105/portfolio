@@ -468,6 +468,24 @@
         color: var(--muted);
         margin: 5px 0 0;
       }
+      .archive {
+        margin-top: 24px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--card);
+      }
+      .archive summary {
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .archive .grid2 {
+        margin-top: 18px;
+      }
+      .archive img {
+        width: 100%;
+        border-radius: 12px;
+      }
       @media (max-width: 680px) {
         .research-table,
         .research-table tbody,
@@ -790,16 +808,32 @@
             ><span>Does the four-item navigation match fan expectations?</span>
           </div>
         </div>
-        <figure class="visual">
+        <div class="screens">
           <img
             class="zoom"
-            src="../images/bruins-research.png"
-            alt="Heuristic review, competitive framing and journey map"
+            src="../images/BB figjam 1.PNG"
+            alt="Understanding Bruins fans and initial design assumptions"
           />
-          <figcaption class="missing">
-            Add a research board as images/bruins-research.png
-          </figcaption>
-        </figure>
+          <img
+            class="zoom"
+            src="../images/BB figjam 2.PNG"
+            alt="How the initial findings influenced the product direction"
+          />
+          <img
+            class="zoom"
+            src="../images/BB figjam 3.PNG"
+            alt="Feature prioritization and design focus"
+          />
+          <img
+            class="zoom"
+            src="../images/BB figjam 4.PNG"
+            alt="Design evaluation results and iterations"
+          />
+          <p class="screen-note">
+            Research synthesis, feature prioritization and completed design
+            evaluation.
+          </p>
+        </div>
       </section>
       <section>
         <div class="head">
@@ -846,12 +880,41 @@
             Showing what changed is more valuable than showing every screen
           </h2>
         </div>
+        <div class="copy">
+          <p>
+            I first established hierarchy and navigation in mid-fidelity before
+            applying the Bruins visual language. This helped separate structural
+            decisions from color, imagery and brand expression.
+          </p>
+        </div>
+        <div class="screens">
+          <img
+            class="zoom"
+            src="../images/BB Midfi 1(20260826-155736).png"
+            alt="Mid-fidelity Game Day exploration"
+          />
+          <img
+            class="zoom"
+            src="../images/BB Midfi 2(20260826-155736).png"
+            alt="Mid-fidelity ticket and schedule exploration"
+          />
+          <img
+            class="zoom"
+            src="../images/BB Midfi 3(20260826-155736).png"
+            alt="Mid-fidelity news and navigation exploration"
+          />
+          <img
+            class="zoom"
+            src="../images/BB Midfi 4(20260826-155736).png"
+            alt="Mid-fidelity roster and statistics exploration"
+          />
+        </div>
         <div class="compare">
           <article>
             <img
               class="zoom"
-              src="../images/bruins-home-before.png"
-              alt="Original home"
+              src="../images/BB Hifi 1(20260826-155737).png"
+              alt="Previous Home and Game Day direction"
             />
             <div class="cap">
               <span class="tag">Before</span>
@@ -873,8 +936,8 @@
           <article>
             <img
               class="zoom"
-              src="../images/bruins-schedule-before.png"
-              alt="Original schedule"
+              src="../images/BB Hifi 2(20260826-155736).png"
+              alt="Previous ticket, schedule, news and navigation direction"
             />
             <div class="cap">
               <span class="tag">Before</span>
@@ -895,6 +958,21 @@
             </div>
           </article>
         </div>
+        <details class="archive">
+          <summary>View additional previous UI directions</summary>
+          <div class="grid2">
+            <img
+              class="zoom"
+              src="../images/BB Hifi 3(20260826-155736).png"
+              alt="Previous roster and statistics direction"
+            />
+            <img
+              class="zoom"
+              src="../images/BB Hifi 4(20260826-155736).png"
+              alt="Previous Pro Shop direction"
+            />
+          </div>
+        </details>
       </section>
       <section>
         <div class="head">
@@ -1020,16 +1098,6 @@
             </p>
           </div>
         </div>
-        <figure class="visual">
-          <img
-            class="zoom"
-            src="../images/bruins-design-system.png"
-            alt="Design system"
-          />
-          <figcaption class="missing">
-            Add images/bruins-design-system.png
-          </figcaption>
-        </figure>
       </section>
       <section>
         <div class="head">
@@ -1053,12 +1121,9 @@
         <figure class="visual">
           <img
             class="zoom"
-            src="../images/bruins-all-screens.png"
+            src="../images/380051ab-9ef9-452a-86c4-9cede39efb13.png"
             alt="Overview of all screens"
           />
-          <figcaption class="missing">
-            Use the full board only here: images/bruins-all-screens.png
-          </figcaption>
         </figure>
       </section>
       <section>
@@ -1096,7 +1161,9 @@
     </div>
     <script>
       document
-        .querySelectorAll(".visual img, .compare img, .screens img")
+        .querySelectorAll(
+          ".visual img, .compare img, .screens img, .archive img",
+        )
         .forEach((img) => {
           img.addEventListener("error", () => {
             img.style.display = "none";
