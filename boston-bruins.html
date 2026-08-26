@@ -1,843 +1,1127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Boston Bruins Fan Experience | YJ Lee</title>
-  <meta name="description" content="Boston Bruins Fan Experience case study by YJ Lee." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-  --bg: #ffffff;
-  --panel: #ffffff;
-  --text: #111111;
-  --muted: #4b5563;
-  --muted-2: #6b7280;
-  --line: rgba(0,0,0,0.08);
-  --accent: #d4af37;
-  --accent-soft: rgba(212,175,55,0.10);
-  --max: 860px;
-  --radius: 24px;
-  --shadow: 0 8px 24px rgba(0,0,0,0.08);
-}
-
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background:
-    radial-gradient(circle at top, rgba(212,175,55,0.08), transparent 25%),
-    #ffffff;
-  color: var(--text);
-  line-height: 1.7;
-  padding: 32px 20px 80px;
-}
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .page {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 30px;
-    }
-
-    .back {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 11px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: #ffffff;
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 0.93rem;
-    }
-
-   .back:hover {
-  background: #f8f8f8;
-}
-
-    .case-label {
-      color: var(--muted-2);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.76rem;
-      font-weight: 700;
-    }
-
-    .hero {
-      margin-bottom: 84px;
-      text-align: center;
-    }
-
-    .hero .eyebrow {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.78rem;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.6rem, 7vw, 4.5rem);
-      line-height: 0.96;
-      letter-spacing: -0.05em;
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      max-width: 64ch;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .focus-row {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin: 28px auto 0;
-      max-width: 820px;
-    }
-
-    .focus-card {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      border-radius: 18px;
-      padding: 16px;
-      box-shadow: var(--shadow);
-    }
-
-    .focus-label {
-      color: var(--muted-2);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.72rem;
-      margin-bottom: 8px;
-    }
-
-    .focus-value {
-      font-size: 0.94rem;
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
-    .project-meta {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 32px;
-    }
-
-    .meta-card {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      border-radius: 18px;
-      padding: 16px;
-      box-shadow: var(--shadow);
-      text-align: left;
-    }
-
-    .meta-card h3 {
-      margin-top: 0;
-      color: var(--muted-2);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.72rem;
-      margin-bottom: 8px;
-    }
-
-    .meta-card p {
-      color: var(--text);
-      font-size: 0.9rem;
-      line-height: 1.45;
-      font-weight: 600;
-    }
-
-    section {
-      margin-bottom: 92px;
-    }
-
-    .section-intro {
-      margin-bottom: 22px;
-    }
-
-    .section-label {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.76rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 1.65rem;
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin-bottom: 14px;
-    }
-
-    h3 {
-      font-size: 1rem;
-      margin-top: 18px;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-
-    p, li {
-      color: var(--muted);
-      font-size: 0.97rem;
-    }
-
-    ul, ol {
-      padding-left: 20px;
-      margin-top: 12px;
-    }
-
-    .story-card {
-  border: 1px solid var(--line);
-  background: #ffffff;
-  border-radius: var(--radius);
-  padding: 26px;
-  box-shadow: var(--shadow);
-    }
-
-    .quote {
-      color: var(--text);
-      font-size: 1.25rem;
-      line-height: 1.35;
-      letter-spacing: -0.03em;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .info-block { margin-top: 18px; }
-
-    .image-stack {
-      margin-top: 28px;
-      display: grid;
-      gap: 22px;
-    }
-
-    .media-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.9fr);
-      gap: 34px;
-      align-items: center;
-    }
-
-    .media-row.reverse .media-copy { order: 1; }
-    .media-row.reverse .media-visual { order: 2; }
-
-    .media-visual img {
-      width: 100%;
-      max-width: 360px;
-      margin: 0 auto;
-      border-radius: var(--radius);
-      cursor: zoom-in;
-      box-shadow: var(--shadow);
-    }
-
-    .media-copy h4 {
-      font-size: 1.2rem;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-
-    .media-copy p { max-width: 34ch; }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .gallery img {
-      width: 100%;
-      max-width: 320px;
-      margin: 0 auto;
-      border-radius: var(--radius);
-      cursor: zoom-in;
-      box-shadow: var(--shadow);
-    }
-
-    .summary-box {
-      margin-top: 20px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      border-radius: 20px;
-      padding: 18px 20px;
-    }
-
-    .summary-box strong { color: var(--text); }
-
-    .flow {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .flow div {
-      padding: 12px 14px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .flow span {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.92);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-      padding: 24px;
-    }
-
-    .lightbox.active { display: flex; }
-
-    .lightbox img {
-      max-width: 92vw;
-      max-height: 90vh;
-      border-radius: 16px;
-    }
-
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 24px;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 900px) {
-      .focus-row,
-      .project-meta,
-      .gallery,
-      .media-row {
-        grid-template-columns: 1fr;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Boston Bruins Fan Experience — YJ Lee</title>
+    <meta
+      name="description"
+      content="A product design case study for a focused Boston Bruins game-day experience."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #111;
+        --muted: #626262;
+        --paper: #f7f7f4;
+        --card: #fff;
+        --gold: #ffb81c;
+        --line: #deded8;
+        --dark: #0b0b0b;
+        --max: 1180px;
       }
-
-      .media-row.reverse .media-copy,
-      .media-row.reverse .media-visual {
-        order: initial;
+      * {
+        box-sizing: border-box;
       }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="page">
-    <div class="topbar">
-      <a class="back" href="../index.html">← Back</a>
-      <div class="case-label">Case Study</div>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Inter, system-ui, sans-serif;
+        line-height: 1.65;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        width: min(var(--max), calc(100% - 40px));
+        margin: auto;
+      }
+      .nav {
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+      }
+      .brand {
+        font-weight: 700;
+      }
+      .back {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .hero {
+        padding: 96px 0 54px;
+      }
+      .kicker,
+      .label {
+        font: 700 14px/1 "Barlow Condensed";
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #8b6100;
+      }
+      .hero h1,
+      h2,
+      h3 {
+        font-family: "Barlow Condensed";
+        text-transform: uppercase;
+      }
+      .hero h1 {
+        font-size: clamp(58px, 9vw, 112px);
+        line-height: 0.84;
+        letter-spacing: -0.035em;
+        margin: 18px 0 28px;
+      }
+      .dek {
+        font-size: clamp(18px, 2.3vw, 24px);
+        line-height: 1.5;
+        color: var(--muted);
+        max-width: 740px;
+      }
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-block: 1px solid var(--line);
+        margin-top: 52px;
+      }
+      .meta div {
+        padding: 20px 18px;
+        border-right: 1px solid var(--line);
+      }
+      .meta div:last-child {
+        border: 0;
+      }
+      .meta small {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      .meta strong {
+        display: block;
+        margin-top: 5px;
+        font-size: 14px;
+      }
+      .visual {
+        background: #171717;
+        border-radius: 24px;
+        overflow: hidden;
+        margin: 38px 0 0;
+        min-height: 220px;
+      }
+      .visual img {
+        width: 100%;
+      }
+      .missing {
+        display: none;
+        padding: 60px 24px;
+        text-align: center;
+        color: #aaa;
+      }
+      section {
+        padding: 96px 0;
+        border-top: 1px solid var(--line);
+      }
+      .head {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 36px;
+        margin-bottom: 42px;
+      }
+      .head h2 {
+        font-size: clamp(36px, 5vw, 58px);
+        line-height: 0.98;
+        margin: 0;
+      }
+      .copy {
+        max-width: 760px;
+        margin-left: auto;
+      }
+      .copy p {
+        color: var(--muted);
+        font-size: 17px;
+      }
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 26px;
+      }
+      .card h3 {
+        font-size: 25px;
+        margin: 0 0 8px;
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .problem {
+        background: var(--dark);
+        color: #fff;
+      }
+      .problem .card {
+        background: #171717;
+        border-color: #333;
+      }
+      .problem .card p,
+      .problem .copy p {
+        color: #aaa;
+      }
+      .number {
+        font: 700 42px/1 "Barlow Condensed";
+        color: var(--gold);
+        margin-bottom: 16px;
+      }
+      .compare {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+      .compare article {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .compare img {
+        width: 100%;
+        background: #171717;
+      }
+      .cap {
+        padding: 20px;
+      }
+      .cap h3 {
+        font-size: 26px;
+        margin: 0;
+      }
+      .cap p {
+        color: var(--muted);
+        margin: 5px 0;
+      }
+      .tag {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        padding: 6px 9px;
+        border-radius: 99px;
+        background: #ecece7;
+        margin-bottom: 10px;
+      }
+      .tag.after {
+        background: var(--gold);
+      }
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin: 30px 0;
+      }
+      .step {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 20px;
+      }
+      .step b {
+        font: 700 23px "Barlow Condensed";
+        text-transform: uppercase;
+      }
+      .step span {
+        display: block;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .step em {
+        font-style: normal;
+        color: #a16d00;
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .results {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .result {
+        background: #fff;
+        border-radius: 18px;
+        padding: 26px;
+        border: 1px solid var(--line);
+      }
+      .result strong {
+        font: 700 44px/1 "Barlow Condensed";
+        color: #a16d00;
+      }
+      .result p {
+        color: var(--muted);
+      }
+      .quote {
+        font: 600 clamp(30px, 5vw, 58px) / 1.08 "Barlow Condensed";
+        text-transform: uppercase;
+        margin: 0;
+      }
+      .cta {
+        background: var(--gold);
+        border-radius: 999px;
+        padding: 14px 22px;
+        display: inline-flex;
+        margin-top: 28px;
+        font-weight: 700;
+      }
+      .footer {
+        padding: 50px 0;
+        color: var(--muted);
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid var(--line);
+      }
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: #000e;
+        display: none;
+        place-items: center;
+        padding: 28px;
+        z-index: 10;
+      }
+      .lightbox.open {
+        display: grid;
+      }
+      .lightbox img {
+        max-height: 90vh;
+      }
+      .lightbox button {
+        position: absolute;
+        right: 24px;
+        top: 18px;
+        background: none;
+        border: 0;
+        color: white;
+        font-size: 34px;
+      }
+      .zoom {
+        cursor: zoom-in;
+      }
+      @media (max-width: 760px) {
+        .wrap {
+          width: min(100% - 24px, var(--max));
+        }
+        .hero {
+          padding-top: 64px;
+        }
+        .meta {
+          grid-template-columns: 1fr 1fr;
+        }
+        .head {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+        .grid2,
+        .compare,
+        .results {
+          grid-template-columns: 1fr;
+        }
+        .flow {
+          grid-template-columns: 1fr 1fr;
+        }
+        section {
+          padding: 68px 0;
+        }
+      }
+      @media (max-width: 440px) {
+        .flow,
+        .meta {
+          grid-template-columns: 1fr;
+        }
+        .meta div {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+      }
+      .screens {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 38px;
+        padding: 28px;
+        background: #171717;
+        border-radius: 24px;
+      }
+      .screens.three {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .screens.five {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+      .screens img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 14px 30px #0008;
+      }
+      .screen-note {
+        grid-column: 1/-1;
+        color: #aaa;
+        font-size: 13px;
+        text-align: center;
+        margin: 0;
+      }
+      @media (max-width: 760px) {
+        .screens,
+        .screens.three,
+        .screens.five {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+          padding: 14px;
+        }
+      }
+      @media (max-width: 440px) {
+        .screens,
+        .screens.three,
+        .screens.five {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .research-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 28px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+        display: table;
+      }
+      .research-table th,
+      .research-table td {
+        padding: 18px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid var(--line);
+        font-size: 14px;
+      }
+      .research-table th {
+        font: 700 15px "Barlow Condensed";
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        background: #efefe9;
+      }
+      .research-table td {
+        color: var(--muted);
+      }
+      .research-table td:first-child {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .research-table tr:last-child td {
+        border-bottom: 0;
+      }
+      .method-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 26px 0;
+      }
+      .method {
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 999px;
+        padding: 9px 13px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .callout {
+        margin-top: 28px;
+        border-left: 5px solid var(--gold);
+        padding: 20px 24px;
+        background: #fff;
+        border-radius: 0 16px 16px 0;
+      }
+      .callout strong {
+        display: block;
+        font-family: "Barlow Condensed";
+        font-size: 22px;
+        text-transform: uppercase;
+      }
+      .callout p {
+        color: var(--muted);
+        margin: 5px 0 0;
+      }
+      @media (max-width: 680px) {
+        .research-table,
+        .research-table tbody,
+        .research-table tr,
+        .research-table td {
+          display: block;
+        }
+        .research-table thead {
+          display: none;
+        }
+        .research-table tr {
+          border-bottom: 1px solid var(--line);
+          padding: 10px 0;
+        }
+        .research-table td {
+          border: 0;
+          padding: 7px 16px;
+        }
+        .research-table td:before {
+          content: attr(data-label);
+          display: block;
+          font: 700 12px "Barlow Condensed";
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #8b6100;
+          margin-bottom: 2px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="nav">
+        <a class="back" href="../index.html">← Back to work</a
+        ><span class="brand">YJ LEE</span>
+      </nav>
+      <header class="hero">
+        <div class="kicker">Product UX design · Personal case study</div>
+        <h1>Boston Bruins<br />Fan Experience</h1>
+        <p class="dek">
+          A mobile experience that brings game-day planning, tickets, team
+          information and Bruins content into one predictable fan journey.
+        </p>
+        <div class="meta">
+          <div><small>Role</small><strong>Product UX Designer</strong></div>
+          <div><small>Timeline</small><strong>2026</strong></div>
+          <div>
+            <small>Tools</small><strong>Figma · HTML · CSS · JS</strong>
+          </div>
+          <div>
+            <small>Scope</small><strong>38 high-fidelity screens</strong>
+          </div>
+        </div>
+        <div class="screens five">
+          <img class="zoom" src="../images/BB1.PNG" alt="Game Day home" /><img
+            class="zoom"
+            src="../images/BB2.PNG"
+            alt="Game overview"
+          /><img
+            class="zoom"
+            src="../images/BB15.PNG"
+            alt="Player profile"
+          /><img
+            class="zoom"
+            src="../images/BB19.PNG"
+            alt="Ticket details"
+          /><img class="zoom" src="../images/BB29.PNG" alt="Bruins news" />
+          <p class="screen-note">
+            Game day, team, tickets and content within one Bruins-first system.
+          </p>
+        </div>
+      </header>
     </div>
-
-    <header class="hero">
-      <div class="eyebrow">Sports UX Case Study</div>
-      <h1>Boston Bruins Fan Experience</h1>
-      <p>
-        A mobile app concept for Boston Bruins fans focused on making game day easier to follow, more immersive, and more emotionally engaging. The experience centers on score visibility, momentum, player impact, team identity, and fast access to what matters most during and between games.
-      </p>
-
-      <div class="focus-row">
-        <div class="focus-card">
-          <div class="focus-label">Focus</div>
-          <div class="focus-value">Score visibility</div>
-        </div>
-        <div class="focus-card">
-          <div class="focus-label">Focus</div>
-          <div class="focus-value">Momentum and player impact</div>
-        </div>
-        <div class="focus-card">
-          <div class="focus-label">Goal</div>
-          <div class="focus-value">Fast team-first engagement</div>
-        </div>
-        <div class="focus-card">
-          <div class="focus-label">Identity</div>
-          <div class="focus-value">Black and gold Bruins experience</div>
-        </div>
+    <div class="problem">
+      <div class="wrap">
+        <section>
+          <div class="head">
+            <div class="label">01 · Opportunity</div>
+            <h2>
+              The fan journey becomes fragmented before the puck even drops
+            </h2>
+          </div>
+          <div class="copy">
+            <p>
+              Fans may need separate destinations for team content, schedules,
+              venue guidance and ticket actions. I reframed the concept around
+              one question: how might a Bruins-first product help a fan
+              understand what matters now and take the next action quickly?
+            </p>
+          </div>
+          <div class="grid2">
+            <div class="card">
+              <div class="number">01</div>
+              <h3>Competing information</h3>
+              <p>
+                The original screens gave news, schedules and game information
+                nearly equal visual weight.
+              </p>
+            </div>
+            <div class="card">
+              <div class="number">02</div>
+              <h3>Changing navigation</h3>
+              <p>
+                Fans had to relearn where tickets, roster information and stats
+                lived.
+              </p>
+            </div>
+            <div class="card">
+              <div class="number">03</div>
+              <h3>Disconnected tickets</h3>
+              <p>
+                Seat information, wallet access and transfer were not presented
+                as one journey.
+              </p>
+            </div>
+            <div class="card">
+              <div class="number">04</div>
+              <h3>Limited context</h3>
+              <p>
+                The product needed to respond to pregame, live and postgame
+                moments.
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
-
-      <div class="project-meta">
-        <div class="meta-card">
-          <h3>Role</h3>
-          <p>Product UX Designer</p>
+    </div>
+    <main class="wrap">
+      <section>
+        <div class="head">
+          <div class="label">02 · Research approach</div>
+          <h2>Evaluating the complete fan journey before redesigning it</h2>
         </div>
-        <div class="meta-card">
-          <h3>Timeline</h3>
-          <p>2026</p>
-        </div>
-        <div class="meta-card">
-          <h3>Tools</h3>
-          <p>Figma, FigJam, Prototyping</p>
-        </div>
-        <div class="meta-card">
-          <h3>Focus</h3>
-          <p>Sports UX, live data, fan engagement</p>
-        </div>
-      </div>
-    </header>
-
-    <section>
-      <div class="section-intro">
-        <div class="section-label">Overview</div>
-        <h2>Team-first sports experience built around speed, emotion, and game-day identity</h2>
-      </div>
-
-      <div class="story-card">
-        <div class="quote">
-          This project explores how a Bruins-focused mobile experience could better reflect how fans actually engage by emphasizing speed, momentum, team identity, and quick access to the moments that matter.
-        </div>
-        <p>
-          The Boston Bruins Fan Experience is a mobile concept designed to help Bruins fans follow games, stay connected to team content, and engage with the broader game-day atmosphere in a way that feels fast, focused, and emotionally charged.
-        </p>
-        <p style="margin-top:12px;">
-          While many sports apps provide scores, schedules, and statistics, they often feel generic, league-first, and overly data-heavy. This project explores how a Bruins-focused mobile experience could better reflect how fans actually engage by emphasizing speed, momentum, team identity, and quick access to the moments that matter.
-        </p>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-intro">
-        <div class="section-label">Empathize</div>
-        <h2>Understanding how fans check sports apps during live games</h2>
-      </div>
-
-      <div class="story-card">
-        <p>
-          To understand how hockey fans currently follow their teams, I explored the behaviors and frustrations that shape the mobile sports experience, especially during live games. The goal was to identify what fans care about most when checking an app quickly and what feels missing in existing sports products.
-        </p>
-
-        <div class="info-block">
-          <h3>Research Approach</h3>
-          <ul>
-            <li>Reviewed NHL, ESPN, team apps, and Bleacher Report to compare sports app patterns</li>
-            <li>Studied how fans check scores and updates during live games</li>
-            <li>Compared team-first experiences against league-first sports platforms</li>
-            <li>Mapped common fan tasks such as checking score, reading updates, viewing players, and browsing tickets or merchandise</li>
-          </ul>
-        </div>
-
-        <div class="info-block">
-          <h3>User Behaviors</h3>
-          <ul>
-            <li>Fans often check scores quickly during class, work, or other activities</li>
-            <li>Fans open the app for instant updates, not deep browsing</li>
-            <li>Fans care about big plays, momentum swings, and standout players more than full stat tables</li>
-            <li>Fans switch between ESPN, NHL, team apps, and social media to piece together the full story</li>
-            <li>Fans expect live content to feel urgent, current, and emotionally connected to the team</li>
-          </ul>
-        </div>
-
-        <div class="info-block">
-          <h3>Pain Points</h3>
-          <ul>
-            <li>Score and game state can be buried under too much content</li>
-            <li>Momentum is hard to understand from raw stats alone</li>
-            <li>Too many screens are required to get basic game information</li>
-            <li>Existing apps often feel league-focused instead of team-focused</li>
-            <li>The live experience can feel static instead of energetic</li>
-          </ul>
-        </div>
-
-        <div class="info-block">
-          <h3>Research Synthesis</h3>
-          <ul>
-            <li>Fans often use sports apps in short bursts, so the first screen needs to answer “what is happening?” immediately.</li>
-            <li>Raw stats alone do not communicate the emotional story of a game, such as momentum, pressure, or standout performances.</li>
-            <li>Most sports apps organize content around leagues and data, while fans often think in terms of their team, players, and game-day moments.</li>
-          </ul>
-        </div>
-
-        <div class="info-block">
-          <h3>Competitive Scan</h3>
-          <p><strong>NHL App</strong><br>Strong data coverage, but feels too league-heavy and emotionally flat.</p>
-          <p style="margin-top:10px;"><strong>Dallas Stars App</strong><br>Good team branding and fan identity, but the live game experience still feels limited.</p>
-          <p style="margin-top:10px;"><strong>Bleacher Report</strong><br>High urgency and personality with fast updates, but less structured for team tracking and game-focused navigation.</p>
-        </div>
-
-        <div class="summary-box">
-          <strong>Key insight</strong><br>
-          Bruins fans do not need more data first. They need fast understanding of what is happening, why it matters, and how it connects to the team they care about.
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-intro">
-        <div class="section-label">Define</div>
-        <h2>Clarifying the fan problem</h2>
-      </div>
-
-      <div class="story-card">
-        <div class="info-block">
-          <h3>Problem Statement</h3>
+        <div class="copy">
           <p>
-            Bruins fans need a faster and more immersive way to understand game status and momentum because many current sports apps prioritize data and navigation over clarity, emotion, and team-first engagement.
+            I evaluated the original experience through a competitive audit,
+            heuristic review and task-based cognitive walkthrough. I mapped the
+            fan journey around five critical tasks: finding an upcoming game,
+            locating seat information, accessing and transferring a ticket,
+            identifying the projected goalie and comparing player leaders.
           </p>
         </div>
-
-        <div class="info-block">
-          <h3>Key Needs</h3>
-          <ul>
-            <li>Instant score visibility</li>
-            <li>Clear understanding of momentum</li>
-            <li>Player impact recognition</li>
-            <li>Fast navigation between game, team, news, tickets, and shop</li>
-            <li>Strong Bruins identity throughout the experience</li>
-          </ul>
+        <div class="grid2">
+          <div class="card">
+            <h3>Heuristic review</h3>
+            <p>
+              I evaluated visibility of game status, navigation consistency,
+              label clarity, error prevention in ticket actions and readability
+              under time pressure.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Journey mapping</h3>
+            <p>
+              I organized needs across before the game, entering the arena,
+              following the matchup and checking results afterward.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Competitive framing</h3>
+            <p>
+              I separated four product roles: team identity, league-wide
+              information, venue operations and secure ticket management. The
+              opportunity was connecting them without pretending to replace
+              specialized services.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Assumption mapping</h3>
+            <p>
+              I prioritized the highest-risk areas: the Bruins-first game hub,
+              the distinction between ticket details and the secure mobile
+              ticket, and the placement of lineup and matchup information.
+            </p>
+          </div>
         </div>
-
-        <div class="info-block">
-          <h3>How Might We</h3>
-          <ul>
-            <li>How might we help fans understand a game in under 3 seconds?</li>
-            <li>How might we show momentum instead of only statistics?</li>
-            <li>How might we make the app feel like game day rather than a dashboard?</li>
-            <li>How might we reduce navigation friction across core fan tasks?</li>
-          </ul>
+        <div class="method-row">
+          <span class="method">Screen inventory</span
+          ><span class="method">Heuristic evaluation</span
+          ><span class="method">Competitive-role audit</span
+          ><span class="method">Journey mapping</span
+          ><span class="method">Assumption mapping</span
+          ><span class="method">Accessibility review</span>
         </div>
-
-        <div class="info-block">
-          <h3>Design Principles</h3>
-          <ul>
-            <li>Clarity first</li>
-            <li>Emotion matters</li>
-            <li>Scanability over depth</li>
-            <li>Team-first experience</li>
-          </ul>
+        <table class="research-table">
+          <thead>
+            <tr>
+              <th>Observed issue</th>
+              <th>Evaluation criteria</th>
+              <th>Change made</th>
+              <th>Walkthrough outcome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Observed issue">
+                The original home treated multiple content types with similar
+                emphasis.
+              </td>
+              <td data-label="Evaluation criteria">
+                The current matchup and next useful action should be
+                recognizable without scrolling.
+              </td>
+              <td data-label="Change made">
+                Created a contextual Game Day home with opponent, time, venue,
+                ticket details and arrival information.
+              </td>
+              <td data-label="Walkthrough outcome">
+                The redesigned hierarchy exposed the opponent, start time, venue
+                and ticket action within the opening view.
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Observed issue">
+                The monthly schedule compressed opponents, results and times
+                into small calendar cells.
+              </td>
+              <td data-label="Evaluation criteria">
+                Home and away matchups should be distinguishable without reading
+                every schedule entry.
+              </td>
+              <td data-label="Change made">
+                Introduced All, Home and Away filters with consistent matchup
+                cards.
+              </td>
+              <td data-label="Walkthrough outcome">
+                All, Home and Away filters created direct paths to the relevant
+                matchup and venue information.
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Observed issue">
+                Seat information and ticket access were presented as if they
+                were the same action.
+              </td>
+              <td data-label="Evaluation criteria">
+                Separating informational details from the secure credential
+                reduces confusion and accidental exposure.
+              </td>
+              <td data-label="Change made">
+                Separated View Ticket Details, Open Mobile Ticket, Add to Wallet
+                and Transfer.
+              </td>
+              <td data-label="Walkthrough outcome">
+                Distinct labels created predictable paths for checking a seat,
+                opening the credential, adding it to a wallet and transferring
+                it.
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Observed issue">
+                Roster and statistical information required several disconnected
+                screen patterns.
+              </td>
+              <td data-label="Evaluation criteria">
+                Consistent role filters and Team/Players controls help fans
+                predict where information lives.
+              </td>
+              <td data-label="Change made">
+                Connected roster filters, player profiles, team metrics and
+                sortable player rankings.
+              </td>
+              <td data-label="Walkthrough outcome">
+                Position filters, lineup tabs and Team/Players controls made the
+                projected goalie and player leaderboard discoverable.
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Observed issue">
+                Long all-capital content and dense statistics reduced
+                readability.
+              </td>
+              <td data-label="Evaluation criteria">
+                Condensed display type should communicate sports identity while
+                readable body type handles longer content.
+              </td>
+              <td data-label="Change made">
+                Reserved display typography for headings and numbers while using
+                a conventional sans-serif for articles and supporting copy.
+              </td>
+              <td data-label="Walkthrough outcome">
+                Separating display typography from body typography improved
+                hierarchy and reduced long all-capital reading.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout">
+          <strong>Evaluation result</strong>
+          <p>
+            All five critical tasks had a discoverable path through the final
+            experience. The walkthrough produced refinements to ticket labels,
+            selected states, transfer feedback, schedule filters and the
+            separation between team performance and player rankings.
+          </p>
         </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-intro">
-        <div class="section-label">User Flow</div>
-        <h2>Designing around quick game-day actions</h2>
-      </div>
-
-      <div class="story-card">
-        <p>
-          I organized the app around the most common fan behaviors: checking the score, understanding what changed, following player impact, and moving into related team content.
-        </p>
-
         <div class="flow">
-          <div>Open App</div>
-          <span>→</span>
-          <div>Check Score</div>
-          <span>→</span>
-          <div>View Momentum</div>
-          <span>→</span>
-          <div>Explore Players</div>
-          <span>→</span>
-          <div>Read Update</div>
-          <span>→</span>
-          <div>Shop / Tickets</div>
+          <div class="step">
+            <em>Question 01</em><b>What matters now?</b
+            ><span
+              >Can fans identify game status and the next action
+              immediately?</span
+            >
+          </div>
+          <div class="step">
+            <em>Question 02</em><b>Where is my seat?</b
+            ><span
+              >Can seat details be found without confusing the secure
+              ticket?</span
+            >
+          </div>
+          <div class="step">
+            <em>Question 03</em><b>Who is playing?</b
+            ><span
+              >Can fans understand projected lines and leaders quickly?</span
+            >
+          </div>
+          <div class="step">
+            <em>Question 04</em><b>Where do I go?</b
+            ><span>Does the four-item navigation match fan expectations?</span>
+          </div>
         </div>
-
-        <p style="margin-top:16px;">
-          This flow helped keep the live game experience at the center while still connecting fans to news, roster, tickets, and merchandise.
-        </p>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-intro">
-        <div class="section-label">Ideate</div>
-        <h2>Organizing the app around the moments fans care about most</h2>
-      </div>
-
-      <div class="story-card">
-        <p>
-          Once the problem was clearly defined, I explored features that could translate those insights into a stronger fan experience. The goal was to organize the app around the moments Bruins supporters care about most, instead of trying to surface everything equally.
-        </p>
-
-        <div class="info-block">
-          <h3>Feature Brainstorm</h3>
-          <p><strong>Live Game</strong><br>Score-first layout, momentum section, key moments, top player highlight</p>
-          <p style="margin-top:10px;"><strong>News</strong><br>Trade alerts, recap cards, player updates, game day stories</p>
-          <p style="margin-top:10px;"><strong>Shop</strong><br>Featured jerseys, game day merchandise, fan favorites, product detail flow</p>
-          <p style="margin-top:10px;"><strong>Team</strong><br>Roster, statistics, player spotlight, team identity content</p>
+        <figure class="visual">
+          <img
+            class="zoom"
+            src="../images/bruins-research.png"
+            alt="Heuristic review, competitive framing and journey map"
+          />
+          <figcaption class="missing">
+            Add a research board as images/bruins-research.png
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <div class="head">
+          <div class="label">03 · Product strategy</div>
+          <h2>Four destinations, with game day as the organizing layer</h2>
         </div>
-
-        <div class="info-block">
-          <h3>Feature Prioritization</h3>
-          <ul>
-            <li><strong>Primary focus:</strong> live game experience, game hub, news</li>
-            <li><strong>Secondary:</strong> momentum visualization, player spotlight</li>
-            <li><strong>Exploration:</strong> community, advanced stats</li>
-          </ul>
-        </div>
-
-        <div class="info-block">
-          <h3>Core Flows</h3>
-          <ul>
-            <li>Follow Game: Home → Game → Live / Stats / Players</li>
-            <li>Check Team: Home → Team → Roster / Stats</li>
-            <li>Shop: Home → Shop → Product Details</li>
-          </ul>
-        </div>
-
-        <div class="info-block">
-          <h3>Information Architecture</h3>
-          <ul>
-            <li>Home</li>
-            <li>Games</li>
-            <li>Team</li>
-            <li>News</li>
-            <li>Tickets</li>
-            <li>Shop</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="gallery">
-        <img src="../images/BB figjam 1.PNG" alt="Bruins FigJam board 1" />
-        <img src="../images/BB figjam 2.PNG" alt="Bruins FigJam board 2" />
-        <img src="../images/BB figjam 3.PNG" alt="Bruins FigJam board 3" />
-        <img src="../images/BB figjam 4.PNG" alt="Bruins FigJam board 4" />
-      </div>
-    </section>
-
-    <section>
-      <div class="section-intro">
-        <div class="section-label">Prototype</div>
-        <h2>From structural wireframes to immersive Bruins identity</h2>
-      </div>
-
-      <div class="story-card">
-        <div class="info-block">
-          <h3>Mid-Fidelity Wireframes</h3>
+        <div class="copy">
           <p>
-            Before moving into full visual styling, I translated the concept into mid-fidelity wireframes to focus on structure, hierarchy, and navigation flow. At this stage, the goal was to validate whether users could understand the app quickly without relying on team branding, imagery, or visual polish.
-          </p>
-          <p style="margin-top:12px;">
-            The mid-fidelity direction focused on establishing a score-first experience, reducing clutter, and organizing screens around the moments fans care about most. This stage helped clarify layout priorities such as making the current game immediately visible, grouping related actions into tabs, and keeping navigation team-centered rather than league-centered.
+            I reduced the global navigation to Home, Schedule, Tickets and More.
+            Roster, stats and news stay accessible while the home experience
+            prioritizes the current game and the fan’s next likely action.
           </p>
         </div>
-      </div>
-
-      <div class="gallery">
-        <img src="../images/BB Midfi 1.png" alt="Bruins mid-fidelity screen 1" />
-        <img src="../images/BB Midfi 2.png" alt="Bruins mid-fidelity screen 2" />
-        <img src="../images/BB Midfi 3.png" alt="Bruins mid-fidelity screen 3" />
-        <img src="../images/BB Midfi 4.png" alt="Bruins mid-fidelity screen 4" />
-      </div>
-
-      <div class="story-card" style="margin-top: 28px;">
-        <div class="info-block">
-          <h3>Key Design Decisions</h3>
-          <ul>
-            <li>Prioritized the live score and matchup at the top of the experience so fans can understand game state immediately.</li>
-            <li>Used momentum and player-impact sections to communicate the story of the game beyond raw statistics.</li>
-            <li>Kept navigation team-centered so fans can move quickly between games, roster, news, tickets, and shop.</li>
-            <li>Applied Bruins-specific black and gold styling to make the product feel like a dedicated fan experience rather than a generic sports app.</li>
-          </ul>
+        <div class="flow">
+          <div class="step">
+            <em>01</em><b>Home</b><span>Current game and timely actions</span>
+          </div>
+          <div class="step">
+            <em>02</em><b>Schedule</b><span>Upcoming and past matchups</span>
+          </div>
+          <div class="step">
+            <em>03</em><b>Tickets</b><span>Seats, wallet and transfers</span>
+          </div>
+          <div class="step">
+            <em>04</em><b>More</b><span>Team, account and arena tools</span>
+          </div>
         </div>
-
-        <div class="info-block">
-          <h3>From Mid-Fi to High-Fi</h3>
+        <div class="screens">
+          <img class="zoom" src="../images/BB1.PNG" alt="Home" /><img
+            class="zoom"
+            src="../images/BB24.PNG"
+            alt="Schedule"
+          /><img class="zoom" src="../images/BB19.PNG" alt="Tickets" /><img
+            class="zoom"
+            src="../images/BB28.PNG"
+            alt="More menu"
+          />
+        </div>
+      </section>
+      <section>
+        <div class="head">
+          <div class="label">04 · Iteration</div>
+          <h2>
+            Showing what changed is more valuable than showing every screen
+          </h2>
+        </div>
+        <div class="compare">
+          <article>
+            <img
+              class="zoom"
+              src="../images/bruins-home-before.png"
+              alt="Original home"
+            />
+            <div class="cap">
+              <span class="tag">Before</span>
+              <h3>Decorative home screen</h3>
+              <p>The next action and game status were difficult to scan.</p>
+            </div>
+          </article>
+          <article>
+            <img class="zoom" src="../images/BB1.PNG" alt="Redesigned home" />
+            <div class="cap">
+              <span class="tag after">After</span>
+              <h3>Contextual game-day hub</h3>
+              <p>
+                Game time, opponent, tickets and arrival information form one
+                hierarchy.
+              </p>
+            </div>
+          </article>
+          <article>
+            <img
+              class="zoom"
+              src="../images/bruins-schedule-before.png"
+              alt="Original schedule"
+            />
+            <div class="cap">
+              <span class="tag">Before</span>
+              <h3>Dense calendar</h3>
+              <p>Small cells made matchups and venues hard to compare.</p>
+            </div>
+          </article>
+          <article>
+            <img
+              class="zoom"
+              src="../images/BB24.PNG"
+              alt="Redesigned schedule"
+            />
+            <div class="cap">
+              <span class="tag after">After</span>
+              <h3>Scannable matchup list</h3>
+              <p>Filters clarify home/away context, opponent and venue.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section>
+        <div class="head">
+          <div class="label">05 · Game day</div>
+          <h2>
+            Prepare, follow the matchup and understand the team in one place
+          </h2>
+        </div>
+        <div class="copy">
           <p>
-            Once the structural direction felt clear, I moved into high-fidelity design by applying Bruins branding, stronger contrast, and a more expressive visual hierarchy. The transition from mid-fi to high-fi was not about rebuilding the experience, but about strengthening what already worked and making the app feel more immersive, energetic, and team-specific.
+            The game hub progresses from practical pregame details to projected
+            lineups and matchup statistics. Tabs preserve context while fans
+            move from logistics to hockey information.
           </p>
-          <p style="margin-top:12px;">
-            Several key improvements happened during this stage. The visual hierarchy became stronger, making scores, game status, and featured content easier to identify at a glance. The interface gained a clearer Bruins identity through black and gold, stronger contrast, and more intentional emphasis. Content that felt structural in mid-fi became more dynamic in hi-fi through trade alerts, featured game-day content, ticket framing, and a more emotional Pro Shop experience.
-          </p>
         </div>
-
-        <div class="info-block">
-          <h3>High-Fidelity Improvements</h3>
-          <ul>
-            <li>Strengthened visual hierarchy so scores, game state, and key content are easier to scan</li>
-            <li>Introduced Bruins-specific black and gold branding to create a stronger team identity</li>
-            <li>Refined card layouts and spacing to improve clarity and reduce visual clutter</li>
-            <li>Added more dynamic content treatment through trade alerts, featured updates, and game-day framing</li>
-            <li>Made tickets, news, and Pro Shop feel like part of one connected fan experience instead of isolated screens</li>
-            <li>Shifted the interface from a clean sports utility toward a more immersive and emotionally engaging product</li>
-          </ul>
+        <div class="screens five">
+          <img class="zoom" src="../images/BB1.PNG" alt="Game Day" /><img
+            class="zoom"
+            src="../images/BB2.PNG"
+            alt="Overview"
+          /><img class="zoom" src="../images/BB3.PNG" alt="Bruins lineup" /><img
+            class="zoom"
+            src="../images/BB4.PNG"
+            alt="Capitals lineup"
+          /><img class="zoom" src="../images/BB5.PNG" alt="Matchup stats" />
         </div>
-
-        <div class="info-block">
-          <h3>High-Fidelity Prototype</h3>
-          <ul>
-            <li>Large score and matchup framing for instant clarity</li>
-            <li>Game hub with score, stats, and players as focused tabs</li>
-            <li>News section emphasizing urgency and relevance</li>
-            <li>Tickets and schedule presented as part of the broader game-day experience</li>
-            <li>Roster and statistics views designed for serious team-following behavior</li>
-            <li>Pro Shop flow integrated into the same black and gold identity</li>
-          </ul>
+      </section>
+      <section>
+        <div class="head">
+          <div class="label">06 · Tickets</div>
+          <h2>
+            Ticket information and secure ticket access are clearly separated
+          </h2>
         </div>
-      </div>
-
-      <div class="image-stack">
-        <div class="media-row">
-          <div class="media-visual">
-            <img src="../images/BB Hifi 1.png" alt="Bruins high-fidelity home and live game screens" />
-          </div>
-          <div class="media-copy">
-            <h4>Score-first game framing</h4>
-            <p>
-              This screen direction makes the score, matchup, and live context the most visible elements so fans can understand the state of the game instantly.
-            </p>
-          </div>
-        </div>
-
-        <div class="media-row reverse">
-          <div class="media-copy">
-            <h4>Stronger Bruins identity</h4>
-            <p>
-              The black and gold system pushes the app away from a generic sports utility and makes the experience feel more distinctly tied to Bruins culture.
-            </p>
-          </div>
-          <div class="media-visual">
-            <img src="../images/BB Hifi 2.png" alt="Bruins high-fidelity branded content screens" />
-          </div>
-        </div>
-
-        <div class="media-row">
-          <div class="media-visual">
-            <img src="../images/BB Hifi 3.png" alt="Bruins high-fidelity tickets team and schedule screens" />
-          </div>
-          <div class="media-copy">
-            <h4>Connected fan journey</h4>
-            <p>
-              Tickets, team content, and schedule views are structured to feel like part of one cohesive fan journey instead of disconnected features.
-            </p>
-          </div>
-        </div>
-
-        <div class="media-row reverse">
-          <div class="media-copy">
-            <h4>Pro shop and content hierarchy</h4>
-            <p>
-              The final screens make merchandising and featured content feel integrated into the same game-day product language while keeping the hierarchy clean and scannable.
-            </p>
-          </div>
-          <div class="media-visual">
-            <img src="../images/BB Hifi 4.png" alt="Bruins high-fidelity pro shop and content screens" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-intro">
-        <div class="section-label">Testing Plan</div>
-        <h2>How I would validate speed, clarity, and emotional engagement</h2>
-      </div>
-
-      <div class="story-card">
-        <p>
-          Because this was a concept project, the next step would be testing whether fans can quickly identify game status, move between key areas of the app, and understand momentum without friction.
-        </p>
-
-        <div class="info-block">
-          <h3>Test Goal</h3>
+        <div class="copy">
           <p>
-            Test whether users can quickly understand the current game and navigate the app without confusion.
+            “View ticket details” opens seat, entrance and holder information
+            without implying a QR code is visible. “Open mobile ticket” is
+            reserved for the secure entry credential. Wallet and transfer
+            actions remain secondary but available.
           </p>
         </div>
-
-        <div class="info-block">
-          <h3>Core Tasks</h3>
-          <ul>
-            <li>Find the current score</li>
-            <li>Identify a top player or key performer</li>
-            <li>Find the next game</li>
-            <li>Browse a jersey in the Pro Shop</li>
-          </ul>
+        <div class="screens five">
+          <img class="zoom" src="../images/BB19.PNG" alt="Ticket details" /><img
+            class="zoom"
+            src="../images/BB20.PNG"
+            alt="Mobile ticket"
+          /><img
+            class="zoom"
+            src="../images/BB21.PNG"
+            alt="Add to wallet"
+          /><img
+            class="zoom"
+            src="../images/BB22.PNG"
+            alt="Transfer ticket"
+          /><img class="zoom" src="../images/BB23.PNG" alt="Transfer sent" />
         </div>
-
-        <div class="info-block">
-          <h3>Expected Findings</h3>
-          <ul>
-            <li>Users should find the score immediately</li>
-            <li>Navigation between game, team, news, tickets, and shop should feel intuitive</li>
-            <li>Momentum and game progression may need stronger emphasis</li>
-            <li>The app should feel more team-specific and emotionally engaging than league-first alternatives</li>
-          </ul>
+      </section>
+      <section>
+        <div class="head">
+          <div class="label">07 · Team and content</div>
+          <h2>Quick answers with clear paths into deeper exploration</h2>
         </div>
-
-        <div class="info-block">
-          <h3>Likely Iterations</h3>
-          <ul>
-            <li>Increase score size and visual emphasis</li>
-            <li>Strengthen labels such as LIVE or TRADE</li>
-            <li>Improve hierarchy on the home screen</li>
-            <li>Make momentum more obvious in the game hub</li>
-          </ul>
+        <div class="copy">
+          <p>
+            Roster filters support browsing by role. Player profiles combine
+            current performance, history and draft details. Team/Players
+            switches between team performance and leaderboards. News follows a
+            familiar feed-to-article pattern.
+          </p>
         </div>
-
-        <div class="summary-box">
-          <strong>Key takeaway</strong><br>
-          The concept performs best when it focuses on immediate understanding and team-first clarity. The next step would be validating whether the app improves speed, emotional engagement, and game-day identity compared to current sports app patterns.
+        <div class="screens">
+          <img class="zoom" src="../images/BB7.PNG" alt="Roster" /><img
+            class="zoom"
+            src="../images/BB10.PNG"
+            alt="Team stats"
+          /><img
+            class="zoom"
+            src="../images/BB11.PNG"
+            alt="Player rankings"
+          /><img class="zoom" src="../images/BB15.PNG" alt="Player profile" />
         </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="lightbox" id="lightbox">
-    <span class="close" id="closeBtn">×</span>
-    <img id="lightboxImg" src="" alt="">
-  </div>
-
-  <script>
-    const images = document.querySelectorAll('.media-visual img, .gallery img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const closeBtn = document.getElementById('closeBtn');
-
-    images.forEach((img) => {
-      img.addEventListener('click', () => {
-        lightbox.classList.add('active');
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-      });
-    });
-
-    closeBtn.addEventListener('click', () => {
-      lightbox.classList.remove('active');
-    });
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target !== lightboxImg) {
-        lightbox.classList.remove('active');
-      }
-    });
-  </script>
-</body>
+        <div class="screens three">
+          <img class="zoom" src="../images/BB29.PNG" alt="News feed" /><img
+            class="zoom"
+            src="../images/BB31.PNG"
+            alt="Feature article"
+          /><img class="zoom" src="../images/BB32.PNG" alt="Second article" />
+        </div>
+      </section>
+      <section>
+        <div class="head">
+          <div class="label">08 · Design system</div>
+          <h2>A Bruins identity without sacrificing product readability</h2>
+        </div>
+        <div class="grid2">
+          <div class="card">
+            <h3>Typography</h3>
+            <p>
+              Barlow Condensed gives headings and numbers a broadcast voice.
+              Inter supports readable body text and controls.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Color</h3>
+            <p>
+              Black and neutral gray create hierarchy. Bruins gold is reserved
+              for active states and primary actions.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Components</h3>
+            <p>
+              Reusable cards, tabs, stat rows and navigation keep 38 screens
+              consistent.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Accessibility</h3>
+            <p>
+              Readable text, touch targets, icon labels and contrast support use
+              in a busy arena.
+            </p>
+          </div>
+        </div>
+        <figure class="visual">
+          <img
+            class="zoom"
+            src="../images/bruins-design-system.png"
+            alt="Design system"
+          />
+          <figcaption class="missing">
+            Add images/bruins-design-system.png
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <div class="head">
+          <div class="label">09 · Outcome</div>
+          <h2>A connected product instead of a collection of screens</h2>
+        </div>
+        <div class="results">
+          <div class="result">
+            <strong>38</strong>
+            <p>High-fidelity screens and states in one system.</p>
+          </div>
+          <div class="result">
+            <strong>4</strong>
+            <p>Persistent destinations reduce complexity.</p>
+          </div>
+          <div class="result">
+            <strong>3</strong>
+            <p>Game contexts: pregame, live and postgame.</p>
+          </div>
+        </div>
+        <figure class="visual">
+          <img
+            class="zoom"
+            src="../images/bruins-all-screens.png"
+            alt="Overview of all screens"
+          />
+          <figcaption class="missing">
+            Use the full board only here: images/bruins-all-screens.png
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <div class="head">
+          <div class="label">10 · Reflection</div>
+          <p class="quote">
+            The strongest improvement was not adding more features. It was
+            making each moment tell the fan what matters now.
+          </p>
+        </div>
+        <div class="copy">
+          <p>
+            The final system connects game-day preparation, tickets, schedules,
+            team information and editorial content through one consistent mobile
+            structure. Evaluating the five critical tasks helped me simplify
+            navigation, clarify ticket terminology and prioritize information
+            according to the fan’s immediate context.
+          </p>
+          <a
+            class="cta"
+            href="https://www.figma.com/proto/kae08ZoAXfZdBtouYt5jpe/Boston-Bruins-Fan-App"
+            target="_blank"
+            rel="noreferrer"
+            >View interactive prototype ↗</a
+          >
+        </div>
+      </section>
+    </main>
+    <footer class="wrap footer">
+      <span>Boston Bruins Fan Experience · 2026</span
+      ><span>Designed by YJ Lee</span>
+    </footer>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button aria-label="Close">×</button><img alt="Expanded project visual" />
+    </div>
+    <script>
+      document
+        .querySelectorAll(".visual img, .compare img, .screens img")
+        .forEach((img) => {
+          img.addEventListener("error", () => {
+            img.style.display = "none";
+            if (img.nextElementSibling)
+              img.nextElementSibling.style.display = "block";
+          });
+          img.addEventListener("click", () => {
+            const b = document.querySelector("#lightbox");
+            b.querySelector("img").src = img.src;
+            b.classList.add("open");
+            b.setAttribute("aria-hidden", "false");
+          });
+        });
+      const close = () => {
+        const b = document.querySelector("#lightbox");
+        b.classList.remove("open");
+        b.setAttribute("aria-hidden", "true");
+      };
+      document.querySelector("#lightbox button").onclick = close;
+      document.querySelector("#lightbox").onclick = (e) => {
+        if (e.target.id === "lightbox") close();
+      };
+      document.onkeydown = (e) => {
+        if (e.key === "Escape") close();
+      };
+    </script>
+  </body>
 </html>
