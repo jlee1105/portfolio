@@ -620,6 +620,66 @@
         }
       }
 
+      /* Refined case-study presentation */
+      :root {
+        --paper: #fbfaf7;
+        --card: #ffffff;
+        --line: #dfddd5;
+        --dark: #25231f;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 4px;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: rgba(251,250,247,0.92);
+        backdrop-filter: blur(14px);
+      }
+
+      .hero { padding: 76px 0 50px; }
+      section { padding: 78px 0; }
+      .head { grid-template-columns: 180px 1fr; gap: 44px; }
+      .card,
+      .result,
+      .compare article { box-shadow: 0 12px 28px rgba(32,30,25,0.05); }
+
+      .problem { background: var(--dark); }
+      .problem .card { background: #302d28; border-color: #4a4640; }
+
+      .screens,
+      .visual {
+        background: #e7e4dc;
+        border: 1px solid var(--line);
+        box-shadow: 0 16px 34px rgba(32,30,25,0.08);
+      }
+
+      .screens img {
+        background: #171717;
+        box-shadow: 0 10px 24px rgba(32,30,25,0.18);
+      }
+
+      .compare img,
+      .archive img {
+        background: #e7e4dc;
+        box-shadow: none;
+      }
+
+      .method,
+      .step { background: #fffdf9; }
+
+      @media (max-width: 760px) {
+        .nav { height: 62px; }
+        .hero { padding-top: 52px; }
+        .head { grid-template-columns: 1fr; gap: 12px; }
+        section { padding: 60px 0; }
+      }
+
     </style>
   </head>
   <body>
@@ -1244,7 +1304,7 @@
           </p>
           <a
             class="cta"
-            href="https://www.figma.com/proto/kae08ZoAXfZdBtouYt5jpe/Boston-Bruins-Fan-App?node-id=177-3&starting-point-node-id=177%3A3&t=6s0iyt12Ii2aiKfD-1
+            href="https://www.figma.com/proto/kae08ZoAXfZdBtouYt5jpe/Boston-Bruins-Fan-App?node-id=177-3&amp;starting-point-node-id=177%3A3&amp;t=6s0iyt12Ii2aiKfD-1"
             rel="noreferrer"
             >View interactive prototype ↗</a
           >

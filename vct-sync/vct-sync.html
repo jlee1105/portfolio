@@ -375,6 +375,122 @@
       order: initial;
     }
   }
+
+  /* Refined case-study presentation */
+  :root {
+    --bg: #fbfaf7;
+    --panel: #f0ede7;
+    --text: #211f24;
+    --muted: #69636d;
+    --muted-2: #8a818e;
+    --line: #ded8df;
+    --accent: #6846c7;
+    --accent-soft: #f0ecfb;
+    --max: 1080px;
+    --radius: 18px;
+    --shadow: 0 12px 28px rgba(35,30,42,0.06);
+  }
+
+  body { padding: 24px 20px 88px; }
+
+  a:focus-visible,
+  .close:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+  }
+
+  .topbar {
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 0;
+    padding-bottom: 18px;
+  }
+
+  .back {
+    background: rgba(255,255,255,0.82);
+    box-shadow: none;
+    padding: 9px 13px;
+  }
+
+  .hero {
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 64px;
+    padding: 54px 0 56px;
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.2rem, 6vw, 5.7rem);
+    line-height: 0.9;
+    max-width: 10ch;
+  }
+
+  .hero p { margin: 0; }
+
+  .focus-row {
+    margin-left: 0;
+    max-width: none;
+  }
+
+  .focus-card,
+  .meta-card,
+  .story-card {
+    background: #fffdf9;
+    box-shadow: var(--shadow);
+  }
+
+  .focus-card { border-top: 3px solid var(--accent); }
+  .project-meta { margin-left: 0; }
+  .meta-card { padding: 18px; }
+
+  section {
+    border-top: 1px solid var(--line);
+    margin-bottom: 76px;
+    padding-top: 34px;
+  }
+
+  h2 {
+    font-size: clamp(1.9rem, 3vw, 2.65rem);
+    line-height: 1.02;
+    margin-bottom: 18px;
+  }
+
+  .story-card { padding: 30px; }
+  .summary-box { background: var(--accent-soft); }
+
+  .media-row {
+    background: #f0ede7;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    gap: 28px;
+    padding: 24px;
+  }
+
+  .media-visual img,
+  .gallery img {
+    background: #19171d;
+    box-shadow: 0 14px 28px rgba(35,30,42,0.16);
+    padding: 10px;
+  }
+
+  .gallery {
+    background: #f0ede7;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 24px;
+  }
+
+  .flow div {
+    background: #fffdf9;
+    box-shadow: none;
+  }
+
+  @media (max-width: 900px) {
+    .hero { padding: 42px 0 46px; }
+    section { margin-bottom: 58px; }
+    .story-card,
+    .media-row,
+    .gallery { padding: 18px; }
+  }
 </style>
 </head>
 

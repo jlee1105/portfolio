@@ -6,19 +6,19 @@
 
   <title>YJ Lee Portfolio</title>
   <link rel="canonical" href="https://yjleeportfolio.vercel.app/" />
-  <meta name="description" content="Portfolio of YJ Lee – UX/UI designer focused on clear product experiences, sports UX, and mobile interaction design." />
+  <meta name="description" content="Portfolio of YJ Lee – a product and UX designer creating clear mobile experiences for high-attention moments." />
 
   <style>
    :root {
-  --bg: #ffffff;
-  --surface: #f7f7f7;
-  --surface-hover: #f1f1f1;
-  --line: rgba(0,0,0,0.08);
-  --line-strong: rgba(0,0,0,0.18);
-  --text: #111111;
-  --muted: #666666;
-  --muted-2: #999999;
-  --black: #111111;
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --surface-hover: #f7f5f0;
+  --line: rgba(27,27,24,0.11);
+  --line-strong: rgba(27,27,24,0.28);
+  --text: #1b1b18;
+  --muted: #686862;
+  --muted-2: #85857d;
+  --black: #1b1b18;
   --white: #ffffff;
   --radius-xl: 28px;
   --radius-pill: 999px;
@@ -51,6 +51,12 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #9e7b37;
+  outline-offset: 4px;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -66,7 +72,7 @@ header {
   top: 0;
   z-index: 50;
   backdrop-filter: blur(16px);
-  background: rgba(255,255,255,0.9);
+  background: rgba(251,250,247,0.88);
   border-bottom: 1px solid var(--line);
 }
 
@@ -152,26 +158,56 @@ main {
 }
 
 .hero {
-  padding-top: 44px;
-  padding-bottom: 48px;
+  padding: 32px 0 64px;
 }
 
 .hero-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 70vh;
-  text-align: center;
+  display: grid;
+  align-content: center;
+  min-height: clamp(360px, 56vh, 530px);
+  max-width: 930px;
 }
 
 .hero-title {
-  font-size: clamp(3rem, 6vw, 6rem);
-  line-height: 1;
+  font-size: clamp(3.1rem, 6vw, 5.7rem);
+  line-height: 0.94;
   letter-spacing: -0.05em;
-  text-transform: uppercase;
   font-weight: 700;
-  max-width: 12ch;
+  max-width: 13ch;
   color: var(--text);
+}
+
+.hero-kicker {
+  color: var(--muted-2);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.hero-copy {
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.16rem);
+  line-height: 1.6;
+  margin-top: 26px;
+  max-width: 58ch;
+}
+
+.capabilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.capabilities span,
+.project-tags span {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  color: var(--muted);
+  font-size: 0.76rem;
+  padding: 7px 10px;
 }
 
 section {
@@ -211,35 +247,69 @@ section {
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
 .project-card {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  border-radius: 26px;
+  border-radius: 22px;
   border: 1px solid var(--line);
   background: var(--surface);
-  transition: 0.25s ease;
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 28px rgba(27,27,24,0.05);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
   border-color: var(--line-strong);
   background: var(--surface-hover);
+  box-shadow: 0 18px 34px rgba(27,27,24,0.1);
 }
 
-.project-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
+.project-visual {
+  align-items: center;
+  background: #e9e7e1;
   border-bottom: 1px solid var(--line);
-  background: #f0f0f0;
+  display: flex;
+  height: 252px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 18px;
+}
+
+.project-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 13px;
+  box-shadow: 0 10px 24px rgba(27,27,24,0.13);
+}
+
+.project-visual.bruins {
+  background: #ded9cf;
+  padding: 14px 50px;
+}
+
+.project-visual.bruins img {
+  box-shadow: 0 12px 26px rgba(27,27,24,0.18);
+}
+
+.project-visual.cornell {
+  background: #eaf0f1;
+}
+
+.project-visual.vct {
+  background: #e4e2dc;
 }
 
 .project-info {
-  padding: 20px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 20px 18px;
 }
 
 .project-type {
@@ -265,6 +335,26 @@ section {
   line-height: 1.5;
 }
 
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 18px;
+}
+
+.project-tags span {
+  font-size: 0.68rem;
+  padding: 5px 8px;
+}
+
+.project-link {
+  color: var(--text);
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-top: 18px;
+}
+
 footer {
   border-top: 1px solid var(--line);
   padding: 24px 0 38px;
@@ -282,7 +372,7 @@ footer {
 
 @media (max-width: 1024px) {
   .projects {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -321,7 +411,7 @@ footer {
   }
 
   .hero {
-    padding-top: 28px;
+    padding-top: 24px;
   }
 
   .hero-title {
@@ -333,9 +423,22 @@ footer {
     flex-direction: column;
   }
 
-  .project-card img {
-    height: 220px;
+  .projects {
+    grid-template-columns: 1fr;
   }
+
+  .project-visual {
+    height: 240px;
+  }
+
+  .project-visual.bruins {
+    padding-inline: 70px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
   </style>
 </head>
@@ -365,7 +468,16 @@ footer {
   <main>
     <section class="hero" id="home">
       <div class="shell hero-inner">
-        <h1 class="hero-title">Designing clear product experiences</h1>
+        <div class="hero-kicker">Product / UX Designer</div>
+        <h1 class="hero-title">Making complex moments feel clear.</h1>
+        <p class="hero-copy">I design mobile experiences that help people understand what matters and take the next action—across live sports, esports, and high-stakes enrollment workflows.</p>
+        <div class="capabilities" aria-label="Core design capabilities">
+          <span>User research</span>
+          <span>Information architecture</span>
+          <span>Interaction design</span>
+          <span>Prototyping</span>
+          <span>Usability testing</span>
+        </div>
       </div>
     </section>
 
@@ -380,33 +492,43 @@ footer {
             Mobile product case studies focused on workflow clarity, real-time information, and sports fan experiences.
           </p>
         </div>
-        <div class="projects"></div>
-          
-        <a href="boston-bruins.html" class="project-card">
-            <img src="images/NEW BB Mockup.PNG" alt="Boston Bruins Fan Experience">
+        <div class="projects">
+          <a href="boston-bruins.html" class="project-card">
+            <div class="project-visual bruins">
+              <img src="images/NEW BB Mockup.PNG" alt="Boston Bruins game-day mobile interface">
+            </div>
             <div class="project-info">
               <p class="project-type">Sports UX</p>
               <h3 class="project-title">Boston Bruins Fan Experience</h3>
-              <p class="project-meta">Score-first live game experience</p>
+              <p class="project-meta">A context-aware game-day experience for tickets, team information, and live moments.</p>
+              <div class="project-tags"><span>Research</span><span>IA</span><span>Interaction design</span></div>
+              <span class="project-link">Read case study <span aria-hidden="true">→</span></span>
             </div>
           </a>
 
-        
           <a href="CE/cornell-enrollment.html" class="project-card">
-            <img src="images/Mock up CE.jpeg" alt="Cornell Enrollment Mobile App">
+            <div class="project-visual cornell">
+              <img src="images/Mock up CE.jpeg" alt="Cornell enrollment mobile interface">
+            </div>
             <div class="project-info">
               <p class="project-type">Mobile UX</p>
               <h3 class="project-title">Cornell Enrollment App</h3>
-              <p class="project-meta">Simplifying high-stakes enrollment workflows</p>
+              <p class="project-meta">Simplifying the high-stakes decisions students make during course enrollment.</p>
+              <div class="project-tags"><span>User research</span><span>User flows</span><span>Usability testing</span></div>
+              <span class="project-link">Read case study <span aria-hidden="true">→</span></span>
             </div>
           </a>
 
           <a href="vct-sync/vct-sync.html" class="project-card">
-            <img src="images/Mock up VCTSYNC.jpeg" alt="VCT Sync">
+            <div class="project-visual vct">
+              <img src="images/Mock up VCTSYNC.jpeg" alt="VCT Sync mobile interface">
+            </div>
             <div class="project-info">
               <p class="project-type">Esports UX</p>
               <h3 class="project-title">VCT Sync</h3>
-              <p class="project-meta">Fast match insight and tournament clarity</p>
+              <p class="project-meta">Helping esports fans find match insight and tournament context without the clutter.</p>
+              <div class="project-tags"><span>Research</span><span>Hierarchy</span><span>Prototype</span></div>
+              <span class="project-link">Read case study <span aria-hidden="true">→</span></span>
             </div>
           </a>
         </div>
@@ -417,7 +539,7 @@ footer {
   <footer>
     <div class="shell footer-row">
       <div>© <span id="year"></span> YJ Lee. All rights reserved.</div>
-      <div>Designed with a black-and-white sports editorial direction.</div>
+      <div>Designed for clarity, focus, and momentum.</div>
     </div>
   </footer>
 
