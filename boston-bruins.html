@@ -8,6 +8,10 @@
       name="description"
       content="A product design case study for a focused Boston Bruins game-day experience."
     />
+    <meta property="og:title" content="Boston Bruins Fan Experience — YJ Lee" />
+    <meta property="og:description" content="A product UX case study for a clearer, context-aware game-day mobile experience." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://yjleeportfolio.vercel.app/images/NEW%20BB%20Mockup.PNG" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -680,6 +684,44 @@
         section { padding: 60px 0; }
       }
 
+      .at-a-glance {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        margin: 0 auto;
+        padding: 0 0 60px;
+      }
+
+      .at-a-glance div {
+        border-left: 1px solid var(--line);
+        padding: 4px 20px;
+      }
+
+      .at-a-glance div:first-child { border-left: 0; padding-left: 0; }
+      .at-a-glance span {
+        color: #8b6100;
+        display: block;
+        font: 700 13px/1 "Barlow Condensed";
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .at-a-glance p { color: var(--muted); font-size: 14px; line-height: 1.5; margin: 8px 0 0; }
+
+      .case-footer {
+        align-items: center;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        padding: 34px 0;
+      }
+      .case-footer a { font-weight: 700; }
+
+      @media (max-width: 760px) {
+        .at-a-glance { grid-template-columns: 1fr 1fr; gap: 20px 0; padding-bottom: 42px; }
+        .at-a-glance div:nth-child(3) { border-left: 0; padding-left: 0; }
+        .case-footer { align-items: flex-start; flex-direction: column; gap: 16px; }
+      }
+
     </style>
   </head>
   <body>
@@ -725,6 +767,12 @@
         </div>
       </header>
     </div>
+    <section class="at-a-glance wrap" aria-label="Project at a glance">
+      <div><span>Challenge</span><p>Bring scattered game-day tasks into one predictable fan journey.</p></div>
+      <div><span>Role</span><p>Product UX Designer, from evaluation through high-fidelity prototyping.</p></div>
+      <div><span>Methods</span><p>Competitive audit, heuristic review, cognitive walkthrough, and journey mapping.</p></div>
+      <div><span>Outcome</span><p>A contextual Game Day hub that clarifies the next useful action.</p></div>
+    </section>
     <div class="problem">
       <div class="wrap">
         <section>
@@ -787,14 +835,30 @@
         </div>
         <div class="copy">
           <p>
-            I evaluated the original experience through a competitive audit,
-            heuristic review and task-based cognitive walkthrough. I mapped the
-            fan journey around five critical tasks: finding an upcoming game,
-            locating seat information, accessing and transferring a ticket,
-            identifying the projected goalie and comparing player leaders.
+            I combined fan interviews with a competitive audit, heuristic review
+            and task-based cognitive walkthrough. I mapped the fan journey
+            around five critical tasks: finding an upcoming game, locating seat
+            information, accessing and transferring a ticket, identifying the
+            projected goalie and comparing player leaders.
           </p>
         </div>
         <div class="grid2">
+          <div class="card">
+            <div class="number">05–06</div>
+            <h3>Participant interviews</h3>
+            <p>
+              I conducted semi-structured interviews with 5–6 people who use
+              sports apps at least weekly and regularly follow live games.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Semi-structured format</h3>
+            <p>
+              Each 15–20 minute conversation explored sports-viewing habits,
+              current app behavior, frustrating moments and the information
+              people want beyond the final score.
+            </p>
+          </div>
           <div class="card">
             <h3>Heuristic review</h3>
             <p>
@@ -822,14 +886,81 @@
           <div class="card">
             <h3>Assumption mapping</h3>
             <p>
-              I prioritized the highest-risk areas: the Bruins-first game hub,
+              I prioritized the highest-risk areas: the team-first game hub,
               the distinction between ticket details and the secure mobile
               ticket, and the placement of lineup and matchup information.
             </p>
           </div>
         </div>
+        <h3>Interview guide</h3>
+        <div class="flow">
+          <div class="step">
+            <em>Before the game</em><b>What do fans prepare for?</b
+            ><span>Game time, projected lineup, tickets, arrival details and
+              the next matchup.</span>
+          </div>
+          <div class="step">
+            <em>During the game</em><b>What changes attention?</b
+            ><span>Score, game status, key moments and the player having the
+              greatest impact.</span>
+          </div>
+          <div class="step">
+            <em>After the game</em><b>What extends the experience?</b
+            ><span>Highlights, player statistics, news, trade updates and the
+              next game.</span>
+          </div>
+          <div class="step">
+            <em>Team engagement</em><b>What brings fans back?</b
+            ><span>Team identity, player stories, merchandise and a reliable
+              place for team-first content.</span>
+          </div>
+        </div>
+        <h3>What I heard from fans</h3>
+        <div class="grid2">
+          <div class="card">
+            <div class="number">01</div>
+            <h3>Score and status come first</h3>
+            <p>
+              Fans expect to understand the current score, period and game
+              status immediately after opening an app.
+            </p>
+          </div>
+          <div class="card">
+            <div class="number">02</div>
+            <h3>Moments matter more than every stat</h3>
+            <p>
+              Fans want to know what changed the game and who is having an
+              impact without sorting through an entire statistics table.
+            </p>
+          </div>
+          <div class="card">
+            <div class="number">03</div>
+            <h3>Information is fragmented</h3>
+            <p>
+              Participants described switching between apps for scores, team
+              news, highlights, tickets and player context.
+            </p>
+          </div>
+          <div class="card">
+            <div class="number">04</div>
+            <h3>Team identity drives engagement</h3>
+            <p>
+              Player stories, trade updates and a clear team point of view were
+              as important as league-wide information.
+            </p>
+          </div>
+        </div>
+        <div class="callout">
+          <strong>Research insight</strong>
+          <p>
+            Fans scan in short bursts. The product should make the game state
+            and next useful action visible in seconds, then offer a clear path
+            into deeper team context, tickets and content.
+          </p>
+        </div>
         <div class="method-row">
-          <span class="method">Screen inventory</span
+          <span class="method">Participant interviews</span
+          ><span class="method">Screen inventory</span
           ><span class="method">Heuristic evaluation</span
           ><span class="method">Competitive-role audit</span
           ><span class="method">Journey mapping</span
@@ -996,7 +1127,7 @@
             alt="Design evaluation results and iterations"
           />
           <p class="screen-note">
-            Research synthesis, feature prioritization and completed design
+            Interview synthesis, feature prioritization and completed design
             evaluation.
           </p>
         </div>
@@ -1307,10 +1438,13 @@
             href="https://www.figma.com/proto/kae08ZoAXfZdBtouYt5jpe/Boston-Bruins-Fan-App?node-id=177-3&amp;starting-point-node-id=177%3A3&amp;t=6s0iyt12Ii2aiKfD-1"
             rel="noreferrer"
             >View interactive prototype ↗</a
-          >
         </div>
       </section>
     </main>
+    <nav class="case-footer wrap" aria-label="More case studies">
+      <a href="index.html">← All case studies</a>
+      <a href="CE/cornell-enrollment.html">Next: Cornell Enrollment →</a>
+    </nav>
     <footer class="wrap footer">
       <span>Boston Bruins Fan Experience · 2026</span
       ><span>Designed by YJ Lee</span>
